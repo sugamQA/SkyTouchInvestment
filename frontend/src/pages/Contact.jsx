@@ -1,10 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
+
+const contactBgImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&fit=crop&auto=format"
 
 export default function Contact() {
   const [form, setForm] = useState({ company: '', name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash === '#contact-form') {
+      const el = document.getElementById('contact-form')
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }, [location.hash])
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
@@ -27,7 +40,13 @@ export default function Contact() {
 
   return (
     <div className="pt-24 bg-white text-slate-900 relative overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0 pointer-events-none">
+        <img
+          src={contactBgImage}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.04]"
+        />
         <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute top-24 right-0 h-72 w-72 rounded-full bg-tertiary/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 h-96 w-96 rounded-full bg-slate-100 blur-3xl" />
@@ -67,7 +86,7 @@ export default function Contact() {
             </motion.div>
 
             <ScrollReveal>
-              <div className="relative rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.08)] p-8 md:p-10 overflow-hidden">
+              <div id="contact-form" className="relative rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.08)] p-8 md:p-10 overflow-hidden">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="text-xs uppercase tracking-[0.24em] text-primary font-bold mb-3">Start the conversation</p>
                 <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Send a Message</h2>

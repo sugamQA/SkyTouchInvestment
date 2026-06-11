@@ -68,21 +68,6 @@ export default function Navbar() {
           position: relative;
           overflow: hidden;
         }
-        
-        .glow-button::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-          transition: left 0.5s;
-        }
-        
-        .glow-button:hover::before {
-          left: 100%;
-        }
       ` }} />
       
       <header
@@ -91,7 +76,7 @@ export default function Navbar() {
         }`}
       >
         <div
-          className={`overflow-hidden transition-all duration-500 ease-out ${
+          className={`overflow-hidden relative transition-all duration-500 ease-out ${
             isHomePage
               ? (scrolled
                 ? 'max-w-[1320px] mx-auto rounded-[2rem] border border-white/20 bg-white/5 backdrop-blur-3xl backdrop-saturate-150 shadow-2xl shadow-black/20'
@@ -107,19 +92,18 @@ export default function Navbar() {
           <div className={`relative z-10 h-0.5 ${isHomePage ? (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary')}`} />
 
           <div className="relative z-10 max-w-[1440px] mx-auto flex items-center justify-between px-6 md:px-16 transition-all duration-500 ease-out h-20">
-          {/* Logo with glow */}
+          {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="flex items-center gap-2 relative group"
           >
-            <div className={`absolute -inset-2 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isHomePage ? (scrolled ? 'bg-white/35' : 'bg-gradient-to-r from-primary/20 to-tertiary/20') : (scrolled ? 'bg-gradient-to-r from-primary/35 via-white/35 to-tertiary/35' : 'bg-gradient-to-r from-primary/20 to-tertiary/20')}`} />
             <Link to="/" className="flex items-center gap-2 relative">
               <img
                 src="/logo.png"
                 alt="SkyTouch"
-                className={`w-auto drop-shadow-lg transition-all duration-500 ease-out ${
+                className={`w-auto brightness-125 contrast-125 drop-shadow-xl transition-all duration-500 ease-out ${
                   scrolled ? 'h-14 md:h-16' : 'h-20 md:h-24'
                 }`}
               />
@@ -173,14 +157,10 @@ export default function Navbar() {
             className="hidden lg:block"
           >
             <Link
-              to="/contact"
+              to="/contact#contact-form"
               className={`glow-button relative group px-8 py-3 text-xs tracking-[0.1em] font-bold rounded-full transition-all duration-300 border ${isHomePage ? (scrolled ? 'bg-white/10 text-white hover:shadow-2xl hover:shadow-white/10 border-white/25 hover:border-white/35 backdrop-blur-2xl backdrop-saturate-150' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-black/30 border-white/20 hover:border-white/40') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-primary/25 border-primary/70 hover:border-tertiary/70' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-black/30 border-white/20 hover:border-white/40')}`}
             >
-              <span className="relative z-10">GET IN TOUCH</span>
-              <motion.div
-                className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 ${isHomePage ? (scrolled ? 'bg-gradient-to-r from-white/0 via-white/35 to-white/0' : 'bg-gradient-to-r from-primary/0 via-white/35 to-tertiary/0') : (scrolled ? 'bg-gradient-to-r from-primary/0 via-white/50 to-tertiary/0' : 'bg-gradient-to-r from-primary/0 via-white/35 to-tertiary/0')}`}
-                transition={{ duration: 0.5 }}
-              />
+              <span>GET IN TOUCH</span>
             </Link>
           </motion.div>
 
@@ -245,7 +225,7 @@ export default function Navbar() {
                   className={`pt-4 ${isHomePage ? (scrolled ? 'border-t border-white/20' : 'border-t border-white/10') : (scrolled ? 'border-t border-primary/20' : 'border-t border-white/10')}`}
                 >
                   <Link
-                    to="/contact"
+                    to="/contact#contact-form"
                     className={`block mt-4 px-6 py-3 rounded-full text-sm tracking-wider font-bold text-center transition-all duration-300 ${isHomePage ? (scrolled ? 'bg-white/15 text-white hover:shadow-lg hover:shadow-white/10 backdrop-blur-md' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-primary/25' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30')}`}
                   >
                     GET IN TOUCH
