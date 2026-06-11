@@ -54,7 +54,7 @@ export default function Contact() {
 
       <section className="relative py-24 md:py-28">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -226,6 +226,76 @@ export default function Contact() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="relative pb-24">
+        {/* Decorative blobs behind the map */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-tertiary/5 blur-3xl" />
+        </div>
+
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+          <ScrollReveal className="mb-12 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-bold tracking-[0.22em] text-primary uppercase">
+              Find Us
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mt-6 mb-4">
+              Our <span className="gold-accent">Location</span>
+            </h2>
+            <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base">
+              Visit our headquarters in the heart of Kathmandu. We look forward to meeting you.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-[0_32px_100px_rgba(15,23,42,0.12)] group">
+              {/* Top gradient accent bar */}
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-tertiary z-10" />
+
+              <div className="relative h-[300px] md:h-[520px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1484525333263!2d85.3187066!3d27.7168959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19084a5c1b2b%3A0x3e8a5b5c5b5c5b5c!2sPanipokhari%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, position: 'absolute', inset: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="SkyTouch Office Location"
+                  className="w-full h-full"
+                />
+
+                {/* Floating info card over the map */}
+                <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-72 z-10 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-xl p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-lg">
+                      📍
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">Sky Touch Investment</p>
+                      <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                        Panipokhari, Kathmandu<br />
+                        Nepal
+                      </p>
+                      <div className="mt-3 flex gap-3">
+                        <a
+                          href="https://maps.google.com/?q=Panipokhari+Kathmandu+Nepal"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors"
+                        >
+                          Open in Google Maps →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

@@ -311,7 +311,7 @@ const HeroContent = () => {
                     </span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 tracking-tighter">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 tracking-tighter">
                     Invest in<br/>Nepal's Future
                 </h1>
                 

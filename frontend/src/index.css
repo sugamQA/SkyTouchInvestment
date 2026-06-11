@@ -7,7 +7,25 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-body text-on-surface bg-white overflow-x-hidden;
+    @apply font-body text-on-surface bg-white overflow-x-hidden transition-colors duration-300;
+  }
+  .dark body,
+  body.dark {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+@layer components {
+  .dark .glass-card,
+  .glass-card.dark {
+    @apply bg-slate-900/85 border-slate-700/30;
+  }
+  .dark .glass-card:hover {
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 20px 60px rgba(14, 165, 233, 0.06);
+  }
+  .dark .btn-outline {
+    @apply bg-slate-800/80 text-slate-100 border-slate-600/30;
   }
 }
 

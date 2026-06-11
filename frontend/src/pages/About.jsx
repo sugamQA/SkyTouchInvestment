@@ -67,7 +67,7 @@ export default function About() {
       {/* GLOBAL REACH */}
       <section className="py-24 bg-gradient-to-b from-transparent to-primary/5">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Content */}
             <ScrollReveal>
               <span className="section-label">Our Global Network</span>
@@ -77,7 +77,7 @@ export default function About() {
               <p className="text-on-surface-variant/70 leading-relaxed mb-6">
                 SkyTouch operates through a global network of investment professionals and strategic partners. Our international reach enables us to identify opportunities across regions while maintaining deep local expertise.
               </p>
-              <div className="grid grid-cols-3 gap-6 mt-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 mt-8">
                 <div>
                   <p className="text-3xl font-bold text-primary">150+</p>
                   <p className="text-xs text-on-surface-variant/60 mt-2">Global Partners</p>
@@ -136,12 +136,12 @@ export default function About() {
       {/* WHAT DRIVES US */}
       <section className="py-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
               <img
                 src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80&fit=crop"
                 alt="Strategic growth"
-                className="rounded-2xl w-full"
+                className="rounded-2xl w-full h-64 md:h-auto object-cover"
               />
             </ScrollReveal>
             <ScrollReveal delay={0.1}>

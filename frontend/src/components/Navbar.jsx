@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Info, Users, BriefcaseBusiness, Newspaper, Mail } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { path: '/', label: 'HOME', icon: Home },
@@ -12,6 +13,34 @@ const navLinks = [
   { path: '/careers', label: 'CAREERS', icon: BriefcaseBusiness },
   { path: '/contact', label: 'CONTACT', icon: Mail },
 ]
+
+function NepalTime() {
+  const [time, setTime] = useState('')
+
+  useEffect(() => {
+    const update = () => {
+      const now = new Date()
+      const nepal = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kathmandu' }))
+      setTime(nepal.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }))
+    }
+    update()
+    const id = setInterval(update, 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  if (!time) return null
+
+  return (
+    <div className="flex items-center gap-1.5 text-[10px] tracking-[0.15em] font-semibold leading-none">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+      </span>
+      <span className="text-emerald-400/90">{time}</span>
+      <span className="text-white/40 hidden sm:inline">NPT</span>
+    </div>
+  )
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -92,19 +121,19 @@ export default function Navbar() {
           <div className={`relative z-10 h-0.5 ${isHomePage ? (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary')}`} />
 
           <div className="relative z-10 max-w-[1440px] mx-auto flex items-center justify-between px-6 md:px-16 transition-all duration-500 ease-out h-20">
-          {/* Logo */}
+          {/* Logo + Nepal Time */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-2 relative group"
+            className="flex items-center gap-3 relative group"
           >
             <Link to="/" className="flex items-center gap-2 relative">
               <img
                 src="/logo.png"
                 alt="SkyTouch"
-                className={`w-auto brightness-125 contrast-125 drop-shadow-xl transition-all duration-500 ease-out ${
-                  scrolled ? 'h-14 md:h-16' : 'h-20 md:h-24'
+                className={`w-auto max-w-full brightness-125 contrast-125 drop-shadow-xl transition-all duration-500 ease-out ${
+                  scrolled ? 'h-12 md:h-16' : 'h-16 md:h-24'
                 }`}
               />
             </Link>
@@ -148,6 +177,11 @@ export default function Navbar() {
               </motion.div>
             ))}
           </nav>
+
+          {/* Theme Toggle */}
+          <div className="hidden lg:block">
+            <ThemeToggle />
+          </div>
 
           {/* Desktop CTA Button */}
           <motion.div

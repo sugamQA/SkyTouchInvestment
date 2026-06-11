@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
 import ParticleBackground from './components/ParticleBackground'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Investment from './pages/Investment'
@@ -20,7 +21,7 @@ export default function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1800)
+    const timer = setTimeout(() => setLoading(false), 800)
     return () => clearTimeout(timer)
   }, [])
 
@@ -52,6 +53,7 @@ export default function App() {
                 <Route path="/boards" element={<Boards />} />
               </Routes>
             </main>
+            <ScrollToTop />
             <Footer />
           </motion.div>
         )}

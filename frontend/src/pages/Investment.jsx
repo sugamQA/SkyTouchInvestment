@@ -105,7 +105,7 @@ export default function Investment() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-tertiary/5" />
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export default function Investment() {
                 <motion.div
                   key={`${p.name}-${i}`}
                   whileHover={{ scale: 1.05 }}
-                  className={`flex h-20 min-w-[180px] items-center justify-center rounded-2xl border border-outline/10 bg-gradient-to-br ${p.tint} px-6 shadow-sm transition-all duration-300 hover:shadow-lg`}
+                  className={`flex h-16 md:h-20 min-w-[140px] md:min-w-[180px] items-center justify-center rounded-2xl border border-outline/10 bg-gradient-to-br ${p.tint} px-4 md:px-6 shadow-sm transition-all duration-300 hover:shadow-lg`}
                 >
                   <img src={p.logo} alt={p.name} className="h-12 w-auto object-contain" />
                 </motion.div>

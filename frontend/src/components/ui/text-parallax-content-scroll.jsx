@@ -89,7 +89,7 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className="relative h-[150vh]">
+      <div className="relative h-[100vh] lg:h-[150vh]">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} />
       </div>
@@ -138,7 +138,7 @@ const OverlayCopy = ({ subheading, heading }) => {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
+  const y = useTransform(scrollYProgress, [0, 1], [260, -180]);
   const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
 
   return (
@@ -148,12 +148,16 @@ const OverlayCopy = ({ subheading, heading }) => {
         opacity,
       }}
       ref={targetRef}
-      className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white"
+      className="absolute left-0 top-0 flex h-screen w-full items-end justify-center px-4 pb-16 text-white md:px-10 md:pb-20"
     >
-      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
-        {subheading}
-      </p>
-      <p className="text-center text-4xl font-bold md:text-7xl">{heading}</p>
+      <div className="w-full max-w-4xl rounded-3xl border border-white/10 bg-black/35 p-6 text-center shadow-2xl backdrop-blur-md md:p-10">
+        <p className="mb-3 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 md:text-sm">
+          {subheading}
+        </p>
+        <p className="text-3xl font-bold leading-tight text-white md:text-6xl">
+          {heading}
+        </p>
+      </div>
     </motion.div>
   );
 };

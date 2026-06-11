@@ -8,15 +8,6 @@ import { useInView } from 'react-intersection-observer'
 
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
 
-const sectors = [
-  { title: 'Private Equity', pct: 65, color: '#0ea5e9', desc: 'Partnering for Growth and Transformation', icon: '📈' },
-  { title: 'Real Estate', pct: 44, color: '#f97316', desc: 'Creating Value Through Strategic Property Investment', icon: '🏗️' },
-  { title: 'Capital Market', pct: 84, color: '#0ea5e9', desc: 'Strategic Public Market Investments', icon: '📊' },
-  { title: 'Hydropower', pct: 48, color: '#38bdf8', desc: 'Partnering for Growth and Transformation', icon: '💧' },
-  { title: 'Tourism', pct: 43, color: '#f97316', desc: 'Creating Value Through Strategic Property Investment', icon: '🏔️' },
-  { title: 'Hotel', pct: 66, color: '#0ea5e9', desc: 'Strategic Public Market Investments', icon: '🏨' },
-]
-
 const testimonials = [
   { name: 'Dr. Ramesh Sharma', role: 'Healthcare', text: 'Patient capital that allowed us to build quality infrastructure without short-term pressure.' },
   { name: 'Bikash Thapa', role: 'Energy', text: 'Essential partners during challenging times. Their construction sector expertise made the difference.' },
@@ -32,7 +23,7 @@ export default function Home() {
       {/* STATS */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-20 -mt-20 mb-24">
         <div className="glass-card rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {[
               { target: 15, suffix: '+', label: 'Years of Experience', color: 'text-primary' },
               { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-secondary' },
@@ -131,8 +122,7 @@ export default function Home() {
       {/* INVESTMENT SECTORS */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.04)_0%,transparent_60%)]" />
-        
-        {/* Header */}
+
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative py-24">
           <ScrollReveal className="mb-12 text-center md:text-left">
             <span className="section-label">What We Do</span>
@@ -144,8 +134,7 @@ export default function Home() {
             </p>
           </ScrollReveal>
         </div>
-        
-        {/* Full Width Card - lazy load when visible */}
+
         <LazyInvestmentCard />
       </section>
 
@@ -190,7 +179,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#0c1929]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,transparent_60%)]" />
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
               <span className="text-xs tracking-[0.2em] font-semibold text-tertiary uppercase mb-4 block">Growth</span>
               <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
@@ -202,7 +191,7 @@ export default function Home() {
               <p className="text-white/50 leading-relaxed mb-8">
                 We are strategically investing across high-growth sectors to build diversified portfolios that generate sustainable returns. Through disciplined capital allocation in private equity, real estate, capital markets, and renewable energy, we create long-term value while contributing to economic development.
               </p>
-              <div className="flex gap-12">
+              <div className="flex gap-8 lg:gap-12">
                 <div>
                   <p className="text-4xl font-bold font-display text-primary">100+</p>
                   <p className="text-xs text-white/40 tracking-wider mt-1">Portfolio Companies</p>
@@ -231,12 +220,12 @@ export default function Home() {
       {/* WHY US */}
       <section className="py-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop"
                 alt="About"
-                className="rounded-2xl w-full object-cover"
+                className="rounded-2xl w-full object-cover h-64 md:h-auto"
               />
             </ScrollReveal>
             <ScrollReveal delay={0.1}>

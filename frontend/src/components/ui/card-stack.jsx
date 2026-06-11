@@ -31,7 +31,7 @@ export function CardStack({
   initialIndex = 0,
   maxVisible = 7,
 
-  cardWidth = 520,
+  cardWidth = 400,
   cardHeight = 320,
 
   overlap = 0.48,
