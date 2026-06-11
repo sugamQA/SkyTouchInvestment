@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Info, Users, BriefcaseBusiness, Newspaper, Mail } from 'lucide-react'
-import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { path: '/', label: 'HOME', icon: Home },
@@ -177,11 +176,6 @@ export default function Navbar() {
               </motion.div>
             ))}
           </nav>
-
-          {/* Theme Toggle */}
-          <div className="hidden lg:block">
-            <ThemeToggle />
-          </div>
 
           {/* Desktop CTA Button */}
           <motion.div

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import ParticleHero from '../components/ui/particle-effect-hero'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
@@ -15,6 +15,144 @@ const testimonials = [
 ]
 
 export default function Home() {
+  const meshRef = useRef(null)
+  const timelineRef = useRef(null)
+  const scrollLineRef = useRef(null)
+  const timelineLineBgRef = useRef(null)
+  const stepRefs = useRef([])
+
+  const protocolSteps = [
+    { icon: 'chat', title: 'Consultation', desc: 'In-depth alignment of objectives, risk appetite, and liquidity horizons through bespoke private briefings.' },
+    { icon: 'analytics', title: 'Research & Analysis', desc: 'Quantitative stress-testing and deep-domain due diligence conducted by our in-house forensic analysts.' },
+    { icon: 'map', title: 'Strategic Planning', desc: 'Custom portfolio architecture aligned to your financial objectives and Nepal\'s macro growth trajectory.' },
+    { icon: 'gavel', title: 'Execution', desc: 'Seamless capital deployment and structured asset acquisition leveraging our regulatory framework.' },
+    { icon: 'auto_graph', title: 'Growth Optimization', desc: 'Continuous monitoring, active governance, and strategic rebalancing for performance enhancement.' },
+    { icon: 'trending_up', title: 'Long-Term Returns', desc: 'Sustained compounding growth with transparent quarterly reporting and exit positioning for maximized liquidity.' },
+  ]
+
+  const stepColors = [
+    { border: 'border-primary', shadow: 'shadow-[0_0_30px_rgba(14,165,233,0.6)]', icon: 'text-primary' },
+    { border: 'border-secondary', shadow: 'shadow-[0_0_30px_rgba(14,165,233,0.6)]', icon: 'text-secondary' },
+    { border: 'border-primary', shadow: 'shadow-[0_0_30px_rgba(14,165,233,0.6)]', icon: 'text-primary' },
+    { border: 'border-secondary', shadow: 'shadow-[0_0_30px_rgba(14,165,233,0.6)]', icon: 'text-secondary' },
+    { border: 'border-primary', shadow: 'shadow-[0_0_30px_rgba(14,165,233,0.6)]', icon: 'text-primary' },
+    { border: 'border-tertiary', shadow: 'shadow-[0_0_30px_rgba(249,115,22,0.6)]', icon: 'text-tertiary' },
+  ]
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (meshRef.current) {
+        const x = (e.clientX / window.innerWidth) * 100
+        const y = (e.clientY / window.innerHeight) * 100
+        meshRef.current.style.setProperty('--mouse-x', x + '%')
+        meshRef.current.style.setProperty('--mouse-y', y + '%')
+      }
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  useEffect(() => {
+    const container = document.getElementById('particle-container')
+    if (!container) return
+    const colors = ['#ffffff', '#0ea5e9', '#f97316', '#7bd0ff']
+    const particles = []
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement('div')
+      const size = Math.random() * 3 + 1
+      const duration = 15 + Math.random() * 20
+      const driftX = (Math.random() - 0.5) * 10
+      p.style.cssText = `position:absolute;border-radius:50%;pointer-events:none;will-change:transform,opacity;width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};opacity:0;`
+      container.appendChild(p)
+      particles.push(p)
+      p.animate([
+        { transform: 'translateY(0) translateX(0)', opacity: 0 },
+        { opacity: Math.random() * 0.5 + 0.1, offset: 0.5 },
+        { transform: `translateY(-100vh) translateX(${driftX}vw)`, opacity: 0 }
+      ], { duration: duration * 1000, iterations: Infinity, delay: Math.random() * -duration * 1000 })
+    }
+    return () => particles.forEach(p => p.remove())
+  }, [])
+
+  useEffect(() => {
+    const positionLine = () => {
+      if (!timelineRef.current || !timelineLineBgRef.current) return
+      const steps = timelineRef.current.querySelectorAll('.timeline-step')
+      if (steps.length < 2) return
+      const firstCircle = steps[0].querySelector('.step-node')
+      const lastCircle = steps[steps.length - 1].querySelector('.step-node')
+      if (!firstCircle || !lastCircle) return
+
+      const tlRect = timelineRef.current.getBoundingClientRect()
+      const fRect = firstCircle.getBoundingClientRect()
+      const lRect = lastCircle.getBoundingClientRect()
+
+      const top = fRect.top + fRect.height / 2 - tlRect.top
+      const bottom = tlRect.bottom - (lRect.top + lRect.height / 2)
+
+      timelineLineBgRef.current.style.top = top + 'px'
+      timelineLineBgRef.current.style.bottom = bottom + 'px'
+    }
+
+    positionLine()
+    window.addEventListener('resize', positionLine)
+    return () => window.removeEventListener('resize', positionLine)
+  }, [])
+
+  useEffect(() => {
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (!timelineRef.current || !scrollLineRef.current) return
+          const wh = window.innerHeight
+
+          const steps = timelineRef.current.querySelectorAll('.timeline-step')
+          let closestIdx = 0
+          let minDist = Infinity
+          steps.forEach((step, i) => {
+            const sc = step.getBoundingClientRect().top + step.getBoundingClientRect().height / 2
+            const dist = Math.abs(sc - wh / 2)
+            if (dist < minDist) { minDist = dist; closestIdx = i }
+          })
+          const lineProgress = ((closestIdx + 1) / steps.length) * 100
+          scrollLineRef.current.style.height = lineProgress + '%'
+
+          steps.forEach((step, i) => {
+            const sc = step.getBoundingClientRect().top + step.getBoundingClientRect().height / 2
+            const dist = Math.abs(sc - wh / 2) / (wh / 2)
+            const opacity = Math.max(0.3, 1 - dist * 0.7)
+            const scale = Math.max(0.92, 1 - dist * 0.08)
+            step.style.opacity = opacity
+            step.style.transform = `scale(${scale})`
+
+            const node = step.querySelector('.step-node')
+            if (node) {
+              const glowIntensity = Math.max(0, 1 - dist * 0.8)
+              const colors = [
+                'rgba(14,165,233,0.6)',
+                'rgba(14,165,233,0.6)',
+                'rgba(14,165,233,0.6)',
+                'rgba(14,165,233,0.6)',
+                'rgba(14,165,233,0.6)',
+                'rgba(249,115,22,0.6)',
+              ]
+              const glowRgba = i === 5 ? '249,115,22' : '14,165,233'
+              node.style.boxShadow = `0 0 ${15 + glowIntensity * 30}px rgba(${glowRgba},${0.3 + glowIntensity * 0.4})`
+              node.style.borderColor = `rgba(${i === 5 ? '249,115,22' : '14,165,233'}, ${0.4 + glowIntensity * 0.6})`
+            }
+          })
+
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div>
       {/* PARTICLE HERO */}
@@ -174,45 +312,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GROTH / PROVEN & TRUSTED */}
-      <section className="py-24 relative overflow-hidden">
+      {/* HOW WE WORK — THE SKYTOUCH PROTOCOL */}
+      <section className="py-24 relative overflow-hidden" id="process">
         <div className="absolute inset-0 bg-[#0c1929]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,transparent_60%)]" />
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <ScrollReveal>
-              <span className="text-xs tracking-[0.2em] font-semibold text-tertiary uppercase mb-4 block">Growth</span>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-                Proven & Trusted
-              </h2>
-              <h3 className="text-xl md:text-2xl font-display font-semibold text-white/70 mb-6">
-                Strategic Capital, Sustainable Growth, Enduring Value.
-              </h3>
-              <p className="text-white/50 leading-relaxed mb-8">
-                We are strategically investing across high-growth sectors to build diversified portfolios that generate sustainable returns. Through disciplined capital allocation in private equity, real estate, capital markets, and renewable energy, we create long-term value while contributing to economic development.
-              </p>
-              <div className="flex gap-8 lg:gap-12">
-                <div>
-                  <p className="text-4xl font-bold font-display text-primary">100+</p>
-                  <p className="text-xs text-white/40 tracking-wider mt-1">Portfolio Companies</p>
+
+        <div
+          className="absolute inset-0 pointer-events-none z-0"
+          ref={meshRef}
+          style={{ background: 'radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(14,165,233,0.12) 0%, rgba(12,25,41,1) 70%)' }}
+        />
+
+        <div className="absolute -top-[10%] -right-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 -left-[10%] w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px]" />
+
+        <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
+
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
+          <ScrollReveal className="text-center mb-12 md:mb-16">
+            <span className="section-label">How We Work</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+              The <span className="gold-accent">SkyTouch</span> Protocol
+            </h2>
+            <p className="text-on-surface-variant/70 max-w-xl mx-auto">
+              A six-stage lifecycle designed for institutional-grade execution and long-term wealth compounding.
+            </p>
+          </ScrollReveal>
+
+          <div className="relative max-w-[800px] mx-auto" ref={timelineRef}>
+            <div className="absolute left-1/2 -translate-x-1/2 w-[1px] hidden md:block overflow-hidden" ref={timelineLineBgRef}>
+              <div className="absolute inset-0 bg-white/[0.05]" />
+              <div className="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-tertiary transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
+            </div>
+
+            {protocolSteps.map((step, i) => {
+              const isLeft = i === 0 || i === 2 || i === 4
+              const c = stepColors[i]
+
+              return (
+                <div key={step.title} className="timeline-step flex flex-col md:flex-row items-start mb-12 md:mb-16 last:mb-0 will-change-transform duration-75" style={{ transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
+                  <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-4' : 'md:order-3 md:text-left md:pl-4'} mb-4 md:mb-0`}>
+                    <div className={`glass-card dark rounded-2xl p-6 md:p-8 border border-white/5 ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
+                      <span className="text-xs tracking-[0.2em] font-semibold text-slate-400 mb-2 block">{String(i + 1).padStart(2, '0')}</span>
+                      <h3 className="font-display text-xl md:text-[28px] font-semibold text-white mb-3">{step.title}</h3>
+                      <p className="font-body text-sm md:text-base text-slate-400 leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
+                   <div className={`flex justify-center self-center w-full md:w-auto mb-4 md:mb-0 md:mx-12 ${isLeft ? '' : 'md:order-2'}`}>
+                    <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-[#0f1f2f] border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out`}
+                      style={{ boxShadow: `0 0 20px ${c.border === 'border-tertiary' ? 'rgba(249,115,22,0.4)' : 'rgba(14,165,233,0.4)'}` }}>
+                      <span className={`material-symbols-outlined text-[40px] ${c.icon}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                    </div>
+                  </div>
+                  <div className={`hidden md:block md:flex-1 ${isLeft ? '' : 'md:order-1'}`} />
                 </div>
-                <div>
-                  <p className="text-4xl font-bold font-display text-tertiary">10 Yrs.</p>
-                  <p className="text-xs text-white/40 tracking-wider mt-1">Track Record</p>
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80&fit=crop"
-                  alt="Growth"
-                  className="rounded-2xl w-full object-cover"
-                />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-                <div className="absolute -top-6 -right-6 w-40 h-40 bg-tertiary/10 rounded-full blur-2xl" />
-              </div>
-            </ScrollReveal>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -54,7 +54,12 @@
     @apply border-primary/50;
     box-shadow: 0 8px 25px rgba(14, 165, 233, 0.1);
   }
-  .gold-accent {
+  .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+  vertical-align: middle;
+}
+.gold-accent {
     background: linear-gradient(135deg, #f97316, #ea580c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
