@@ -3,27 +3,27 @@ import ScrollReveal from '../components/ScrollReveal'
 
 const reviews = [
   {
-    text: "Imperial Holding has been more than an investor — they've been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.",
+    text: "Imperial Holding has been more than an investor; they've been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.",
     name: 'Dr. Ramesh Sharma',
     role: 'Healthcare Sector',
   },
   {
-    text: "Finding the right investor for a technology startup in Nepal is challenging — most don't understand the sector's dynamics. Imperial Holding was different from our first meeting.",
+    text: "Finding the right investor for a technology startup in Nepal is challenging; most don't understand the sector's dynamics. Imperial Holding was different from our first meeting.",
     name: 'Anita KC',
     role: 'Technology Sector',
   },
   {
-    text: "Hydropower projects require investors who understand the sector's complexities — long development timelines, regulatory navigation, construction risks. Imperial Holding demonstrated this understanding from day one.",
+    text: "Hydropower projects require investors who understand the sector's complexities; long development timelines, regulatory navigation, construction risks. Imperial Holding demonstrated this understanding from day one.",
     name: 'Bikash Thapa',
     role: 'Energy Sector',
   },
   {
-    text: "When we decided to upgrade our property from a basic lodge to a premium eco-resort, we needed more than just capital — we needed partners who understood hospitality, sustainability, and the seasonal nature of tourism.",
+    text: "When we decided to upgrade our property from a basic lodge to a premium eco-resort, we needed more than just capital; we needed partners who understood hospitality, sustainability, and the seasonal nature of tourism.",
     name: 'Suman Gurung',
     role: 'Tourism Sector',
   },
   {
-    text: "As an agro-processing business working directly with farmers, we needed investors who understood agriculture's unique challenges — seasonal cash flows, working capital intensity, and the importance of maintaining farmer relationships.",
+    text: "As an agro-processing business working directly with farmers, we needed investors who understood agriculture's unique challenges; seasonal cash flows, working capital intensity, and the importance of maintaining farmer relationships.",
     name: 'Krishna Acharya',
     role: 'Agriculture Sector',
   },

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Info, Users, BriefcaseBusiness, Newspaper, Mail } from 'lucide-react'
@@ -20,10 +20,10 @@ function NepalTime() {
     const update = () => {
       const now = new Date()
       const nepal = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kathmandu' }))
-      setTime(nepal.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }))
+      setTime(nepal.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }))
     }
     update()
-    const id = setInterval(update, 1000)
+    const id = setInterval(update, 30000)
     return () => clearInterval(id)
   }, [])
 
@@ -49,7 +49,16 @@ export default function Navbar() {
   const isHomePage = location.pathname === '/'
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -65,39 +74,6 @@ export default function Navbar() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        
-        .navbar-gradient-bg {
-          background-size: 200% 200%;
-          animation: gradient-shift 8s ease infinite;
-        }
-        
-        .nav-link-underline::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #0ea5e9, #f97316);
-          transform: translateX(-50%);
-          transition: width 0.3s ease;
-        }
-        
-        .nav-link-underline:hover::after {
-          width: 100%;
-        }
-        
-        .glow-button {
-          position: relative;
-          overflow: hidden;
-        }
-      ` }} />
-      
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           scrolled ? 'px-3 sm:px-4 md:px-6 pt-3' : 'px-0 pt-0'
@@ -139,7 +115,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-12">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link, idx) => (
               <motion.div
                 key={link.path}

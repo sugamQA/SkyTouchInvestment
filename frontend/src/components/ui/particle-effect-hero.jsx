@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { MousePointer2, Info, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Globe from './globe';
+import { Typewriter } from './typewriter-text';
 
 const PARTICLE_DENSITY = 0.00015;
 const BG_PARTICLE_DENSITY = 0.00008;
@@ -312,7 +313,14 @@ const HeroContent = () => {
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 tracking-tighter">
-                    Invest in<br/>Nepal's Future
+                  Invest in<br/>
+                  <Typewriter
+                    text={["SkyTouch", "Nepal's Future"]}
+                    speed={90}
+                    cursor="|"
+                    loop={true}
+                    className="inline-block bg-gradient-to-r from-sky-400 via-blue-500 to-orange-400 bg-clip-text text-transparent"
+                  />
                 </h1>
                 
                 <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 font-light leading-relaxed">

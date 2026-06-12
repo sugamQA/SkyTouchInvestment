@@ -33,9 +33,9 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img src="/logo.png" alt="SkyTouch" className="h-20 w-auto mb-4 brightness-0 invert opacity-85" />
+            <img src="/logo.png" alt="SkyTouch" className="h-20 w-auto mb-4 brightness-0 invert opacity-85" loading="lazy" />
             <p className="text-sm text-white/50 leading-relaxed">
-              Strategic Investment & Professional Consulting — empowering businesses and investors across Nepal since 2009.
+              Strategic Investment & Professional Consulting, empowering businesses and investors across Nepal since 2009.
             </p>
           </motion.div>
 

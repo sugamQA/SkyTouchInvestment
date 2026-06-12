@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
@@ -19,9 +19,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800)
+    const timer = setTimeout(() => setLoading(false), 200)
     return () => clearTimeout(timer)
   }, [])
 
@@ -37,7 +39,7 @@ export default function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <ParticleBackground />
+            {isHome && <ParticleBackground />}
             <Navbar />
             <main className="relative z-10">
               <Routes>

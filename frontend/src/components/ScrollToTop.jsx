@@ -1,13 +1,28 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronUp } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400)
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [location.pathname])
+
+  useEffect(() => {
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setVisible(window.scrollY > 400)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])

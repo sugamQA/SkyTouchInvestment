@@ -312,7 +312,7 @@ function DefaultFanCard({ item, active }) {
             alt={item.title}
             className="h-full w-full object-cover"
             draggable={false}
-            loading="eager"
+            loading="lazy"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-secondary text-sm text-muted-foreground">

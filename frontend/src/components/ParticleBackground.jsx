@@ -9,30 +9,38 @@ export default function ParticleBackground() {
     let animationId
     let particles = []
 
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+    let w = window.innerWidth
+    let h = window.innerHeight
+
     const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      w = window.innerWidth
+      h = window.innerHeight
+      canvas.width = w * dpr
+      canvas.height = h * dpr
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
     resize()
     window.addEventListener('resize', resize)
 
-    const count = Math.min(60, Math.floor(window.innerWidth * 0.04))
+    const count = Math.min(30, Math.floor(w * 0.03))
     particles = Array.from({ length: count }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      r: Math.random() * 2 + 0.5,
-      o: Math.random() * 0.3 + 0.05,
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.5 + 0.5,
+      o: Math.random() * 0.25 + 0.05,
     }))
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      particles.forEach((p, i) => {
+      ctx.clearRect(0, 0, w, h)
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i]
         p.x += p.vx
         p.y += p.vy
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+        if (p.x < 0 || p.x > w) p.vx *= -1
+        if (p.y < 0 || p.y > h) p.vy *= -1
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(14, 165, 233, ${p.o})`
@@ -41,17 +49,17 @@ export default function ParticleBackground() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = p.x - particles[j].x
           const dy = p.y - particles[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 120) {
+          const dist = dx * dx + dy * dy
+          if (dist < 14400) {
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(14, 165, 233, ${0.05 * (1 - dist / 120)})`
+            ctx.strokeStyle = `rgba(14, 165, 233, ${0.04 * (1 - dist / 14400)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
         }
-      })
+      }
       animationId = requestAnimationFrame(animate)
     }
     animate()

@@ -80,6 +80,7 @@ export function BoardMemberCard({
                 alt={name}
                 className="w-full h-56 object-contain p-2 transition-transform duration-300"
                 style={{ objectPosition: imagePosition }}
+                loading="lazy"
               />
               <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/60 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25)]" />
             </div>

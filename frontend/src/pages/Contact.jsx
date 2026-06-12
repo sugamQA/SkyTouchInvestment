@@ -46,6 +46,7 @@ export default function Contact() {
           src={contactBgImage}
           alt=""
           className="absolute inset-0 h-full w-full object-cover opacity-[0.04]"
+          loading="lazy"
         />
         <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute top-24 right-0 h-72 w-72 rounded-full bg-tertiary/10 blur-3xl" />

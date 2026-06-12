@@ -42,6 +42,7 @@ export function BlogDetailModal({ post, isOpen, onClose }) {
                   src={post.imageSrc}
                   alt={post.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>

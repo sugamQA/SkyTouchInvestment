@@ -5,15 +5,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0ea5e9',
-        'primary-dark': '#0284c7',
-        secondary: '#0ea5e9',
-        tertiary: '#f97316',
+        primary: '#0f5fa8',
+        'primary-dark': '#0b4c86',
+        secondary: '#7c3aed',
+        tertiary: '#f59e0b',
         'on-primary': '#ffffff',
         'on-surface': '#0f172a',
-        'on-surface-variant': '#334155',
-        outline: '#64748b',
-        'surface-container': '#f0f9ff',
+        'on-surface-variant': '#475569',
+        outline: '#94a3b8',
+        'surface-container': '#f8fafc',
       },
       fontFamily: {
         display: ['Space Grotesk', 'sans-serif'],

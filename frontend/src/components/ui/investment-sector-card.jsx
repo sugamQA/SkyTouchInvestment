@@ -1,28 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { SpiralAnimation } from './spiral-animation'
-import { SplineScene } from './spline-scene'
 import ScrollReveal from '../ScrollReveal'
 
 export function InvestmentSectorCard() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const glowRef = useRef(null)
   
-  // Initialize glow effect
+  // Initialize glow effect - single listener on container
   useEffect(() => {
+    const container = glowRef.current
+    if (!container) return
+
     const syncPointer = (e) => {
       const { clientX: x, clientY: y } = e
-      
-      // Get all glow elements
-      const glowElements = document.querySelectorAll('[data-glow-button]')
-      glowElements.forEach((element) => {
-        element.style.setProperty('--x', x.toFixed(2))
-        element.style.setProperty('--xp', (x / window.innerWidth).toFixed(2))
-        element.style.setProperty('--y', y.toFixed(2))
-        element.style.setProperty('--yp', (y / window.innerHeight).toFixed(2))
-      })
+      container.style.setProperty('--x', x.toFixed(2))
+      container.style.setProperty('--xp', (x / window.innerWidth).toFixed(2))
+      container.style.setProperty('--y', y.toFixed(2))
+      container.style.setProperty('--yp', (y / window.innerHeight).toFixed(2))
     }
 
-    document.addEventListener('pointermove', syncPointer)
+    document.addEventListener('pointermove', syncPointer, { passive: true })
     return () => document.removeEventListener('pointermove', syncPointer)
   }, [])
   
@@ -34,7 +31,7 @@ export function InvestmentSectorCard() {
       desc: 'Partnering for growth and transformation',
       icon: '📈',
       details: 'Strategic investments in high-growth companies with strong fundamentals and experienced management teams.',
-      image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80&fit=crop'
+      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=90&fit=crop&auto=format'
     },
     { 
       title: 'Real Estate', 
@@ -43,7 +40,7 @@ export function InvestmentSectorCard() {
       desc: 'Creating value through strategic property investment',
       icon: '🏗️',
       details: 'Premium commercial and residential properties in prime locations with strong rental yields.',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=90&fit=crop&auto=format'
     },
     { 
       title: 'Capital Markets', 
@@ -52,7 +49,7 @@ export function InvestmentSectorCard() {
       desc: 'Strategic public market investments',
       icon: '📊',
       details: 'Well-researched public market investments across diverse sectors and geographies.',
-      image: 'https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=90&fit=crop&auto=format'
     },
     { 
       title: 'Hydropower', 
@@ -61,7 +58,7 @@ export function InvestmentSectorCard() {
       desc: 'Sustainable energy production',
       icon: '💧',
       details: 'Long-term investments in renewable energy projects with stable cash flows.',
-      image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=90&fit=crop&auto=format'
     },
     { 
       title: 'Tourism', 
@@ -70,7 +67,7 @@ export function InvestmentSectorCard() {
       desc: 'Growth in Nepal tourism sector',
       icon: '🏔️',
       details: 'Strategic investments in tourism infrastructure and hospitality ventures.',
-      image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=90&fit=crop&auto=format'
     },
     { 
       title: 'Hospitality', 
@@ -79,7 +76,7 @@ export function InvestmentSectorCard() {
       desc: 'Premium hotel and resort investments',
       icon: '🏨',
       details: 'High-quality hotel properties with consistent occupancy and revenue growth.',
-      image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=90&fit=crop&auto=format'
     },
     { 
       title: 'Technology & AI', 
@@ -88,72 +85,19 @@ export function InvestmentSectorCard() {
       desc: 'Innovation in digital transformation',
       icon: '🤖',
       details: 'Strategic investments in cutting-edge technology and artificial intelligence companies driving digital innovation and automation.',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=90&fit=crop&auto=format'
     },
   ]
   
   const currentSector = sectors[activeIndex]
 
-  const glowButtonStyles = `
-    [data-glow-button] {
-      --base: 220;
-      --spread: 200;
-      --radius: 8;
-      --border: 1.5;
-      --backdrop: hsl(0 0% 60% / 0.08);
-      --backup-border: var(--backdrop);
-      --size: 150;
-      --outer: 0.8;
-      --border-size: calc(var(--border, 2) * 1px);
-      --spotlight-size: calc(var(--size, 150) * 1px);
-      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
-      
-      background-image: radial-gradient(
-        var(--spotlight-size) var(--spotlight-size) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.08)), transparent
-      );
-      background-attachment: fixed;
-      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-      background-position: 50% 50%;
-      touch-action: none;
-    }
-
-    [data-glow-button]::before {
-      content: "";
-      position: absolute;
-      inset: calc(var(--border-size) * -1);
-      border: var(--border-size) solid transparent;
-      border-radius: calc(var(--radius) * 1px);
-      background-attachment: fixed;
-      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-image: radial-gradient(
-        calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 0.6)), transparent 100%
-      );
-      filter: brightness(1.5);
-      pointer-events: none;
-      z-index: -1;
-      border-radius: calc(var(--radius) * 1px);
-    }
-  `
-  
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: glowButtonStyles }} />
-      <div className="w-full rounded-none md:rounded-2xl overflow-hidden relative">
-        {/* Background Spiral Animation */}
-        <div className="absolute inset-0 opacity-100">
-          <SpiralAnimation />
-        </div>
-        
-        {/* Gradient Overlay - More transparent */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40" />
+      <div ref={glowRef} className="w-full relative overflow-hidden rounded-[2rem] border border-white/10">
+        {/* Subtle background gradient */}
+        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-x-0 top-0 h-[16px] bg-white/10 backdrop-blur-md border-b border-white/20 shadow-[0_8px_30px_rgba(255,255,255,0.08)]" />
+        <div className="absolute inset-x-0 top-0 h-[2px] bg-white/35" />
         
         {/* Content Container */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
@@ -262,66 +206,48 @@ export function InvestmentSectorCard() {
             </div>
           </div>
           
-          {/* Right - Spline 3D Scene + Last Sector */}
-          <div className="hidden lg:flex lg:flex-col relative items-center justify-center overflow-hidden gap-6 pr-6">
-            {/* Last Sector Card - Featured */}
-            {sectors.length > 0 && (
-              <motion.button
-                onClick={() => setActiveIndex(sectors.length - 1)}
-                whileHover={{ scale: 1.05 }}
-                data-glow-button
-                className={`relative w-full max-w-sm rounded-xl text-left transition-all border-2 overflow-hidden group h-48 ${
-                  activeIndex === sectors.length - 1
-                    ? 'border-current shadow-2xl' 
-                    : 'border-white/20 shadow-lg'
-                }`}
-                style={activeIndex === sectors.length - 1 ? { borderColor: sectors[sectors.length - 1].color } : {}}
-              >
-                {/* Background Image */}
-                <img
-                  src={sectors[sectors.length - 1].image}
-                  alt={sectors[sectors.length - 1].title}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 p-4 flex flex-col justify-end backdrop-blur-sm">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <p className="text-sm font-semibold leading-tight text-white drop-shadow font-display">{sectors[sectors.length - 1].title}</p>
-                      <p className="text-xs text-white/80 mt-1 drop-shadow">{sectors[sectors.length - 1].desc}</p>
-                    </div>
-                    <span className="text-2xl drop-shadow">{sectors[sectors.length - 1].icon}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden mr-3">
-                      <motion.div
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: sectors[sectors.length - 1].color }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${sectors[sectors.length - 1].pct}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.2, ease: 'easeOut' }}
-                      />
-                    </div>
-                    <span className="text-xs font-bold drop-shadow" style={{ color: sectors[sectors.length - 1].color }}>
-                      {sectors[sectors.length - 1].pct}%
-                    </span>
-                  </div>
-                </div>
-              </motion.button>
-            )}
-            
-            {/* Spline 3D Scene */}
-            <SplineScene 
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full flex-1"
-            />
+          {/* Right - Image */}
+          <div className="relative h-full min-h-[400px] lg:min-h-full flex items-center justify-center p-8 md:p-12">
+            <div className="relative group">
+              {/* Decorative glow behind image */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-secondary/10 to-tertiary/20 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Decorative border ring */}
+              <div className="absolute -inset-3 border border-white/10 rounded-[2rem] group-hover:border-primary/30 transition-colors duration-500" />
+              
+              {/* Decorative corner accents */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-primary/40 rounded-tl-xl" />
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary/40 rounded-tr-xl" />
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-primary/40 rounded-bl-xl" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary/40 rounded-br-xl" />
+              
+              <img
+                src="/investment-image.jpg"
+                alt="SkyTouch Investment"
+                className="relative w-full h-[350px] md:h-[420px] object-cover rounded-2xl shadow-2xl"
+              />
+              
+              {/* Tags overlay */}
+              <div className="absolute top-4 right-4 flex flex-col gap-2">
+                <span className="px-3 py-1.5 text-xs font-bold tracking-wide text-white bg-gradient-to-r from-emerald-500 to-green-600 rounded-full shadow-lg backdrop-blur-sm">
+                  Profit +
+                </span>
+                <span className="px-3 py-1.5 text-xs font-bold tracking-wide text-white bg-gradient-to-r from-primary to-blue-600 rounded-full shadow-lg backdrop-blur-sm">
+                  Growth
+                </span>
+                <span className="px-3 py-1.5 text-xs font-bold tracking-wide text-white bg-gradient-to-r from-violet-500 to-purple-600 rounded-full shadow-lg backdrop-blur-sm">
+                  Secure
+                </span>
+              </div>
+              <div className="absolute bottom-4 left-4 flex gap-2">
+                <span className="px-3 py-1.5 text-xs font-bold tracking-wide text-white bg-black/40 backdrop-blur-md border border-white/20 rounded-full shadow-lg">
+                  ROI 24%
+                </span>
+                <span className="px-3 py-1.5 text-xs font-bold tracking-wide text-white bg-black/40 backdrop-blur-md border border-white/20 rounded-full shadow-lg">
+                  Trusted
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

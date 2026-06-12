@@ -39,7 +39,7 @@ const sectors = [
   {
     title: 'Capital Market',
     subtitle: 'Strategic Public Equity Investments',
-    desc: 'Banking, hydropower, manufacturing, infrastructure, insurance — diversified public market investments.',
+    desc: 'Banking, hydropower, manufacturing, infrastructure, insurance, diversified public market investments.',
     details: 'Public market exposure across diversified listed sectors, targeting undervalued opportunities with strong fundamentals and market depth.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
     pct: 84,
@@ -102,8 +102,8 @@ export default function Investment() {
   return (
     <div className="pt-24">
       {/* HERO */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-tertiary/5" />
+      <section className="relative py-24 overflow-hidden bg-white">
+        <div className="absolute inset-0" />
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
@@ -128,6 +128,7 @@ export default function Investment() {
                   src={investmentHeroImage}
                   alt="Original uploaded investment image"
                   className="relative z-10 w-full h-full object-contain rounded-[1.6rem] bg-white"
+                  loading="lazy"
                 />
               </div>
             </ScrollReveal>
@@ -138,21 +139,19 @@ export default function Investment() {
       {/* PORTFOLIO PARTNERS */}
       <section className="py-16 bg-primary/5">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <style>
-            {`
-              @keyframes partnerMarquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-            `}
-          </style>
+          <div className="sr-only">Marquee animation defined in global CSS</div>
           <ScrollReveal className="text-center mb-10">
             <span className="section-label text-center">Trusted Portfolio Partners</span>
-            <h2 className="text-2xl md:text-3xl font-display font-bold">
+            <h2 className="text-2xl md:text-3xl font-display font-bold bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">
               Each selected for its growth potential and alignment with Nepal Economic Transformation
             </h2>
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <span className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-tertiary" />
+              <span className="h-2.5 w-2.5 rotate-45 bg-gradient-to-br from-primary to-tertiary" />
+              <span className="h-px w-16 bg-gradient-to-r from-tertiary via-primary to-transparent" />
+            </div>
           </ScrollReveal>
-          <div className="relative overflow-hidden rounded-2xl border border-outline/10 bg-white/40 py-8">
+          <div className="relative overflow-hidden rounded-2xl border border-outline/10 bg-white py-8">
             <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#eef6ff] to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#eef6ff] to-transparent" />
             <div
@@ -165,47 +164,10 @@ export default function Investment() {
                   whileHover={{ scale: 1.05 }}
                   className={`flex h-16 md:h-20 min-w-[140px] md:min-w-[180px] items-center justify-center rounded-2xl border border-outline/10 bg-gradient-to-br ${p.tint} px-4 md:px-6 shadow-sm transition-all duration-300 hover:shadow-lg`}
                 >
-                  <img src={p.logo} alt={p.name} className="h-12 w-auto object-contain" />
+                  <img src={p.logo} alt={p.name} className="h-12 w-auto object-contain" loading="lazy" />
                 </motion.div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTORS GRID */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.10),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(249,115,22,0.08),transparent_30%)]" />
-        <div className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(to_right,rgba(15,23,42,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.08)_1px,transparent_1px)] bg-[size:42px_42px]" />
-        <div className="absolute top-24 left-[-8%] h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-24 right-[-6%] h-80 w-80 rounded-full bg-tertiary/10 blur-3xl" />
-
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative">
-          <ScrollReveal className="text-center mb-16">
-            <span className="section-label text-center">Long-term Value Creation</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold">
-              Our Investment <span className="gold-accent">Sectors</span>
-            </h2>
-            <p className="text-sm md:text-base text-on-surface-variant/60 max-w-2xl mx-auto mt-4">
-              Hover each sector card to view the detailed investment focus, just like the board-style cards used elsewhere in the site.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {sectors.map((sector, i) => (
-              <ScrollReveal key={sector.title} delay={i * 0.05}>
-                <SectorHoverCard
-                  title={sector.title}
-                  subtitle={sector.subtitle}
-                  image={sector.image}
-                  desc={sector.desc}
-                  details={sector.details}
-                  pct={sector.pct}
-                  color={sector.color}
-                  index={i}
-                />
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>
@@ -254,7 +216,7 @@ export default function Investment() {
               Ready to <span className="gold-accent">Invest</span> with Us?
             </h2>
             <p className="text-white/50 max-w-2xl mx-auto mb-8">
-              Whether you are seeking information, exploring partnership opportunities, or ready to start a conversation — we are here to help.
+              Whether you are seeking information, exploring partnership opportunities, or ready to start a conversation, we are here to help.
             </p>
             <Link to="/contact" className="btn-primary inline-flex">
               GET IN TOUCH

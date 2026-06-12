@@ -269,6 +269,7 @@ export function CardStackBlogsDemo() {
                     alt={item.title}
                     className="h-full w-full object-cover"
                     draggable={false}
+                    loading="lazy"
                   />
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />

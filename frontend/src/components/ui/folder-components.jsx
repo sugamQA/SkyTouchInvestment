@@ -202,7 +202,7 @@ export const Folder = ({
               <div className="relative z-10 flex h-full flex-col overflow-hidden">
                 {image && (
                   <div className="mb-3 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-                    <img src={image} alt={cardTitle} className="h-28 w-full object-cover" />
+                    <img src={image} alt={cardTitle} className="h-28 w-full object-cover" loading="lazy" />
                   </div>
                 )}
 

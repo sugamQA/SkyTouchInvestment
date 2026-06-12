@@ -5,13 +5,15 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import ParticleHero from '../components/ui/particle-effect-hero'
 import { lazy, Suspense, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
+import { Typewriter } from '../components/ui/typewriter-text'
+import { AnimatedTestimonials } from '../components/ui/testimonial'
 
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
 
 const testimonials = [
-  { name: 'Dr. Ramesh Sharma', role: 'Healthcare', text: 'Patient capital that allowed us to build quality infrastructure without short-term pressure.' },
-  { name: 'Bikash Thapa', role: 'Energy', text: 'Essential partners during challenging times. Their construction sector expertise made the difference.' },
-  { name: 'Rajiv Shrestha', role: 'Real Estate', text: 'Most professional partnership in my 25-year career. They brought governance best practices and strategic discipline.' },
+  { quote: 'Patient capital that allowed us to build quality infrastructure without short-term pressure.', name: 'Dr. Ramesh Sharma', designation: 'Healthcare', src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'Essential partners during challenging times. Their construction sector expertise made the difference.', name: 'Bikash Thapa', designation: 'Energy', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'Most professional partnership in my 25-year career. They brought governance best practices and strategic discipline.', name: 'Rajiv Shrestha', designation: 'Real Estate', src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face' },
 ]
 
 export default function Home() {
@@ -20,6 +22,13 @@ export default function Home() {
   const scrollLineRef = useRef(null)
   const timelineLineBgRef = useRef(null)
   const stepRefs = useRef([])
+
+  const stats = [
+    { target: 15, suffix: '+', label: 'Years of Experience', color: 'text-primary' },
+    { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-secondary' },
+    { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-tertiary' },
+    { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-primary' },
+  ]
 
   const protocolSteps = [
     { icon: 'chat', title: 'Consultation', desc: 'In-depth alignment of objectives, risk appetite, and liquidity horizons through bespoke private briefings.' },
@@ -161,21 +170,21 @@ export default function Home() {
       {/* STATS */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-20 -mt-20 mb-24">
         <div className="glass-card rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            {[
-              { target: 15, suffix: '+', label: 'Years of Experience', color: 'text-primary' },
-              { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-secondary' },
-              { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-tertiary' },
-              { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-primary' },
-            ].map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={i * 0.1} className="text-center">
-                <p className={`text-4xl md:text-5xl font-bold font-display ${stat.color}`}>
-                  <AnimatedCounter target={stat.target} suffix={stat.suffix} />
-                </p>
-                <p className="text-xs tracking-wider text-outline mt-3 uppercase">{stat.label}</p>
-                <div className={`w-10 h-0.5 mx-auto mt-4 rounded-full ${stat.color.replace('text', 'bg')}/40`} />
-              </ScrollReveal>
-            ))}
+          <div className="overflow-hidden">
+            <div
+              className="flex w-max gap-4 md:gap-8"
+              style={{ animation: 'partnerMarquee 24s linear infinite' }}
+            >
+              {[...stats, ...stats].map((stat, i) => (
+                <ScrollReveal key={`${stat.label}-${i}`} delay={(i % stats.length) * 0.08} className="text-center shrink-0 min-w-[180px] md:min-w-[220px] px-2 md:px-4">
+                  <p className={`text-4xl md:text-5xl font-bold font-display ${stat.color}`}>
+                    <AnimatedCounter target={stat.target} suffix={stat.suffix} />
+                  </p>
+                  <p className="text-xs tracking-wider text-outline mt-3 uppercase">{stat.label}</p>
+                  <div className={`w-10 h-0.5 mx-auto mt-4 rounded-full ${stat.color.replace('text', 'bg')}/40`} />
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -190,6 +199,26 @@ export default function Home() {
               <p className="text-sm md:text-base text-on-surface-variant/70 leading-relaxed">
                 To become a trusted investment and consulting partner that contributes to the growth of businesses, entrepreneurs, and investors across Nepal.
               </p>
+              <div className="mt-6 grid grid-cols-3 gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80&fit=crop"
+                  alt="Investment planning"
+                  loading="lazy"
+                  className="h-24 w-full rounded-2xl object-cover border border-white/10"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80&fit=crop"
+                  alt="Business strategy meeting"
+                  loading="lazy"
+                  className="h-24 w-full rounded-2xl object-cover border border-white/10"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80&fit=crop"
+                  alt="Financial growth chart"
+                  loading="lazy"
+                  className="h-24 w-full rounded-2xl object-cover border border-white/10"
+                />
+              </div>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4">
               <div className="rounded-2xl border border-outline/10 bg-white/5 p-4">
@@ -258,7 +287,7 @@ export default function Home() {
       </section>
 
       {/* INVESTMENT SECTORS */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden" style={{ contentVisibility: 'auto' }}>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.04)_0%,transparent_60%)]" />
 
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative py-24">
@@ -277,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24">
+      <section className="py-24" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <ScrollReveal className="text-center mb-12">
             <span className="section-label text-center">Testimonials</span>
@@ -285,57 +314,36 @@ export default function Home() {
               What Our <span className="gold-accent">Clients Say</span>
             </h2>
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <ScrollReveal key={t.name} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="glass-card rounded-xl p-8 h-full"
-                >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, s) => (
-                      <span key={s} className="text-tertiary text-sm">★</span>
-                    ))}
-                  </div>
-                  <p className="text-sm text-on-surface-variant/70 leading-relaxed mb-6 italic">
-                    "{t.text}"
-                  </p>
-                  <div className="border-t border-outline/10 pt-4">
-                    <p className="font-semibold text-sm">{t.name}</p>
-                    <p className="text-xs text-outline">| {t.role}</p>
-                  </div>
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
         </div>
       </section>
 
-      {/* HOW WE WORK — THE SKYTOUCH PROTOCOL */}
-      <section className="py-24 relative overflow-hidden" id="process">
-        <div className="absolute inset-0 bg-[#0c1929]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.08)_0%,transparent_60%)]" />
+      {/* HOW WE WORK - THE SKYTOUCH PROTOCOL */}
+      <section className="py-24 relative overflow-hidden" id="process" style={{ contentVisibility: 'auto' }}>
+        <div className="absolute inset-0 bg-black" />
 
         <div
           className="absolute inset-0 pointer-events-none z-0"
           ref={meshRef}
-          style={{ background: 'radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(14,165,233,0.12) 0%, rgba(12,25,41,1) 70%)' }}
+          style={{ background: 'radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(14,165,233,0.12) 0%, rgba(0,0,0,1) 70%)' }}
         />
-
-        <div className="absolute -top-[10%] -right-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 -left-[10%] w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px]" />
 
         <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
           <ScrollReveal className="text-center mb-12 md:mb-16">
-            <span className="section-label">How We Work</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-              The <span className="gold-accent">SkyTouch</span> Protocol
+            <span className="section-label text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">How We Work</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 min-h-[1.2em] drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]">
+              The{' '}
+              <Typewriter
+                text={["SkyTouch Protocol", "Investment Protocol", "Wealth Protocol"]}
+                speed={80}
+                cursor="|"
+                loop={true}
+                className="inline-block bg-gradient-to-r from-sky-400 via-blue-500 to-orange-400 bg-clip-text text-transparent"
+              />
             </h2>
-            <p className="text-on-surface-variant/70 max-w-xl mx-auto">
+            <p className="text-white/80 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] max-w-xl mx-auto">
               A six-stage lifecycle designed for institutional-grade execution and long-term wealth compounding.
             </p>
           </ScrollReveal>
@@ -351,18 +359,69 @@ export default function Home() {
               const c = stepColors[i]
 
               return (
-                <div key={step.title} className="timeline-step flex flex-col md:flex-row items-start mb-12 md:mb-16 last:mb-0 will-change-transform duration-75" style={{ transition: 'opacity 0.3s ease, transform 0.3s ease' }}>
-                  <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-4' : 'md:order-3 md:text-left md:pl-4'} mb-4 md:mb-0`}>
-                    <div className={`glass-card dark rounded-2xl p-6 md:p-8 border border-white/5 ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
-                      <span className="text-xs tracking-[0.2em] font-semibold text-slate-400 mb-2 block">{String(i + 1).padStart(2, '0')}</span>
-                      <h3 className="font-display text-xl md:text-[28px] font-semibold text-white mb-3">{step.title}</h3>
-                      <p className="font-body text-sm md:text-base text-slate-400 leading-relaxed">{step.desc}</p>
+                <div key={step.title} className="timeline-step flex flex-col md:flex-row items-start mb-14 md:mb-20 last:mb-0 will-change-transform duration-75 group">
+                  <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
+                    <div
+                      className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}
+                      onMouseMove={(e) => {
+                        const rect = e.currentTarget.getBoundingClientRect()
+                        e.currentTarget.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100).toFixed(1))
+                        e.currentTarget.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100).toFixed(1))
+                      }}
+                    >
+                      {/* Reflection sheen */}
+                      <div className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                        style={{
+                          background: 'radial-gradient(circle at var(--mx,50)px var(--my,50)px, rgba(255,255,255,0.12) 0%, transparent 60%)',
+                        }} />
+                      {/* Decorative frame */}
+                      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative rounded-2xl p-6 md:p-8 border border-white/[0.06] hover:border-primary/30 transition-all duration-500 overflow-hidden bg-gradient-to-br from-orange-900/60 via-orange-950/50 to-red-900/30 text-center">
+                        {/* Reflection overlay */}
+                        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{
+                            background: 'radial-gradient(circle at var(--mx,50)px var(--my,50)px, rgba(14,165,233,0.08) 0%, rgba(239,68,68,0.03) 30%, transparent 70%)',
+                          }} />
+                        {/* Corner accents */}
+                        <div className="absolute top-0 left-0 w-12 h-12">
+                          <div className="absolute top-0 left-0 w-8 h-[1px] bg-gradient-to-r from-blue-500/60 to-transparent" />
+                          <div className="absolute top-0 left-0 w-[1px] h-8 bg-gradient-to-b from-red-500/40 to-transparent" />
+                        </div>
+                        <div className="absolute top-0 right-0 w-12 h-12">
+                          <div className="absolute top-0 right-0 w-8 h-[1px] bg-gradient-to-l from-red-500/40 to-transparent" />
+                          <div className="absolute top-0 right-0 w-[1px] h-8 bg-gradient-to-b from-blue-500/60 to-transparent" />
+                        </div>
+                        <div className="absolute bottom-0 left-0 w-12 h-12">
+                          <div className="absolute bottom-0 left-0 w-8 h-[1px] bg-gradient-to-r from-red-500/40 to-transparent" />
+                          <div className="absolute bottom-0 left-0 w-[1px] h-8 bg-gradient-to-t from-blue-500/60 to-transparent" />
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-12 h-12">
+                          <div className="absolute bottom-0 right-0 w-8 h-[1px] bg-gradient-to-l from-blue-500/60 to-transparent" />
+                          <div className="absolute bottom-0 right-0 w-[1px] h-8 bg-gradient-to-t from-red-500/40 to-transparent" />
+                        </div>
+                        {/* Step number badge */}
+                        <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
+                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-white bg-gradient-to-r from-blue-500/30 to-red-500/20 rounded-full border border-blue-400/30 drop-shadow-[0_0_8px_rgba(14,165,233,0.4)]">
+                            STEP {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <span className="h-[1px] w-6 bg-gradient-to-r from-blue-500/60 via-red-500/30 to-transparent" />
+                        </div>
+                        <h3 className="font-display text-xl md:text-[26px] font-semibold text-white mb-3 relative drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]">{step.title}</h3>
+                        <p className="font-body text-sm md:text-base text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] leading-relaxed relative">{step.desc}</p>
+                      </div>
                     </div>
                   </div>
-                   <div className={`flex justify-center self-center w-full md:w-auto mb-4 md:mb-0 md:mx-12 ${isLeft ? '' : 'md:order-2'}`}>
-                    <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-[#0f1f2f] border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out`}
-                      style={{ boxShadow: `0 0 20px ${c.border === 'border-tertiary' ? 'rgba(249,115,22,0.4)' : 'rgba(14,165,233,0.4)'}` }}>
-                      <span className={`material-symbols-outlined text-[40px] ${c.icon}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                   <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
+                    <div className="relative">
+                      {/* Icon container glow */}
+                      <div className="absolute inset-0 rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-500 bg-gradient-to-br from-blue-500/30 to-red-500/20" />
+                      {/* Animated ring */}
+                      <div className="absolute -inset-3 rounded-full border border-dashed border-white/10 group-hover:animate-[spin_8s_linear_infinite] transition-all duration-500"
+                        style={{ borderColor: 'rgba(14,165,233,0.3)' }} />
+                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-gradient-to-br from-[#0f1f2f] to-[#0a1520] border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110`}
+                        style={{ boxShadow: `0 0 20px ${c.border === 'border-tertiary' ? 'rgba(249,115,22,0.4)' : 'rgba(14,165,233,0.4)'}` }}>
+                        <span className={`material-symbols-outlined text-[36px] ${c.icon} group-hover:scale-110 transition-transform duration-300`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                      </div>
                     </div>
                   </div>
                   <div className={`hidden md:block md:flex-1 ${isLeft ? '' : 'md:order-1'}`} />
@@ -374,7 +433,7 @@ export default function Home() {
       </section>
 
       {/* WHY US */}
-      <section className="py-24">
+      <section className="py-24" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
@@ -382,17 +441,18 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop"
                 alt="About"
                 className="rounded-2xl w-full object-cover h-64 md:h-auto"
+                loading="lazy"
               />
             </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <span className="section-label">Why SkyTouch</span>
+            <ScrollReveal delay={0.1} className="text-center lg:text-left">
+              <span className="section-label inline-block">Why SkyTouch</span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
                 About our <span className="gold-accent">company</span>
               </h2>
-              <p className="text-on-surface-variant/70 leading-relaxed mb-8">
-                We are a privately-held investment and consulting company built on principles of strategic capital allocation, rigorous analysis, and long-term value creation. Operating with our own capital and expertise, we have the freedom to invest and advise with patience, conviction, and a multi-generational perspective.
+              <p className="text-on-surface-variant/70 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 text-justify">
+                Sky Touch Investment & Consultant Pvt. Ltd. is a Nepal-based private company established on 2066-03-14 B.S. and registered under Reg. No. 63835. Located in Kathmandu, Bagmati Province, the company focuses on investment and consultancy services, providing professional guidance and strategic solutions for business growth and financial development in Nepal. With years of industry presence, the company aims to deliver reliable consulting services while supporting clients in achieving long-term business success.
               </p>
-              <Link to="/about" className="btn-primary inline-flex">
+              <Link to="/about" className="btn-primary inline-flex mx-auto lg:mx-0">
                 ABOUT US
               </Link>
             </ScrollReveal>
