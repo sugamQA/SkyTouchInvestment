@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
-import { BoardMemberCard } from '../components/ui/board-member-card'
+import DirectorHoverCard from '../components/ui/director-hover-card'
 
 const boardMembers = [
   {
@@ -33,6 +33,26 @@ const boardMembers = [
 ]
 
 const topDirectors = boardMembers.slice(0, 3)
+
+const imperialBoardMembers = [
+  {
+    name: 'SUGAM CHHETRI',
+    role: 'Computer Engineer | Software Developer',
+    image: '/IMG_4126.JPG',
+    bio: 'Experienced in building modern, responsive websites and software applications. Currently working at SkyTouch Investment Consultant Pvt. Ltd., leading IT operations, software development, website management, and digital strategy. Skilled in full-stack development, UI/UX design, and performance optimization, focused on delivering scalable, secure, and business-driven digital solutions.',
+    focus: 'Full-stack development and IT leadership',
+    facebookUrl: 'https://facebook.com/scxetri',
+    linkedinUrl: 'https://www.linkedin.com/in/scxetri/',
+    websiteUrl: 'https://www.sugamchhetri.com.np',
+  },
+  {
+    name: 'Bodhraj Devkota',
+    role: 'Managing Director',
+    image: 'https://imperialfund.com.np/wp-content/uploads/2024/12/resize-3-2-1.png',
+    bio: '27+ years in banking, including senior leadership experience as a former CEO.',
+    focus: 'Banking leadership',
+  },
+]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -115,23 +135,58 @@ export default function Boards() {
             className="mb-16"
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Top 3 Board Members
+              Top 3 Team Members
             </motion.h2>
             <motion.p variants={fadeUp} className="text-slate-600">
-              Hover over each card to discover more about each director
+              Hover over each card to discover more about each team member
             </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch">
             {topDirectors.map((member, idx) => (
               <ScrollReveal key={member.name} delay={idx * 0.08}>
-                <BoardMemberCard
-                  {...member}
+                <DirectorHoverCard
+                  name={member.name}
+                  role={member.role}
+                  image={member.image}
+                  bio={member.bio}
+                  focus={member.expertise?.[0] || 'Leadership'}
                   index={idx}
-                  imagePosition={idx === 1 ? '50% 8%' : '50% 20%'}
                 />
               </ScrollReveal>
             ))}
+          </div>
+        </section>
+
+        <section className="max-w-[1440px] mx-auto px-6 md:px-16 pb-20">
+          <motion.div
+            variants={staggerWrap}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mb-16 text-center"
+          >
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              Our Team
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-slate-600 max-w-3xl mx-auto">
+              Click on the team member to see the full profile in a card styled after the Imperial reference.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center justify-items-center">
+            <ScrollReveal className="w-full max-w-[420px] md:justify-self-start" delay={0}>
+              <DirectorHoverCard
+                {...imperialBoardMembers[0]}
+                index={0}
+              />
+            </ScrollReveal>
+            <ScrollReveal className="w-full max-w-[420px] md:justify-self-end" delay={0.08}>
+              <DirectorHoverCard
+                {...imperialBoardMembers[1]}
+                index={1}
+              />
+            </ScrollReveal>
           </div>
         </section>
 
