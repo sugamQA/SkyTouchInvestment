@@ -348,34 +348,67 @@ export default function About() {
       {/* Board of Directors section removed */}
 
       {/* WHY CHOOSE SKYTOUCH */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="py-24 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <ScrollReveal className="text-center mb-16">
-            <span className="section-label text-center text-white/60">The SkyTouch Difference</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-semibold uppercase tracking-widest text-white/60">The SkyTouch Difference</span>
+            </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              Why Choose <span className="gold-accent">SkyTouch</span>
+              Why Choose <span className="bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">SkyTouch</span>
             </h2>
+            <p className="text-white/50 max-w-2xl mx-auto mt-4">
+              Discover what sets us apart in the world of strategic investments
+            </p>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {[
-              { icon: '🎯', title: 'Precision Targeting', desc: 'Data-driven investment selection with 95% success rate across sectors.' },
-              { icon: '🤝', title: 'Trusted Partnerships', desc: 'Long-term relationships built on transparency, integrity, and mutual growth.' },
-              { icon: '📈', title: 'Proven Returns', desc: 'Consistent 15-20% IRR with risk-adjusted portfolio strategies.' },
-              { icon: '🌍', title: 'Global Perspective', desc: 'Local expertise combined with international investment standards.' },
+              { icon: '🎯', title: 'Precision Targeting', desc: 'Data-driven investment selection with 95% success rate across sectors.', stat: '95%', statLabel: 'Success Rate' },
+              { icon: '🤝', title: 'Trusted Partnerships', desc: 'Long-term relationships built on transparency, integrity, and mutual growth.', stat: '500+', statLabel: 'Partners' },
+              { icon: '📈', title: 'Proven Returns', desc: 'Consistent 15-20% IRR with risk-adjusted portfolio strategies.', stat: '18.5%', statLabel: 'Avg. IRR' },
+              { icon: '🌍', title: 'Global Perspective', desc: 'Local expertise combined with international investment standards.', stat: '15+', statLabel: 'Countries' },
             ].map((feature, i) => (
               <ScrollReveal key={feature.title} delay={i * 0.1}>
-                <div className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 hover:border-primary/30">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                  <div className="relative z-10">
-                    <span className="text-3xl mb-4 block">{feature.icon}</span>
-                    <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                    <p className="text-sm text-white/60 leading-relaxed">{feature.desc}</p>
+                <div className="group relative h-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-8 backdrop-blur-xl hover:border-primary/40 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(14,165,233,0.15)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-tertiary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <span className="text-2xl">{feature.icon}</span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                    <p className="text-sm text-white/50 leading-relaxed mb-6 flex-grow">{feature.desc}</p>
+                    
+                    <div className="pt-6 border-t border-white/10">
+                      <p className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">{feature.stat}</p>
+                      <p className="text-xs text-white/40 mt-1 uppercase tracking-wider">{feature.statLabel}</p>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Bottom Stats Bar */}
+          <ScrollReveal delay={0.3}>
+            <div className="mt-12 rounded-3xl bg-white/[0.03] border border-white/10 p-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {[
+                  { value: '15+', label: 'Years Experience' },
+                  { value: '150+', label: 'Projects Completed' },
+                  { value: '98%', label: 'Client Satisfaction' },
+                  { value: '200+', label: 'Trusted Partners' },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">{stat.value}</p>
+                    <p className="text-xs text-white/40 mt-2 uppercase tracking-wider">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
