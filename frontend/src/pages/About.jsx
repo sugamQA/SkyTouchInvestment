@@ -67,12 +67,11 @@ export default function About() {
       {/* STATS */}
       <section className="py-16 bg-[#0c1929]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
-              { target: 15, suffix: '+', label: 'Years Experience', color: 'text-primary' },
-              { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-tertiary' },
-              { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-primary' },
-              { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-tertiary' },
+              { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-primary' },
+              { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-tertiary' },
+              { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-primary' },
             ].map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 0.1}>
                 <p className={`text-4xl md:text-5xl font-bold font-display ${s.color}`}>
@@ -100,16 +99,16 @@ export default function About() {
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 mt-8">
                 <div>
-                  <p className="text-3xl font-bold text-primary">150+</p>
-                  <p className="text-xs text-on-surface-variant/60 mt-2">Global Partners</p>
+                  <p className="text-3xl font-bold text-primary">50+</p>
+                  <p className="text-xs text-on-surface-variant/60 mt-2">Team Members</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">&lt;50ms</p>
-                  <p className="text-xs text-on-surface-variant/60 mt-2">Response Time</p>
+                  <p className="text-3xl font-bold text-primary">10+</p>
+                  <p className="text-xs text-on-surface-variant/60 mt-2">Sectors Invested</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">99.99%</p>
-                  <p className="text-xs text-on-surface-variant/60 mt-2">Network Uptime</p>
+                  <p className="text-3xl font-bold text-primary">NPR 5B+</p>
+                  <p className="text-xs text-on-surface-variant/60 mt-2">Portfolio Value</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -394,9 +393,8 @@ export default function About() {
           {/* Bottom Stats Bar */}
           <ScrollReveal delay={0.3}>
             <div className="mt-12 rounded-3xl bg-white/[0.03] border border-white/10 p-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 {[
-                  { value: '15+', label: 'Years Experience' },
                   { value: '500+', label: 'Projects Completed' },
                   { value: '98%', label: 'Client Satisfaction' },
                   { value: '200+', label: 'Trusted Partners' },

@@ -24,10 +24,9 @@ export default function Home() {
   const stepRefs = useRef([])
 
   const stats = [
-    { target: 15, suffix: '+', label: 'Years of Experience', color: 'text-primary' },
-    { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-secondary' },
-    { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-tertiary' },
-    { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-primary' },
+    { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-primary' },
+    { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-secondary' },
+    { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-tertiary' },
   ]
 
   const protocolSteps = [
