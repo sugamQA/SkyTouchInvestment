@@ -434,7 +434,7 @@ export default function Home() {
       </section>
 
       {/* WHY US */}
-      <section className="py-24 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]" style={{ contentVisibility: 'auto' }}>
+      <section className="py-24 bg-white" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
@@ -447,10 +447,10 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal delay={0.1} className="text-center lg:text-left">
               <span className="section-label inline-block">Why SkyTouch</span>
-              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
-                About our <span className="bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">company</span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+                About our <span className="gold-accent">company</span>
               </h2>
-              <p className="text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 text-justify">
+              <p className="text-on-surface-variant/70 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 text-justify">
                 Sky Touch Investment & Consultant Pvt. Ltd. is a Nepal-based private company established on 2066-03-14 B.S. and registered under Reg. No. 63835. Located in Kathmandu, Bagmati Province, the company focuses on investment and consultancy services, providing professional guidance and strategic solutions for business growth and financial development in Nepal. With years of industry presence, the company aims to deliver reliable consulting services while supporting clients in achieving long-term business success.
               </p>
               <Link to="/about" className="btn-primary inline-flex mx-auto lg:mx-0">
