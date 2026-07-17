@@ -36,12 +36,11 @@ const topDirectors = boardMembers.slice(0, 3)
 
 const imperialBoardMembers = [
   {
-    name: 'Er. SUGAM CHHETRI',
+    name: 'SUGAM CHHETRI',
     role: 'Computer Engineer | Software Developer',
     image: '/IMG_4126.JPG',
     bio: 'Experienced in building modern, responsive websites and software applications. Currently working at SkyTouch Investment Consultant Pvt. Ltd., leading IT operations, software development, website management, and digital strategy. Skilled in full-stack development, UI/UX design, and performance optimization, focused on delivering scalable, secure, and business-driven digital solutions.',
     focus: 'Full-stack development and IT leadership',
-    necRegNo: '99705',
     facebookUrl: 'https://facebook.com/scxetri',
     linkedinUrl: 'https://www.linkedin.com/in/scxetri/',
     websiteUrl: 'https://www.sugamchhetri.com.np',
