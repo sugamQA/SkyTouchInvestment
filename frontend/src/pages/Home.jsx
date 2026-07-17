@@ -11,9 +11,9 @@ import { AnimatedTestimonials } from '../components/ui/testimonial'
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
 
 const testimonials = [
-  { quote: 'Patient capital that allowed us to build quality infrastructure without short-term pressure.', name: 'Dr. Ramesh Sharma', designation: 'Healthcare', src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face' },
-  { quote: 'Essential partners during challenging times. Their construction sector expertise made the difference.', name: 'Bikash Thapa', designation: 'Energy', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face' },
-  { quote: 'Most professional partnership in my 25-year career. They brought governance best practices and strategic discipline.', name: 'Rajiv Shrestha', designation: 'Real Estate', src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'Patient capital that allowed us to build quality infrastructure without short-term pressure.', name: 'Dr. Ramesh Sharma', designation: 'Healthcare', src: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'Essential partners during challenging times. Their construction sector expertise made the difference.', name: 'Bikash Thapa', designation: 'Energy', src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'Most professional partnership in my 25-year career. They brought governance best practices and strategic discipline.', name: 'Rajiv Shrestha', designation: 'Real Estate', src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face' },
 ]
 
 export default function Home() {
