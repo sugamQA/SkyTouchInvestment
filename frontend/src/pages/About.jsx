@@ -69,10 +69,10 @@ export default function About() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { target: 150, suffix: '+', label: 'Projects', color: 'text-primary' },
-              { target: 100, suffix: '%', label: 'ISO Certified', color: 'text-tertiary' },
-              { target: 30, suffix: '+', label: 'Expert Team', color: 'text-primary' },
-              { target: 15, suffix: '+', label: 'Years Experience', color: 'text-tertiary' },
+              { target: 15, suffix: '+', label: 'Years Experience', color: 'text-primary' },
+              { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-tertiary' },
+              { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-primary' },
+              { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-tertiary' },
             ].map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 0.1}>
                 <p className={`text-4xl md:text-5xl font-bold font-display ${s.color}`}>
@@ -397,7 +397,7 @@ export default function About() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
                   { value: '15+', label: 'Years Experience' },
-                  { value: '150+', label: 'Projects Completed' },
+                  { value: '500+', label: 'Projects Completed' },
                   { value: '98%', label: 'Client Satisfaction' },
                   { value: '200+', label: 'Trusted Partners' },
                 ].map((stat) => (
