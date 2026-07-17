@@ -320,38 +320,31 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK - THE SKYTOUCH PROTOCOL */}
-      <section className="py-24 relative overflow-hidden" id="process" style={{ contentVisibility: 'auto' }}>
-        <div className="absolute inset-0 bg-black" />
-
-        <div
-          className="absolute inset-0 pointer-events-none z-0"
-          ref={meshRef}
-          style={{ background: 'radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(14,165,233,0.12) 0%, rgba(0,0,0,1) 70%)' }}
-        />
+      <section className="py-24 relative overflow-hidden bg-white" id="process" style={{ contentVisibility: 'auto' }}>
 
         <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
           <ScrollReveal className="text-center mb-12 md:mb-16">
-            <span className="section-label text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">How We Work</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 min-h-[1.2em] drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]">
+            <span className="section-label">How We Work</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 min-h-[1.2em]">
               The{' '}
               <Typewriter
                 text={["SkyTouch Protocol", "Investment Protocol", "Wealth Protocol"]}
                 speed={80}
                 cursor="|"
                 loop={true}
-                className="inline-block bg-gradient-to-r from-sky-400 via-blue-500 to-orange-400 bg-clip-text text-transparent"
+                className="inline-block text-primary"
               />
             </h2>
-            <p className="text-white/80 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] max-w-xl mx-auto">
+            <p className="text-on-surface-variant/70 max-w-xl mx-auto">
               A six-stage lifecycle designed for institutional-grade execution and long-term wealth compounding.
             </p>
           </ScrollReveal>
 
           <div className="relative max-w-[800px] mx-auto" ref={timelineRef}>
             <div className="absolute left-1/2 -translate-x-1/2 w-[1px] hidden md:block overflow-hidden" ref={timelineLineBgRef}>
-              <div className="absolute inset-0 bg-white/[0.05]" />
+              <div className="absolute inset-0 bg-slate-200" />
               <div className="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-tertiary transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
             </div>
 
@@ -364,63 +357,27 @@ export default function Home() {
                   <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
                     <div
                       className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}
-                      onMouseMove={(e) => {
-                        const rect = e.currentTarget.getBoundingClientRect()
-                        e.currentTarget.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100).toFixed(1))
-                        e.currentTarget.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100).toFixed(1))
-                      }}
                     >
-                      {/* Reflection sheen */}
-                      <div className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                        style={{
-                          background: 'radial-gradient(circle at var(--mx,50)px var(--my,50)px, rgba(255,255,255,0.12) 0%, transparent 60%)',
-                        }} />
-                      {/* Decorative frame */}
-                      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="relative rounded-2xl p-6 md:p-8 border border-white/[0.06] hover:border-primary/30 transition-all duration-500 overflow-hidden bg-gradient-to-br from-orange-900/60 via-orange-950/50 to-red-900/30 text-center">
-                        {/* Reflection overlay */}
-                        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          style={{
-                            background: 'radial-gradient(circle at var(--mx,50)px var(--my,50)px, rgba(14,165,233,0.08) 0%, rgba(239,68,68,0.03) 30%, transparent 70%)',
-                          }} />
-                        {/* Corner accents */}
-                        <div className="absolute top-0 left-0 w-12 h-12">
-                          <div className="absolute top-0 left-0 w-8 h-[1px] bg-gradient-to-r from-blue-500/60 to-transparent" />
-                          <div className="absolute top-0 left-0 w-[1px] h-8 bg-gradient-to-b from-red-500/40 to-transparent" />
-                        </div>
-                        <div className="absolute top-0 right-0 w-12 h-12">
-                          <div className="absolute top-0 right-0 w-8 h-[1px] bg-gradient-to-l from-red-500/40 to-transparent" />
-                          <div className="absolute top-0 right-0 w-[1px] h-8 bg-gradient-to-b from-blue-500/60 to-transparent" />
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-12 h-12">
-                          <div className="absolute bottom-0 left-0 w-8 h-[1px] bg-gradient-to-r from-red-500/40 to-transparent" />
-                          <div className="absolute bottom-0 left-0 w-[1px] h-8 bg-gradient-to-t from-blue-500/60 to-transparent" />
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-12 h-12">
-                          <div className="absolute bottom-0 right-0 w-8 h-[1px] bg-gradient-to-l from-blue-500/60 to-transparent" />
-                          <div className="absolute bottom-0 right-0 w-[1px] h-8 bg-gradient-to-t from-red-500/40 to-transparent" />
-                        </div>
+                      <div className="relative rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-primary/30 transition-all duration-500 overflow-hidden bg-white shadow-[0_16px_50px_rgba(15,23,42,0.06)] text-center">
                         {/* Step number badge */}
                         <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
-                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-white bg-gradient-to-r from-blue-500/30 to-red-500/20 rounded-full border border-blue-400/30 drop-shadow-[0_0_8px_rgba(14,165,233,0.4)]">
+                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-primary bg-primary/10 rounded-full border border-primary/20">
                             STEP {String(i + 1).padStart(2, '0')}
                           </span>
-                          <span className="h-[1px] w-6 bg-gradient-to-r from-blue-500/60 via-red-500/30 to-transparent" />
+                          <span className="h-[1px] w-6 bg-gradient-to-r from-primary/60 to-transparent" />
                         </div>
-                        <h3 className="font-display text-xl md:text-[26px] font-semibold text-white mb-3 relative drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]">{step.title}</h3>
-                        <p className="font-body text-sm md:text-base text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)] leading-relaxed relative">{step.desc}</p>
+                        <h3 className="font-display text-xl md:text-[26px] font-semibold text-slate-900 mb-3">{step.title}</h3>
+                        <p className="font-body text-sm md:text-base text-slate-600 leading-relaxed relative">{step.desc}</p>
                       </div>
                     </div>
                   </div>
                    <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
                     <div className="relative">
                       {/* Icon container glow */}
-                      <div className="absolute inset-0 rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-500 bg-gradient-to-br from-blue-500/30 to-red-500/20" />
+                      <div className="absolute inset-0 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 bg-gradient-to-br from-primary/30 to-secondary/20" />
                       {/* Animated ring */}
-                      <div className="absolute -inset-3 rounded-full border border-dashed border-white/10 group-hover:animate-[spin_8s_linear_infinite] transition-all duration-500"
-                        style={{ borderColor: 'rgba(14,165,233,0.3)' }} />
-                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-gradient-to-br from-[#0f1f2f] to-[#0a1520] border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110`}
-                        style={{ boxShadow: `0 0 20px ${c.border === 'border-tertiary' ? 'rgba(249,115,22,0.4)' : 'rgba(14,165,233,0.4)'}` }}>
+                      <div className="absolute -inset-3 rounded-full border border-dashed border-slate-200 group-hover:animate-[spin_8s_linear_infinite] transition-all duration-500" />
+                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg`}>
                         <span className={`material-symbols-outlined text-[36px] ${c.icon} group-hover:scale-110 transition-transform duration-300`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
                       </div>
                     </div>
