@@ -165,10 +165,10 @@ export default function About() {
                       <div className="grid grid-rows-2 gap-3">
                         <div className="rounded-[1.5rem] bg-white/8 border border-white/10 flex items-center justify-center p-5">
                           <img
-                            src="/OKBX1L0.jpg"
-                            alt="Investment illustration"
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+                            alt="Investment analytics"
                             loading="lazy"
-                            className="h-full w-full max-h-24 object-cover rounded-xl"
+                            className="h-full w-full object-cover rounded-xl"
                           />
                         </div>
                         <div className="rounded-[1.5rem] bg-gradient-to-br from-primary/20 to-tertiary/20 border border-white/10 p-5 flex items-center justify-between gap-4">
@@ -238,6 +238,34 @@ export default function About() {
                       <div className="rounded-2xl bg-white/8 border border-white/10 p-4">
                         <p className="text-2xl font-bold text-orange-300">04</p>
                         <p className="text-sm text-white/70 mt-2">Long-term value</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Key Metrics Card */}
+                  <div className="rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-primary/10 to-tertiary/10 p-8 backdrop-blur-xl">
+                    <p className="text-xs tracking-[0.28em] uppercase text-white/50 mb-4">Performance Metrics</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70 text-sm">Portfolio IRR</span>
+                        <span className="text-2xl font-bold text-sky-300">18.5%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-sky-400 to-primary h-2 rounded-full" style={{width: '85%'}} />
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70 text-sm">Client Retention</span>
+                        <span className="text-2xl font-bold text-orange-300">98%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-orange-400 to-tertiary h-2 rounded-full" style={{width: '98%'}} />
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70 text-sm">Projects Delivered</span>
+                        <span className="text-2xl font-bold text-sky-300">150+</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-sky-400 to-primary h-2 rounded-full" style={{width: '92%'}} />
                       </div>
                     </div>
                   </div>
@@ -318,6 +346,63 @@ export default function About() {
       </section>
 
       {/* Board of Directors section removed */}
+
+      {/* WHY CHOOSE SKYTOUCH */}
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+          <ScrollReveal className="text-center mb-16">
+            <span className="section-label text-center text-white/60">The SkyTouch Difference</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
+              Why Choose <span className="gold-accent">SkyTouch</span>
+            </h2>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: '🎯', title: 'Precision Targeting', desc: 'Data-driven investment selection with 95% success rate across sectors.' },
+              { icon: '🤝', title: 'Trusted Partnerships', desc: 'Long-term relationships built on transparency, integrity, and mutual growth.' },
+              { icon: '📈', title: 'Proven Returns', desc: 'Consistent 15-20% IRR with risk-adjusted portfolio strategies.' },
+              { icon: '🌍', title: 'Global Perspective', desc: 'Local expertise combined with international investment standards.' },
+            ].map((feature, i) => (
+              <ScrollReveal key={feature.title} delay={i * 0.1}>
+                <div className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 hover:border-primary/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div className="relative z-10">
+                    <span className="text-3xl mb-4 block">{feature.icon}</span>
+                    <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{feature.desc}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-20 bg-gradient-to-r from-primary to-primary/80">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 text-center">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+              Ready to Invest in Nepal's Future?
+            </h2>
+            <p className="text-white/80 max-w-2xl mx-auto mb-8 text-lg">
+              Partner with SkyTouch for strategic investment opportunities that deliver sustainable growth and exceptional returns.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-slate-100 transition-colors duration-300">
+                <span>Schedule Consultation</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a href="/investment" className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-primary transition-all duration-300">
+                <span>View Portfolio</span>
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </div>
   )
 }
