@@ -6,37 +6,37 @@ const posts = [
   {
     title: 'Agriculture Sector Transformation Through Strategic Investment',
     date: 'January 23, 2026',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2026/01/Agri-food-System-in-Nepal-Cover-e1760003757945-1024x614-1.webp',
+    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=500&fit=crop',
     excerpt: 'Agriculture remains the backbone of Nepal\'s economy, employing over 60% of the population and offering significant investment opportunities.',
   },
   {
     title: 'Tourism & Hospitality Investment in Nepal',
     date: 'January 23, 2026',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2026/01/Tourism-7.jpg.bv_.webp',
+    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=500&fit=crop',
     excerpt: 'Nepal\'s tourism sector is experiencing a remarkable resurgence. With world-class trekking, cultural heritage, and emerging luxury destinations.',
   },
   {
     title: 'The Strategic Value of Patient Capital in Nepal Growing Economy',
     date: 'January 23, 2026',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2025/12/dynamic-data-visualization-3d-1024x700.jpg',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
     excerpt: 'In Nepal\'s rapidly evolving investment landscape, the distinction between short-term speculation and long-term value creation has never been more important.',
   },
   {
     title: 'Healthcare Investment: Meeting Critical Demand',
     date: 'December 25, 2025',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2025/12/group-surgeons-doing-surgery-hospital-operating-theater-medical-team-doing-critical-operation-group-surgeons-operating-room-with-surgery-equipment-modern-medical-background-1024x683.jpg',
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=500&fit=crop',
     excerpt: 'Nepal\'s healthcare sector stands at a critical juncture. Growing middle class with rising health awareness is driving unprecedented demand.',
   },
   {
     title: 'Capital Markets Strategy for Long-Term Investors',
     date: 'December 25, 2025',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2025/12/stock-market-exchange-economics-investment-graph-1024x746.jpg',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop',
     excerpt: 'Nepal\'s capital markets have matured significantly over the past decade, offering investors liquid access to the country\'s growth story.',
   },
   {
     title: 'The Power of Diversification | Investment Strategy',
     date: 'December 25, 2025',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2025/12/Energy-Solar-Hydro-6.jpg.bv_.webp',
+    image: 'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=800&h=500&fit=crop',
     excerpt: 'In today\'s dynamic investment landscape, the age-old principle of "not putting all eggs in one basket" remains more relevant than ever.',
   },
 ]
