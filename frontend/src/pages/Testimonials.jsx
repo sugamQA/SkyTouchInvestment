@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
+import { Star } from 'lucide-react'
 
 const reviews = [
   {
@@ -65,7 +66,7 @@ export default function Testimonials() {
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, s) => (
-                    <span key={s} className="text-tertiary text-sm">★</span>
+                    <Star key={s} size={14} className="text-tertiary fill-tertiary" />
                   ))}
                 </div>
                 <p className="text-sm text-on-surface-variant/70 leading-relaxed italic mb-6 flex-1">

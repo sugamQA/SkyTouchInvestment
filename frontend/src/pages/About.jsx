@@ -3,12 +3,13 @@ import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularTestimonials from '../components/ui/circular-testimonials'
 import { InteractiveGlobe } from '../components/ui/interactive-globe'
+import { Briefcase, Landmark, Users, Award, Target, Handshake, TrendingUp, Globe, BarChart3, Building2 } from 'lucide-react'
 
 const approach = [
-  { icon: '📊', title: 'Rigorous Analysis', desc: 'We conduct comprehensive due diligence on every potential investment opportunity.' },
-  { icon: '🤝', title: 'Active Partnership', desc: 'We engage as true partners through board participation, governance oversight, and strategic guidance.' },
-  { icon: '🎯', title: 'Strategic Diversification', desc: 'Our portfolio maintains balanced exposure across private equity, real estate, capital markets, and hydropower.' },
-  { icon: '🏛️', title: 'Multi-generational', desc: 'We invest with a long-term perspective, building value that lasts for generations.' },
+  { icon: BarChart3, title: 'Rigorous Analysis', desc: 'We conduct comprehensive due diligence on every potential investment opportunity.', color: 'text-primary' },
+  { icon: Handshake, title: 'Active Partnership', desc: 'We engage as true partners through board participation, governance oversight, and strategic guidance.', color: 'text-secondary' },
+  { icon: Target, title: 'Strategic Diversification', desc: 'Our portfolio maintains balanced exposure across private equity, real estate, capital markets, and hydropower.', color: 'text-tertiary' },
+  { icon: Building2, title: 'Multi-generational', desc: 'We invest with a long-term perspective, building value that lasts for generations.', color: 'text-primary' },
 ]
 
 const approachTestimonials = [
@@ -67,17 +68,21 @@ export default function About() {
       {/* STATS */}
       <section className="py-16 bg-[#0c1929]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-primary' },
-              { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-tertiary' },
-              { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-primary' },
+              { icon: Briefcase, label: 'Sectors Invested', desc: 'Across diverse industries', color: 'text-primary' },
+              { icon: Landmark, label: 'NPR 5B+ AUM', desc: 'Assets under management', color: 'text-tertiary' },
+              { icon: Users, label: '50+ Team', desc: 'Expert professionals', color: 'text-primary' },
+              { icon: Award, label: 'CARE Rated', desc: 'Bank facilities rated', color: 'text-tertiary' },
             ].map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 0.1}>
-                <p className={`text-4xl md:text-5xl font-bold font-display ${s.color}`}>
-                  <AnimatedCounter target={s.target} suffix={s.suffix} />
-                </p>
-                <p className="text-xs tracking-wider text-white/40 mt-2 uppercase">{s.label}</p>
+                <div className="flex flex-col items-center">
+                  <div className={`w-14 h-14 mb-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center ${s.color}`}>
+                    <s.icon size={28} />
+                  </div>
+                  <p className="text-lg font-bold text-white">{s.label}</p>
+                  <p className="text-xs text-white/40 mt-1">{s.desc}</p>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -364,17 +369,17 @@ export default function About() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {[
-              { icon: '🎯', title: 'Precision Targeting', desc: 'Data-driven investment selection with 95% success rate across sectors.', stat: '95%', statLabel: 'Success Rate' },
-              { icon: '🤝', title: 'Trusted Partnerships', desc: 'Long-term relationships built on transparency, integrity, and mutual growth.', stat: '500+', statLabel: 'Partners' },
-              { icon: '📈', title: 'Proven Returns', desc: 'Consistent 15-20% IRR with risk-adjusted portfolio strategies.', stat: '18.5%', statLabel: 'Avg. IRR' },
-              { icon: '🌍', title: 'Global Perspective', desc: 'Local expertise combined with international investment standards.', stat: '15+', statLabel: 'Countries' },
+              { icon: Target, title: 'Precision Targeting', desc: 'Data-driven investment selection with high success rate across sectors.', stat: '95%', statLabel: 'Success Rate', color: 'text-primary' },
+              { icon: Handshake, title: 'Trusted Partnerships', desc: 'Long-term relationships built on transparency, integrity, and mutual growth.', stat: '500+', statLabel: 'Partners', color: 'text-secondary' },
+              { icon: TrendingUp, title: 'Proven Returns', desc: 'Consistent strong IRR with risk-adjusted portfolio strategies.', stat: '18.5%', statLabel: 'Avg. IRR', color: 'text-tertiary' },
+              { icon: Globe, title: 'Global Perspective', desc: 'Local expertise combined with international investment standards.', stat: '10+', statLabel: 'Sectors', color: 'text-primary' },
             ].map((feature, i) => (
               <ScrollReveal key={feature.title} delay={i * 0.1}>
                 <div className="group relative h-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-8 backdrop-blur-xl hover:border-primary/40 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(14,165,233,0.15)]">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-tertiary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                      <span className="text-2xl">{feature.icon}</span>
+                      <feature.icon size={24} className={feature.color} />
                     </div>
                     
                     <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
@@ -393,15 +398,21 @@ export default function About() {
           {/* Bottom Stats Bar */}
           <ScrollReveal delay={0.3}>
             <div className="mt-12 rounded-3xl bg-white/[0.03] border border-white/10 p-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
-                  { value: '500+', label: 'Projects Completed' },
-                  { value: '98%', label: 'Client Satisfaction' },
-                  { value: '200+', label: 'Trusted Partners' },
+                  { icon: Briefcase, value: '10+', label: 'Sectors' },
+                  { icon: Landmark, value: 'NPR 5B+', label: 'AUM' },
+                  { icon: Users, value: '50+', label: 'Team' },
+                  { icon: Award, value: 'CARE', label: 'Rated' },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">{stat.value}</p>
-                    <p className="text-xs text-white/40 mt-2 uppercase tracking-wider">{stat.label}</p>
+                  <div key={stat.label} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary">
+                      <stat.icon size={20} />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-lg font-bold text-white">{stat.value}</p>
+                      <p className="text-xs text-white/40">{stat.label}</p>
+                    </div>
                   </div>
                 ))}
               </div>

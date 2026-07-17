@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import DirectorHoverCard from '../components/ui/director-hover-card'
+import { Users, BarChart3, Banknote, Star, Scale, Trophy, Lightbulb, Eye } from 'lucide-react'
 
 const boardMembers = [
   {
@@ -110,14 +111,16 @@ export default function Boards() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20"
           >
             {[
-              { number: '3', label: 'Board Members', icon: '👥' },
-              { number: '90+', label: 'Years Combined', icon: '📊' },
-              { number: '500M+', label: 'Deployed Capital', icon: '💰' },
-              { number: '98%', label: 'Success Rate', icon: '⭐' },
+              { number: '3', label: 'Board Members', icon: Users, color: 'text-primary' },
+              { number: '90+', label: 'Years Combined', icon: BarChart3, color: 'text-secondary' },
+              { number: '500M+', label: 'Deployed Capital', icon: Banknote, color: 'text-tertiary' },
+              { number: '98%', label: 'Success Rate', icon: Star, color: 'text-primary' },
             ].map((stat) => (
               <motion.div key={stat.label} variants={fadeUp} whileHover={{ y: -4, scale: 1.01 }} transition={{ duration: 0.25 }}>
                 <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-[0_18px_45px_rgba(15,23,42,0.06)] hover:border-primary/30 transition-all duration-300 group h-full">
-                  <p className="text-2xl mb-2 group-hover:scale-110 transition-transform">{stat.icon}</p>
+                  <div className={`w-12 h-12 mb-3 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform ${stat.color}`}>
+                    <stat.icon size={24} />
+                  </div>
                   <p className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">{stat.number}</p>
                   <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wide">{stat.label}</p>
                 </div>
@@ -211,22 +214,26 @@ export default function Boards() {
               {
                 title: 'Integrity',
                 desc: 'We maintain the highest ethical standards in all our dealings and transactions.',
-                icon: '⚖️',
+                icon: Scale,
+                color: 'text-primary',
               },
               {
                 title: 'Excellence',
                 desc: 'We pursue perfection in portfolio management and client service delivery.',
-                icon: '🏆',
+                icon: Trophy,
+                color: 'text-tertiary',
               },
               {
                 title: 'Innovation',
                 desc: 'We embrace new opportunities and modern strategies in investment.',
-                icon: '💡',
+                icon: Lightbulb,
+                color: 'text-secondary',
               },
               {
                 title: 'Transparency',
                 desc: 'We communicate openly and honestly with all stakeholders.',
-                icon: '👁️',
+                icon: Eye,
+                color: 'text-primary',
               },
             ].map((value) => (
               <motion.div
@@ -236,7 +243,9 @@ export default function Boards() {
                 transition={{ duration: 0.25 }}
                 className="bg-white rounded-2xl p-8 border border-slate-200 shadow-[0_18px_45px_rgba(15,23,42,0.05)] hover:border-primary/30 group transition-all duration-300"
               >
-                <p className="text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">{value.icon}</p>
+                <div className={`w-14 h-14 mb-4 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform ${value.color}`}>
+                  <value.icon size={26} />
+                </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">{value.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">{value.desc}</p>
               </motion.div>

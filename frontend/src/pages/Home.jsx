@@ -7,6 +7,7 @@ import { lazy, Suspense, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from '../components/ui/typewriter-text'
 import { AnimatedTestimonials } from '../components/ui/testimonial'
+import { Briefcase, Landmark, Users, Award } from 'lucide-react'
 
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
 
@@ -24,9 +25,10 @@ export default function Home() {
   const stepRefs = useRef([])
 
   const stats = [
-    { target: 500, suffix: '+', label: 'Projects Completed', color: 'text-primary' },
-    { target: 98, suffix: '%', label: 'Client Satisfaction', color: 'text-secondary' },
-    { target: 200, suffix: '+', label: 'Trusted Partners', color: 'text-tertiary' },
+    { icon: Briefcase, label: 'Sectors Invested', desc: 'Across diverse industries', color: 'text-primary' },
+    { icon: Landmark, label: 'NPR 5B+ AUM', desc: 'Assets under management', color: 'text-secondary' },
+    { icon: Users, label: '50+ Team', desc: 'Expert professionals', color: 'text-tertiary' },
+    { icon: Award, label: 'CARE Rated', desc: 'Bank facilities rated', color: 'text-primary' },
   ]
 
   const protocolSteps = [
@@ -176,11 +178,11 @@ export default function Home() {
             >
               {[...stats, ...stats].map((stat, i) => (
                 <ScrollReveal key={`${stat.label}-${i}`} delay={(i % stats.length) * 0.08} className="text-center shrink-0 min-w-[180px] md:min-w-[220px] px-2 md:px-4">
-                  <p className={`text-4xl md:text-5xl font-bold font-display ${stat.color}`}>
-                    <AnimatedCounter target={stat.target} suffix={stat.suffix} />
-                  </p>
-                  <p className="text-xs tracking-wider text-outline mt-3 uppercase">{stat.label}</p>
-                  <div className={`w-10 h-0.5 mx-auto mt-4 rounded-full ${stat.color.replace('text', 'bg')}/40`} />
+                  <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-white/10 flex items-center justify-center ${stat.color}`}>
+                    <stat.icon size={24} />
+                  </div>
+                  <p className="text-lg font-bold text-white">{stat.label}</p>
+                  <p className="text-xs text-white/40 mt-1">{stat.desc}</p>
                 </ScrollReveal>
               ))}
             </div>
@@ -432,7 +434,7 @@ export default function Home() {
       </section>
 
       {/* WHY US */}
-      <section className="py-24" style={{ contentVisibility: 'auto' }}>
+      <section className="py-24 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]" style={{ contentVisibility: 'auto' }}>
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
@@ -445,10 +447,10 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal delay={0.1} className="text-center lg:text-left">
               <span className="section-label inline-block">Why SkyTouch</span>
-              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-                About our <span className="gold-accent">company</span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+                About our <span className="bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">company</span>
               </h2>
-              <p className="text-on-surface-variant/70 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 text-justify">
+              <p className="text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 text-justify">
                 Sky Touch Investment & Consultant Pvt. Ltd. is a Nepal-based private company established on 2066-03-14 B.S. and registered under Reg. No. 63835. Located in Kathmandu, Bagmati Province, the company focuses on investment and consultancy services, providing professional guidance and strategic solutions for business growth and financial development in Nepal. With years of industry presence, the company aims to deliver reliable consulting services while supporting clients in achieving long-term business success.
               </p>
               <Link to="/about" className="btn-primary inline-flex mx-auto lg:mx-0">

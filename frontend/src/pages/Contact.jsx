@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
+import { CheckCircle, MapPin, Mail, Phone, Clock } from 'lucide-react'
 
 const contactBgImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&fit=crop&auto=format"
 
@@ -99,7 +100,7 @@ export default function Contact() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center"
                   >
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-2xl">✓</div>
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600"><CheckCircle size={28} /></div>
                     <h3 className="text-xl font-semibold text-slate-900 mb-2">Message received</h3>
                     <p className="text-sm text-slate-600">Thanks for reaching out. We will contact you shortly.</p>
                   </motion.div>
@@ -188,32 +189,32 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
               {
-                icon: '📍',
+                icon: MapPin,
                 title: 'Head Office',
                 text: 'Panipokhari, Kathmandu, Nepal',
               },
               {
-                icon: '📧',
+                icon: Mail,
                 title: 'Email Us',
                 text: 'info@skytouch.com.np',
                 link: 'mailto:info@skytouch.com.np',
               },
               {
-                icon: '📞',
+                icon: Phone,
                 title: 'Call Us',
                 text: '01-4XXXXXX',
                 link: 'tel:+977-1-4XXXXXX',
               },
               {
-                icon: '🕐',
+                icon: Clock,
                 title: 'Office Hours',
                 text: 'Sunday - Friday: 9:00 AM - 5:00 PM',
               },
             ].map((item, index) => (
               <ScrollReveal key={item.title} delay={index * 0.08}>
                 <div className="group h-full rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(14,165,233,0.10)]">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-2xl">
-                    {item.icon}
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <item.icon size={22} />
                   </div>
                   <h3 className="text-lg font-display font-semibold mb-2 text-slate-900">{item.title}</h3>
                   {item.link ? (
@@ -272,8 +273,8 @@ export default function Contact() {
                 {/* Floating info card over the map */}
                 <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-72 z-10 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-xl p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
                   <div className="flex items-start gap-3">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-lg">
-                      📍
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <MapPin size={18} />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-slate-900">Sky Touch Investment</p>
