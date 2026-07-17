@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -24,9 +26,10 @@ jobs:
         working-directory: frontend
         run: npm run build
 
-      - name: Deploy to Cloudflare Pages
+      - name: Upload to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy frontend/dist --project-name=skytouch-investment
+          command: pages deploy ./dist --project-name=skytouch-investment --branch=main
+          workingDirectory: frontend
