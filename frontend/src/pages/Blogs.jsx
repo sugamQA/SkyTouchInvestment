@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import { CardStackBlogsDemo } from '../components/blocks/card-stack-blogs-demo'
 
@@ -8,7 +9,7 @@ const posts = [
     date: 'January 23, 2026',
     image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=500&fit=crop',
     excerpt: 'Agriculture remains the backbone of Nepal\'s economy, employing over 60% of the population and offering significant investment opportunities.',
-    url: 'https://imperialholdings.com.np/agriculture-sector-transformation/',
+    slug: 'agriculture-sector-transformation',
     category: 'Agriculture',
     readTime: '5 min read',
   },
@@ -17,7 +18,7 @@ const posts = [
     date: 'January 23, 2026',
     image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=500&fit=crop',
     excerpt: 'Nepal\'s tourism sector is experiencing a remarkable resurgence. With world-class trekking, cultural heritage, and emerging luxury destinations.',
-    url: 'https://imperialholdings.com.np/tourism-hospitality-investment/',
+    slug: 'tourism-hospitality-investment',
     category: 'Tourism',
     readTime: '6 min read',
   },
@@ -26,7 +27,7 @@ const posts = [
     date: 'January 23, 2026',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
     excerpt: 'In Nepal\'s rapidly evolving investment landscape, the distinction between short-term speculation and long-term value creation has never been more important.',
-    url: 'https://imperialholdings.com.np/patient-capital-nepal/',
+    slug: 'patient-capital-nepal',
     category: 'Investment',
     readTime: '7 min read',
   },
@@ -35,7 +36,7 @@ const posts = [
     date: 'December 25, 2025',
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=500&fit=crop',
     excerpt: 'Nepal\'s healthcare sector stands at a critical juncture. Growing middle class with rising health awareness is driving unprecedented demand.',
-    url: 'https://imperialholdings.com.np/healthcare-investment/',
+    slug: 'healthcare-investment',
     category: 'Healthcare',
     readTime: '6 min read',
   },
@@ -44,7 +45,7 @@ const posts = [
     date: 'December 25, 2025',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop',
     excerpt: 'Nepal\'s capital markets have matured significantly over the past decade, offering investors liquid access to the country\'s growth story.',
-    url: 'https://imperialholdings.com.np/capital-markets-strategy/',
+    slug: 'capital-markets-strategy',
     category: 'Capital Markets',
     readTime: '5 min read',
   },
@@ -53,7 +54,7 @@ const posts = [
     date: 'December 25, 2025',
     image: 'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=800&h=500&fit=crop',
     excerpt: 'In today\'s dynamic investment landscape, the age-old principle of "not putting all eggs in one basket" remains more relevant than ever.',
-    url: 'https://imperialholdings.com.np/power-of-diversification/',
+    slug: 'power-of-diversification',
     category: 'Strategy',
     readTime: '4 min read',
   },
@@ -139,17 +140,15 @@ export default function Blogs() {
                   
                   {/* Read More Button */}
                   <div className="pt-4 border-t border-slate-100">
-                    <a 
-                      href={post.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <Link 
+                      to={`/blogs/${post.slug}`}
                       className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors duration-300"
                     >
                       <span>Read Article</span>
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.article>

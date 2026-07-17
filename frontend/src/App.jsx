@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Investment from './pages/Investment'
 import Blogs from './pages/Blogs'
+import BlogDetail from './pages/BlogDetail'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
 import Notices from './pages/Notices'
@@ -47,6 +48,7 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/investment" element={<Investment />} />
                 <Route path="/blogs" element={<Blogs />} />
+                <Route path="/blogs/:id" element={<BlogDetail />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/notices" element={<Notices />} />
