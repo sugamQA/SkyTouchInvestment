@@ -33,6 +33,7 @@ export default function DirectorHoverCard({
   image,
   bio,
   focus = 'Strategic governance',
+  necRegNo,
   facebookUrl,
   linkedinUrl,
   websiteUrl,
@@ -84,6 +85,11 @@ export default function DirectorHoverCard({
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500/80">
                 {role}
               </p>
+              {necRegNo && (
+                <p className="text-xs font-semibold text-slate-500 mt-1">
+                  NEC Reg. No: {necRegNo}
+                </p>
+              )}
               <p className="text-sm text-slate-600 mt-4 leading-relaxed line-clamp-3">
                 {bio}
               </p>
@@ -129,6 +135,11 @@ export default function DirectorHoverCard({
                       <p className="text-xs tracking-wider text-orange-500 font-semibold uppercase mt-2">
                         {role}
                       </p>
+                      {necRegNo && (
+                        <p className="text-xs font-semibold text-slate-500 mt-1">
+                          NEC Reg. No: {necRegNo}
+                        </p>
+                      )}
                     </div>
                     <span className="absolute right-0 top-0 text-xs font-semibold text-slate-400">01</span>
                   </div>
