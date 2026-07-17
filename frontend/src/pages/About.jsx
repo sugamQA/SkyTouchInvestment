@@ -165,8 +165,8 @@ export default function About() {
                       <div className="grid grid-rows-2 gap-3">
                         <div className="rounded-[1.5rem] bg-white/8 border border-white/10 flex items-center justify-center p-5">
                           <img
-                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
-                            alt="Investment analytics"
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+                            alt="Investment analytics dashboard"
                             loading="lazy"
                             className="h-full w-full object-cover rounded-xl"
                           />
