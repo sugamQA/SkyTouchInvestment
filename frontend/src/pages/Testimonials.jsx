@@ -14,7 +14,7 @@ const reviews = [
   },
   {
     text: "Hydropower projects require investors who understand the sector's complexities; long development timelines, regulatory navigation, construction risks. Imperial Holding demonstrated this understanding from day one.",
-    name: 'Bikash Thapa',
+    name: 'Albert Hurb Solar',
     role: 'Energy Sector',
   },
   {
