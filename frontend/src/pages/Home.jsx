@@ -177,12 +177,12 @@ export default function Home() {
               style={{ animation: 'partnerMarquee 24s linear infinite' }}
             >
               {[...stats, ...stats].map((stat, i) => (
-                <ScrollReveal key={`${stat.label}-${i}`} delay={(i % stats.length) * 0.08} className="text-center shrink-0 min-w-[180px] md:min-w-[220px] px-2 md:px-4">
-                  <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-white/10 flex items-center justify-center ${stat.color}`}>
-                    <stat.icon size={24} />
+                <ScrollReveal key={`${stat.label}-${i}`} delay={(i % stats.length) * 0.08} className="text-center shrink-0 min-w-[200px] md:min-w-[260px] px-4 md:px-6">
+                  <div className={`w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center ${stat.color} shadow-[0_0_30px_rgba(14,165,233,0.15)]`}>
+                    <stat.icon size={40} strokeWidth={1.5} className="md:w-12 md:h-12" />
                   </div>
-                  <p className="text-lg font-bold text-white">{stat.label}</p>
-                  <p className="text-xs text-white/40 mt-1">{stat.desc}</p>
+                  <p className="text-xl md:text-2xl font-bold text-slate-900">{stat.label}</p>
+                  <p className="text-xs md:text-sm text-slate-500 mt-1">{stat.desc}</p>
                 </ScrollReveal>
               ))}
             </div>
