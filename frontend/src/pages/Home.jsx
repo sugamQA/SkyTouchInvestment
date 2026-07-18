@@ -333,15 +333,17 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
           <ScrollReveal className="text-center mb-12 md:mb-16">
             <span className="inline-block text-xs tracking-[0.3em] font-bold text-white/40 uppercase mb-4">How We Work</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 min-h-[1.2em]">
-              The{' '}
-              <Typewriter
-                text={["SkyTouch Protocol", "Investment Protocol", "Wealth Protocol"]}
-                speed={80}
-                cursor="|"
-                loop={true}
-                className="inline-block text-white/80"
-              />
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 min-h-[1.2em]">
+              <span className="bg-gradient-to-r from-orange-400 to-blue-500 bg-clip-text text-transparent">
+                The{' '}
+                <Typewriter
+                  text={["SkyTouch Protocol", "Investment Protocol", "Wealth Protocol"]}
+                  speed={80}
+                  cursor="|"
+                  loop={true}
+                  className="inline-block"
+                />
+              </span>
             </h2>
             <p className="text-white/30 max-w-xl mx-auto">
               A six-stage lifecycle designed for institutional-grade execution and long-term wealth compounding.
