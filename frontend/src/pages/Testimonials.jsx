@@ -5,7 +5,7 @@ import { Star } from 'lucide-react'
 const reviews = [
   {
     text: "SkyTouch has been more than an investor; they have been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.",
-    name: 'Dr. Bishal Acharya',
+    name: 'Dr. James Mitchell',
     role: 'Healthcare Sector',
     src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
   },
@@ -17,7 +17,7 @@ const reviews = [
   },
   {
     text: "Hydropower projects require investors who understand the sector complexities; long development timelines, regulatory navigation, construction risks. SkyTouch demonstrated this understanding from day one.",
-    name: 'Deepak Poudel',
+    name: 'Michael Torres',
     role: 'Energy Sector',
     src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
   },
@@ -35,7 +35,7 @@ const reviews = [
   },
   {
     text: "In my 25 years in business, I have worked with various financial partners, but SkyTouch stands apart in their professionalism and long-term orientation.",
-    name: 'Suman Shakya',
+    name: 'Robert Williams',
     role: 'Real Estate Sector',
     src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
   },
