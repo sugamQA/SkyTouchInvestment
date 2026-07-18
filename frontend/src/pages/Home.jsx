@@ -8,7 +8,7 @@ import { lazy, Suspense, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from '../components/ui/typewriter-text'
 import { AnimatedTestimonials } from '../components/ui/testimonial'
-import { Briefcase, Landmark, Users, Award } from 'lucide-react'
+import { Briefcase, Landmark, Users, Award, MessageCircle, BarChart3, Map, Scale, TrendingUp, LineChart } from 'lucide-react'
 
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
 
@@ -40,6 +40,15 @@ export default function Home() {
     { icon: 'auto_graph', title: 'Growth Optimization', desc: 'Continuous monitoring, active governance, and strategic rebalancing for performance enhancement.' },
     { icon: 'trending_up', title: 'Long-Term Returns', desc: 'Sustained compounding growth with transparent quarterly reporting and exit positioning for maximized liquidity.' },
   ]
+
+  const iconMap = {
+    chat: MessageCircle,
+    analytics: BarChart3,
+    map: Map,
+    gavel: Scale,
+    auto_graph: TrendingUp,
+    trending_up: LineChart,
+  }
 
   const stepColors = [
     { border: 'border-primary', shadow: 'shadow-[0_0_30px_rgba(14,165,233,0.6)]', icon: 'text-primary' },
@@ -365,8 +374,12 @@ export default function Home() {
                   <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
                     <div className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
                       <div className="relative rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-orange-400/30 transition-all duration-500 overflow-hidden bg-white text-center shadow-sm">
-                        <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center ${c.icon}`}>
-                          <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{step.icon}</span>
+                        <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center ${c.icon}`}>
+                          {iconMap[step.icon] && (
+                            <span className={c.icon}>
+                              {(() => { const Icon = iconMap[step.icon]; return <Icon size={32} strokeWidth={1.5} />; })()}
+                            </span>
+                          )}
                         </div>
                         <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
                           <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-orange-500 bg-orange-50 rounded-full border border-orange-200">
@@ -384,7 +397,11 @@ export default function Home() {
                     <div className="relative">
                       <div className={`absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 ${c.icon.replace('text', 'bg')}/30`} />
                       <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg ${c.shadow}`}>
-                        <span className={`material-symbols-outlined text-[36px] ${c.icon} group-hover:scale-110 transition-transform duration-300`} style={{ fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                        {iconMap[step.icon] && (
+                          <span className={`${c.icon} group-hover:scale-110 transition-transform duration-300`}>
+                            {(() => { const Icon = iconMap[step.icon]; return <Icon size={32} strokeWidth={1.5} />; })()}
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
