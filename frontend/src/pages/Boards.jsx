@@ -80,8 +80,8 @@ export default function Boards() {
                 <span className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/40" />
               </motion.div>
 
-              <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-[1.1]">
-                Board of <br />
+              <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+                Board of{' '}
                 <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-amber-500 bg-clip-text text-transparent">Directors</span>
               </motion.h1>
 
@@ -183,23 +183,34 @@ export default function Boards() {
                     {chairman.bio}
                   </motion.p>
 
-                  <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
                     {[
-                      { number: '30+', label: 'Years Experience', color: 'from-orange-500 to-amber-500' },
-                      { number: '4+', label: 'Sectors', color: 'from-amber-500 to-orange-600' },
-                      { number: 'MBA', label: 'Highest Degree', color: 'from-orange-600 to-amber-500' },
-                      { number: '100%', label: 'Dedication', color: 'from-orange-500 to-amber-600' },
-                    ].map((stat) => (
-                      <div key={stat.label} className="bg-gradient-to-br from-orange-50 to-white rounded-xl p-4 border border-orange-100 text-center">
-                        <p className={`text-xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>{stat.number}</p>
-                        <p className="text-[10px] uppercase tracking-[0.15em] text-slate-500 mt-1">{stat.label}</p>
+                      { number: '30+', label: 'Years Experience', gradient: 'from-orange-500 to-amber-500', border: 'border-orange-200/50', bg: 'from-orange-50', shadow: 'shadow-orange-500/20' },
+                      { number: '4+', label: 'Sectors', gradient: 'from-amber-500 to-orange-600', border: 'border-amber-200/50', bg: 'from-amber-50', shadow: 'shadow-amber-500/20' },
+                      { number: 'MBA', label: 'Highest Degree', gradient: 'from-orange-600 to-amber-500', border: 'border-orange-200/50', bg: 'from-orange-50', shadow: 'shadow-orange-500/20' },
+                      { number: '100%', label: 'Dedication', gradient: 'from-orange-500 to-amber-600', border: 'border-amber-200/50', bg: 'from-amber-50', shadow: 'shadow-amber-500/20' },
+                    ].map((stat, i) => (
+                      <div
+                        key={stat.label}
+                        className={`relative bg-gradient-to-br ${stat.bg} to-white rounded-2xl p-5 border ${stat.border} text-center group cursor-default overflow-hidden transition-all duration-300 hover:shadow-xl hover:${stat.shadow}`}
+                      >
+                        <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                        <div className="relative z-10">
+                          <p className={`text-2xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent inline-block`}>
+                            {stat.number}
+                          </p>
+                          <p className="text-[10px] uppercase tracking-[0.15em] text-slate-400 mt-2 font-semibold">{stat.label}</p>
+                        </div>
                       </div>
                     ))}
                   </motion.div>
 
-                  <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-                    {chairman.expertise.map((skill) => (
-                      <span key={skill} className="px-3 py-1.5 text-xs font-semibold rounded-full bg-orange-500/5 text-orange-500 border border-orange-500/15">
+                  <motion.div variants={fadeUp} className="flex flex-wrap gap-2.5">
+                    {chairman.expertise.map((skill, i) => (
+                      <span
+                        key={skill}
+                        className="px-4 py-2 text-xs font-semibold rounded-full bg-gradient-to-r from-orange-50 to-amber-50 text-orange-600 border border-orange-200/60 shadow-sm hover:shadow-md hover:border-orange-300 hover:bg-gradient-to-r hover:from-orange-100 hover:to-amber-100 transition-all duration-300 cursor-default"
+                      >
                         {skill}
                       </span>
                     ))}
