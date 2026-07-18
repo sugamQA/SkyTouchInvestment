@@ -183,36 +183,48 @@ export default function About() {
             </p>
           </ScrollReveal>
 
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-tertiary -translate-x-1/2" />
+          <div className="relative max-w-4xl mx-auto">
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2 hidden md:block" />
             <div className="space-y-10">
-              {milestones.map((m, i) => (
-                <ScrollReveal key={m.year} delay={i * 0.08}>
-                  <div className="relative flex items-start gap-6 md:gap-10">
-                    <div className="hidden md:flex flex-1 justify-end">
-                      <div className="w-full max-w-md text-right">
-                        <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+              {milestones.map((m, i) => {
+                const isLeft = i % 2 === 0
+                return (
+                  <ScrollReveal key={m.year} delay={i * 0.08}>
+                    <div className={`relative flex flex-col md:flex-row gap-4 items-start ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                      <div className="hidden md:block flex-1">
+                        {isLeft ? (
+                          <div className="max-w-md ml-auto text-right">
+                            <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                            <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
+                            <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                          </div>
+                        ) : null}
+                      </div>
+                      <div className="relative z-10 flex-shrink-0 mx-auto md:mx-0">
+                        <div className="w-14 h-14 rounded-full bg-slate-300 flex items-center justify-center text-slate-700 font-bold text-sm shadow-md border-[3px] border-white">
+                          {m.year.slice(2)}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="md:hidden">
+                          <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                          <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
+                          <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                        </div>
+                        <div className="hidden md:block max-w-md">
+                          {!isLeft ? (
+                            <div>
+                              <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                              <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
+                              <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                            </div>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
-                    <div className="relative z-10 flex-shrink-0">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm shadow-xl border-[3px] border-white">
-                        {m.year.slice(2)}
-                      </div>
-                    </div>
-                    <div className="flex-1 md:flex-initial md:max-w-md">
-                      <div className="md:hidden mb-2">
-                        <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
-                      </div>
-                      <div className="rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 p-6 shadow-lg">
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{m.title}</h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+                  </ScrollReveal>
+                )
+              })}
             </div>
           </div>
         </div>
