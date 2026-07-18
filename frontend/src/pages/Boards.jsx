@@ -166,7 +166,7 @@ export default function Boards() {
               </div>
 
               <div className="lg:col-span-3">
-                <motion.div variants={staggerWrap} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+                <motion.div variants={staggerWrap} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="lg:mt-28">
                   <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-4">
                     <Quote size={20} className="text-orange-400/40" />
                     <span className="text-xs tracking-[0.25em] font-bold text-orange-400 uppercase bg-white/5 px-4 py-1.5 rounded-full border border-white/10">Chairman's Profile</span>
