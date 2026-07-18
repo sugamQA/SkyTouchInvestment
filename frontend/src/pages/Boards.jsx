@@ -114,28 +114,27 @@ export default function Boards() {
                       loading="eager"
                       className="w-full h-[28rem] object-contain p-8"
                     />
-                    <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent" />
-                    <div className="absolute bottom-6 left-8 right-8 flex items-center justify-between">
-                      <div>
-                        <p className="text-lg font-bold text-slate-900">{chairman.name}</p>
-                        <p className="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold">{chairman.role}</p>
-                      </div>
-                      <div className="flex gap-2">
-                        {chairman.facebookUrl && (
-                          <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                              <path d="M13.5 8.5V7.1c0-.7.5-1.1 1.2-1.1H16V3h-1.9C12 3 10.8 4.5 10.8 6.7v1.8H9v3h1.8V21h3.2v-9.5h2.4l.4-3h-2.8Z" />
-                            </svg>
-                          </a>
-                        )}
-                        {chairman.instagramUrl && (
-                          <a href={chairman.instagramUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                              <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 2 .2 2.7.5.7.3 1.4.7 2 1.3.6.6 1 1.2 1.3 2 .3.7.5 1.5.5 2.7.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 2-.5 2.7-.3.7-.7 1.4-1.3 2-.6.6-1.2 1-2 1.3-.7.3-1.5.5-2.7.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-2-.2-2.7-.5-.7-.3-1.4-.7-2-1.3-.6-.6-1-1.2-1.3-2-.3-.7-.5-1.5-.5-2.7-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-2 .5-2.7.3-.7.7-1.4 1.3-2 .6-.6 1.2-1 2-1.3.7-.3 1.5-.5 2.7-.5 1.2 0 1.6 0 4.8 0Zm0-2.2C8.7 0 8.3 0 7.1.1 5.8.1 4.8.4 4 .8c-.9.4-1.6.9-2.3 1.6C1 3.2.5 4 .1 4.8-.2 5.6 0 6.6 0 7.9 0 9.1 0 9.5 0 12s0 3 .1 4.2c.1 1.2.4 2.2.8 3 .4.9.9 1.6 1.6 2.3.7.7 1.4 1.2 2.3 1.6.7.3 1.7.6 3 .8 1.2.1 1.6.1 4.2.1s3 0 4.2-.1c1.2-.1 2.2-.4 3-.8.9-.4 1.6-.9 2.3-1.6.6-.7 1.2-1.4 1.6-2.3.3-.7.6-1.7.8-3 .1-1.2.1-1.6.1-4.2s0-3-.1-4.2c-.1-1.2-.4-2.2-.8-3-.4-.9-.9-1.6-1.6-2.3C20.8 1 20 .5 19.2.1c-.7-.3-1.7-.6-3-.8C15 .1 14.6 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.2a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" />
-                            </svg>
-                          </a>
-                        )}
-                      </div>
+                  </div>
+                   <div className="mt-6 bg-white rounded-xl border border-orange-200 shadow-sm p-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-base font-bold text-orange-600">{chairman.name}</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold">{chairman.role}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      {chairman.facebookUrl && (
+                        <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-9 w-9 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                            <path d="M13.5 8.5V7.1c0-.7.5-1.1 1.2-1.1H16V3h-1.9C12 3 10.8 4.5 10.8 6.7v1.8H9v3h1.8V21h3.2v-9.5h2.4l.4-3h-2.8Z" />
+                          </svg>
+                        </a>
+                      )}
+                      {chairman.instagramUrl && (
+                        <a href={chairman.instagramUrl} target="_blank" rel="noreferrer" className="h-9 w-9 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                            <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 2 .2 2.7.5.7.3 1.4.7 2 1.3.6.6 1 1.2 1.3 2 .3.7.5 1.5.5 2.7.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 2-.5 2.7-.3.7-.7 1.4-1.3 2-.6.6-1.2 1-2 1.3-.7.3-1.5.5-2.7.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-2-.2-2.7-.5-.7-.3-1.4-.7-2-1.3-.6-.6-1-1.2-1.3-2-.3-.7-.5-1.5-.5-2.7-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-2 .5-2.7.3-.7.7-1.4 1.3-2 .6-.6 1.2-1 2-1.3.7-.3 1.5-.5 2.7-.5 1.2 0 1.6 0 4.8 0Zm0-2.2C8.7 0 8.3 0 7.1.1 5.8.1 4.8.4 4 .8c-.9.4-1.6.9-2.3 1.6C1 3.2.5 4 .1 4.8-.2 5.6 0 6.6 0 7.9 0 9.1 0 9.5 0 12s0 3 .1 4.2c.1 1.2.4 2.2.8 3 .4.9.9 1.6 1.6 2.3.7.7 1.4 1.2 2.3 1.6.7.3 1.7.6 3 .8 1.2.1 1.6.1 4.2.1s3 0 4.2-.1c1.2-.1 2.2-.4 3-.8.9-.4 1.6-.9 2.3-1.6.6-.7 1.2-1.4 1.6-2.3.3-.7.6-1.7.8-3 .1-1.2.1-1.6.1-4.2s0-3-.1-4.2c-.1-1.2-.4-2.2-.8-3-.4-.9-.9-1.6-1.6-2.3C20.8 1 20 .5 19.2.1c-.7-.3-1.7-.6-3-.8C15 .1 14.6 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.2a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" />
+                          </svg>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
