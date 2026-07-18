@@ -115,11 +115,7 @@ export default function Boards() {
                       className="w-full h-[28rem] object-contain p-8"
                     />
                   </div>
-                   <div className="mt-6 bg-white rounded-xl border border-orange-200 shadow-sm p-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-base font-bold text-orange-600">{chairman.name}</p>
-                      <p className="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold">{chairman.role}</p>
-                    </div>
+                    <div className="mt-6 bg-white rounded-xl border border-orange-200 shadow-sm p-4 flex items-center justify-end">
                     <div className="flex gap-2">
                       {chairman.facebookUrl && (
                         <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-9 w-9 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
@@ -148,8 +144,11 @@ export default function Boards() {
                     <Quote size={20} className="text-orange-500/40 rotate-180" />
                   </motion.div>
 
-                  <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">
+                  <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-orange-600 mb-2 flex items-center gap-3">
                     {chairman.name}
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-orange-100 text-orange-500">
+                      <Award size={18} />
+                    </span>
                   </motion.h2>
                   <motion.p variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-orange-500 font-semibold mb-6">
                     {chairman.role}
