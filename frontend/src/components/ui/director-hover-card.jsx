@@ -17,6 +17,14 @@ function LinkedinIcon(props) {
   )
 }
 
+function InstagramIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 2 .2 2.7.5.7.3 1.4.7 2 1.3.6.6 1 1.2 1.3 2 .3.7.5 1.5.5 2.7.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 2-.5 2.7-.3.7-.7 1.4-1.3 2-.6.6-1.2 1-2 1.3-.7.3-1.5.5-2.7.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-2-.2-2.7-.5-.7-.3-1.4-.7-2-1.3-.6-.6-1-1.2-1.3-2-.3-.7-.5-1.5-.5-2.7-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-2 .5-2.7.3-.7.7-1.4 1.3-2 .6-.6 1.2-1 2-1.3.7-.3 1.5-.5 2.7-.5 1.2 0 1.6 0 4.8 0Zm0-2.2C8.7 0 8.3 0 7.1.1 5.8.1 4.8.4 4 .8c-.9.4-1.6.9-2.3 1.6C1 3.2.5 4 .1 4.8-.2 5.6 0 6.6 0 7.9 0 9.1 0 9.5 0 12s0 3 .1 4.2c.1 1.2.4 2.2.8 3 .4.9.9 1.6 1.6 2.3.7.7 1.4 1.2 2.3 1.6.7.3 1.7.6 3 .8 1.2.1 1.6.1 4.2.1s3 0 4.2-.1c1.2-.1 2.2-.4 3-.8.9-.4 1.6-.9 2.3-1.6.6-.7 1.2-1.4 1.6-2.3.3-.7.6-1.7.8-3 .1-1.2.1-1.6.1-4.2s0-3-.1-4.2c-.1-1.2-.4-2.2-.8-3-.4-.9-.9-1.6-1.6-2.3C20.8 1 20 .5 19.2.1c-.7-.3-1.7-.6-3-.8C15 .1 14.6 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.2a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" />
+    </svg>
+  )
+}
+
 function WebsiteIcon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" {...props}>
@@ -35,6 +43,7 @@ export default function DirectorHoverCard({
   focus = 'Strategic governance',
   facebookUrl,
   linkedinUrl,
+  instagramUrl,
   websiteUrl,
   index = 0,
 }) {
@@ -43,8 +52,9 @@ export default function DirectorHoverCard({
   const socialLinks = [
     { icon: FacebookIcon, label: 'Facebook', url: facebookUrl },
     { icon: LinkedinIcon, label: 'LinkedIn', url: linkedinUrl },
+    { icon: InstagramIcon, label: 'Instagram', url: instagramUrl },
     { icon: WebsiteIcon, label: 'Website', url: websiteUrl },
-  ].filter((item) => !!item.url)
+  ]
 
   return (
     <motion.div
@@ -67,13 +77,24 @@ export default function DirectorHoverCard({
 
           <div className="relative z-10">
             <div className="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-primary/10 via-white to-tertiary/10 border border-slate-200 shadow-sm">
-              <img
-                src={image}
-                alt={name}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-[22rem] object-contain p-5 transition-transform duration-500 group-hover:scale-105"
-              />
+              {image ? (
+                <img
+                  src={image}
+                  alt={name}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-[22rem] object-contain p-5 transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <div className="w-full h-[22rem] flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-3xl font-bold text-primary">?</span>
+                    </div>
+                    <p className="mt-4 text-sm text-slate-400 font-medium">Photo coming soon</p>
+                  </div>
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-transparent" />
             </div>
 
@@ -90,19 +111,29 @@ export default function DirectorHoverCard({
 
               {socialLinks.length > 0 && (
                 <div className="mt-5 flex items-center justify-center gap-3">
-                  {socialLinks.map(({ icon: Icon, label, url }) => (
-                    <a
-                      key={label}
-                      href={url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={label}
-                      title={label}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition-colors group-hover:border-orange-400/30 group-hover:text-orange-500"
-                    >
-                      <Icon size={16} strokeWidth={2.2} />
-                    </a>
-                  ))}
+                  {socialLinks.map(({ icon: Icon, label, url }) =>
+                    url ? (
+                      <a
+                        key={label}
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={label}
+                        title={label}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition-colors group-hover:border-orange-400/30 group-hover:text-orange-500"
+                      >
+                        <Icon size={16} strokeWidth={2.2} />
+                      </a>
+                    ) : (
+                      <span
+                        key={label}
+                        title={label}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-400"
+                      >
+                        <Icon size={16} strokeWidth={2.2} />
+                      </span>
+                    )
+                  )}
                 </div>
               )}
             </div>
@@ -148,19 +179,29 @@ export default function DirectorHoverCard({
                     </div>
                     {socialLinks.length > 0 && (
                       <div className="mt-4 flex items-center justify-center gap-3">
-                        {socialLinks.map(({ icon: Icon, label, url }) => (
-                          <a
-                            key={label}
-                            href={url}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={label}
-                            title={label}
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 hover:border-orange-400/30 hover:text-orange-500 transition-colors"
-                          >
-                            <Icon size={16} strokeWidth={2.2} />
-                          </a>
-                        ))}
+                        {socialLinks.map(({ icon: Icon, label, url }) =>
+                          url ? (
+                            <a
+                              key={label}
+                              href={url}
+                              target="_blank"
+                              rel="noreferrer"
+                              aria-label={label}
+                              title={label}
+                              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 hover:border-orange-400/30 hover:text-orange-500 transition-colors"
+                            >
+                              <Icon size={16} strokeWidth={2.2} />
+                            </a>
+                          ) : (
+                            <span
+                              key={label}
+                              title={label}
+                              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-400"
+                            >
+                              <Icon size={16} strokeWidth={2.2} />
+                            </span>
+                          )
+                        )}
                       </div>
                     )}
                     <p className="mt-4 text-xs uppercase tracking-[0.18em] text-slate-400 font-semibold">

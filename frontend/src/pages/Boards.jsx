@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import DirectorHoverCard from '../components/ui/director-hover-card'
-import { Users, BarChart3, Banknote, Star, Scale, Trophy, Lightbulb, Eye } from 'lucide-react'
+import { Scale, Trophy, Lightbulb, Eye } from 'lucide-react'
 
 const boardMembers = [
   {
@@ -12,6 +12,8 @@ const boardMembers = [
     email: 'info@skytouch.com.np',
     phone: '+977-1-4XXXXXX',
     expertise: ['Capital Markets', 'Hospitality', 'Diversified Sectors', 'Leadership'],
+    facebookUrl: 'https://www.facebook.com/paudelap?mibextid=ZbWKwL',
+    instagramUrl: 'https://www.instagram.com/ambikappaudel?igsh=b2plbWI4OXM5YWpq',
   },
   {
     name: 'Mrs. Jiban Kumari Aryal',
@@ -22,18 +24,7 @@ const boardMembers = [
     phone: '+977-1-4XXXXXX',
     expertise: ['Capital Markets', 'Insurance', 'Telecommunications', 'Investment'],
   },
-  {
-    name: 'Mr. Kumar Poudel',
-    role: 'Chief Investment Officer',
-    image: 'https://imperialholdings.com.np/wp-content/uploads/2026/01/Png-Photo.png',
-    bio: 'Visionary leader and Managing Director of Gaura Construction Pvt. Ltd. Holds Master\'s degree in Business Management from St. Xavier\'s College. Recognized by Prime Minister\'s Office for outstanding performance in hydroelectric projects.',
-    email: 'info@skytouch.com.np',
-    phone: '+977-1-4XXXXXX',
-    expertise: ['Construction', 'Hydroelectric Projects', 'Business Management', 'Strategy'],
-  },
 ]
-
-const topDirectors = boardMembers.slice(0, 3)
 
 const imperialBoardMembers = [
   {
@@ -47,11 +38,11 @@ const imperialBoardMembers = [
     websiteUrl: 'https://www.sugamchhetri.com.np',
   },
   {
-    name: 'Bodhraj Devkota',
-    role: 'Managing Director',
-    image: 'https://imperialfund.com.np/wp-content/uploads/2024/12/resize-3-2-1.png',
-    bio: '27+ years in banking, including senior leadership experience as a former CEO.',
-    focus: 'Banking leadership',
+    name: 'Coming Soon',
+    role: 'New Team Member',
+    image: '',
+    bio: 'We are excited to welcome a new professional to our team. Details will be announced shortly.',
+    focus: 'To be announced',
   },
 ]
 
@@ -95,37 +86,43 @@ export default function Boards() {
             </div>
 
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Top 3 <span className="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">Board of Directors</span>
+              <span className="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">Board of Directors</span>
             </motion.h1>
 
             <motion.p variants={fadeUp} className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              The three leadership cards below use the director content and images from the About page and are displayed as the top row on this page.
+              Our board members bring decades of leadership experience across capital markets, hospitality, insurance, and investment sectors.
             </motion.p>
           </motion.div>
 
           <motion.div
-            variants={staggerWrap}
+            variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-4xl mx-auto mb-20"
           >
-            {[
-              { number: '3', label: 'Board Members', icon: Users, color: 'text-primary' },
-              { number: '90+', label: 'Years Combined', icon: BarChart3, color: 'text-secondary' },
-              { number: '500M+', label: 'Deployed Capital', icon: Banknote, color: 'text-tertiary' },
-              { number: '98%', label: 'Success Rate', icon: Star, color: 'text-primary' },
-            ].map((stat) => (
-              <motion.div key={stat.label} variants={fadeUp} whileHover={{ y: -4, scale: 1.01 }} transition={{ duration: 0.25 }}>
-                <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-[0_18px_45px_rgba(15,23,42,0.06)] hover:border-primary/30 transition-all duration-300 group h-full">
-                  <div className={`w-12 h-12 mb-3 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform ${stat.color}`}>
-                    <stat.icon size={24} />
-                  </div>
-                  <p className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">{stat.number}</p>
-                  <p className="text-xs md:text-sm text-slate-500 uppercase tracking-wide">{stat.label}</p>
+            <div className="bg-white rounded-3xl p-10 border border-slate-200 shadow-[0_18px_45px_rgba(15,23,42,0.06)]">
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="w-24 h-24 shrink-0 rounded-2xl bg-gradient-to-br from-primary/20 to-tertiary/20 flex items-center justify-center">
+                  <span className="text-4xl font-bold bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">AP</span>
                 </div>
-              </motion.div>
-            ))}
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    A Personal Enterprise of <span className="text-primary">Ambika Prasad Poudel</span>
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    SkyTouch Investment Consultant Pvt. Ltd. is a personal company established by Mr. Ambika Prasad Poudel, 
+                    a renowned entrepreneur and financial expert with over 30 years of experience in capital markets, hospitality, 
+                    and diversified sectors. The company reflects his vision of creating a trusted platform for strategic investment 
+                    consulting, portfolio management, and financial advisory services in Nepal.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Under his leadership as Chairman, alongside Mrs. Jiban Kumari Aryal as Managing Director, the firm is committed 
+                    to delivering excellence, transparency, and long-term value to every client and stakeholder.
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </section>
 
@@ -138,15 +135,15 @@ export default function Boards() {
             className="mb-16"
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Top 3 Team Members
+              Board of Directors
             </motion.h2>
             <motion.p variants={fadeUp} className="text-slate-600">
-              Hover over each card to discover more about each team member
+              Hover over each card to discover more about each board member
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch">
-            {topDirectors.map((member, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+            {boardMembers.map((member, idx) => (
               <ScrollReveal key={member.name} delay={idx * 0.08}>
                 <DirectorHoverCard
                   name={member.name}
@@ -154,6 +151,9 @@ export default function Boards() {
                   image={member.image}
                   bio={member.bio}
                   focus={member.expertise?.[0] || 'Leadership'}
+                  facebookUrl={member.facebookUrl}
+                  linkedinUrl={member.linkedinUrl}
+                  instagramUrl={member.instagramUrl}
                   index={idx}
                 />
               </ScrollReveal>
