@@ -105,18 +105,17 @@ export default function Boards() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
               <div className="lg:col-span-2 relative">
                 <div className="relative flex flex-col items-center">
-                  <div className="absolute -inset-6 bg-gradient-to-br from-orange-500/25 via-orange-400/15 to-amber-500/25 rounded-full blur-3xl opacity-70 animate-pulse" style={{ animationDuration: '6s' }} />
-                  <div className="absolute -inset-3 bg-gradient-to-br from-orange-500/10 via-sky-400/10 to-amber-500/10 rounded-full blur-2xl opacity-50" />
-                  <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-[3px] border-white shadow-[0_0_40px_rgba(249,115,22,0.2),0_24px_80px_rgba(15,23,42,0.15)] group">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-b from-orange-500/10 to-transparent pointer-events-none z-10" />
+                  <div className="absolute -inset-4 bg-gradient-to-br from-white/20 via-white/5 to-transparent rounded-full blur-3xl opacity-60" />
+                  <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,255,255,0.06),0_24px_80px_rgba(15,23,42,0.2)] group">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none z-10" />
                     <img
                       src={chairman.image}
                       alt={chairman.name}
                       loading="eager"
                       className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10 pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-10" />
+                    <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10" />
                     <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-3 group-hover:translate-y-0 z-20">
                       {chairman.facebookUrl ? (
                         <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#1877F2] hover:bg-[#1877F2] hover:text-white shadow-lg transition-all duration-300 hover:scale-110">
