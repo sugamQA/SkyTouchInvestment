@@ -321,32 +321,37 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK - THE SKYTOUCH PROTOCOL */}
-      <section className="py-24 relative overflow-hidden bg-white" id="process" style={{ contentVisibility: 'auto' }}>
+      <section className="py-24 relative overflow-hidden bg-black" id="process">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-white/[0.02]" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 60%)' }} />
+
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
 
         <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
           <ScrollReveal className="text-center mb-12 md:mb-16">
-            <span className="section-label">How We Work</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 min-h-[1.2em]">
+            <span className="inline-block text-xs tracking-[0.3em] font-bold text-white/40 uppercase mb-4">How We Work</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 min-h-[1.2em]">
               The{' '}
               <Typewriter
                 text={["SkyTouch Protocol", "Investment Protocol", "Wealth Protocol"]}
                 speed={80}
                 cursor="|"
                 loop={true}
-                className="inline-block text-primary"
+                className="inline-block text-white/80"
               />
             </h2>
-            <p className="text-on-surface-variant/70 max-w-xl mx-auto">
+            <p className="text-white/30 max-w-xl mx-auto">
               A six-stage lifecycle designed for institutional-grade execution and long-term wealth compounding.
             </p>
           </ScrollReveal>
 
           <div className="relative max-w-[800px] mx-auto" ref={timelineRef}>
-            <div className="absolute left-1/2 -translate-x-1/2 w-[1px] hidden md:block overflow-hidden" ref={timelineLineBgRef}>
-              <div className="absolute inset-0 bg-slate-200" />
-              <div className="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-tertiary transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
+            <div className="absolute left-1/2 -translate-x-1/2 w-[1px] hidden md:block top-0 bottom-0 overflow-hidden">
+              <div className="absolute inset-0 bg-white/10" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/60 transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
             </div>
 
             {protocolSteps.map((step, i) => {
@@ -356,33 +361,30 @@ export default function Home() {
               return (
                 <div key={step.title} className="timeline-step flex flex-col md:flex-row items-start mb-14 md:mb-20 last:mb-0 will-change-transform duration-75 group">
                   <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
-                    <div
-                      className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}
-                    >
-                      <div className="relative rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-primary/30 transition-all duration-500 overflow-hidden bg-white shadow-[0_16px_50px_rgba(15,23,42,0.06)] text-center">
-                        {/* Step number badge */}
+                    <div className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
+                      <div className="relative rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden bg-white/[0.04] backdrop-blur-sm text-center">
                         <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
-                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-primary bg-primary/10 rounded-full border border-primary/20">
+                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-white/60 bg-white/10 rounded-full border border-white/10">
                             STEP {String(i + 1).padStart(2, '0')}
                           </span>
-                          <span className="h-[1px] w-6 bg-gradient-to-r from-primary/60 to-transparent" />
+                          <span className="h-[1px] w-6 bg-gradient-to-r from-white/40 to-transparent" />
                         </div>
-                        <h3 className="font-display text-xl md:text-[26px] font-semibold text-slate-900 mb-3">{step.title}</h3>
-                        <p className="font-body text-sm md:text-base text-slate-600 leading-relaxed relative">{step.desc}</p>
+                        <h3 className="text-xl md:text-[26px] font-semibold text-white mb-3">{step.title}</h3>
+                        <p className="text-sm md:text-base text-white/50 leading-relaxed">{step.desc}</p>
                       </div>
                     </div>
                   </div>
-                   <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
+
+                  <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
                     <div className="relative">
-                      {/* Icon container glow */}
-                      <div className="absolute inset-0 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 bg-gradient-to-br from-primary/30 to-secondary/20" />
-                      {/* Animated ring */}
-                      <div className="absolute -inset-3 rounded-full border border-dashed border-slate-200 group-hover:animate-[spin_8s_linear_infinite] transition-all duration-500" />
-                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg`}>
-                        <span className={`material-symbols-outlined text-[36px] ${c.icon} group-hover:scale-110 transition-transform duration-300`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                      <div className="absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 bg-white/20" />
+                      <div className="absolute -inset-3 rounded-full border border-dashed border-white/10 group-hover:animate-[spin_8s_linear_infinite] transition-all duration-500" />
+                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white/[0.06] border-2 border-white/20 flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg backdrop-blur-sm`}>
+                        <span className="material-symbols-outlined text-[36px] text-white/80 group-hover:scale-110 transition-transform duration-300" style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
                       </div>
                     </div>
                   </div>
+
                   <div className={`hidden md:block md:flex-1 ${isLeft ? '' : 'md:order-1'}`} />
                 </div>
               )
