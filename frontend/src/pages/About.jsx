@@ -2,7 +2,7 @@ import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { InteractiveGlobe } from '../components/ui/interactive-globe'
 import CircularTestimonials from '../components/ui/circular-testimonials'
-import { Briefcase, Landmark, Users, Award, Target, Handshake, TrendingUp, Globe, BarChart3, Building2, Lightbulb, Heart, Shield, Leaf, GraduationCap, ArrowRight, CheckCircle, Quote } from 'lucide-react'
+import { Briefcase, Target, Handshake, TrendingUp, Globe, BarChart3, Building2, Lightbulb, Heart, Shield, Leaf, GraduationCap, ArrowRight, CheckCircle } from 'lucide-react'
 
 const approach = [
   { icon: BarChart3, title: 'Rigorous Analysis', desc: 'Comprehensive due diligence on every potential investment opportunity.', color: 'text-primary' },
@@ -47,36 +47,7 @@ const milestones = [
   { year: '2024', title: 'NPR 5B+ AUM & Industry Leadership', desc: 'Surpassed NPR 5 billion in assets under management with a team of 50+ professionals operating across 10+ investment sectors. Recognized as a leading independent investment and consulting firm in Nepal, serving a diverse portfolio of institutional and high-net-worth clients.' },
 ]
 
-const teamMembers = [
-  {
-    name: 'Rajesh Shrestha',
-    role: 'Chief Executive Officer',
-    bio: 'Over 25 years of experience in investment banking and strategic consulting. Previously led major infrastructure financing projects across South Asia.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Investment Strategy', 'Infrastructure Finance', 'Risk Management'],
-  },
-  {
-    name: 'Anita Sharma',
-    role: 'Chief Investment Officer',
-    bio: '20+ years in portfolio management and private equity. Expert in cross-sector deal structuring and due diligence frameworks.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Portfolio Management', 'Private Equity', 'M&A', 'Valuation'],
-  },
-  {
-    name: 'Dr. Kamal Thapa',
-    role: 'Head of Research',
-    bio: 'PhD in Financial Economics. Leads our research division focusing on macroeconomic analysis and sector-specific investment theses.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Economic Research', 'Data Analytics', 'Sector Analysis'],
-  },
-  {
-    name: 'Pooja Koirala',
-    role: 'Director, Client Relations',
-    bio: '15+ years building strategic partnerships. Ensures exceptional client experience through transparent communication and tailored solutions.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Client Relations', 'Strategic Partnerships', 'Communication'],
-  },
-]
+
 
 const values = [
   { icon: Shield, title: 'Integrity', desc: 'Uncompromising ethical standards in every transaction and relationship we build.', color: 'from-blue-500 to-cyan-500' },
@@ -90,14 +61,6 @@ const awards = [
   { label: 'ISO 9001:2015', desc: 'Quality management systems certified', icon: CheckCircle },
   { label: 'Nepal Finance Award', desc: 'Best Investment Advisory 2022', icon: Award },
   { label: 'Top Employer Nepal', desc: 'Great Place to Work certified 2023', icon: Users },
-]
-
-const partners = [
-  'https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=200&h=80&fit=crop',
-  'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&h=80&fit=crop',
-  'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=200&h=80&fit=crop',
-  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=80&fit=crop',
-  'https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=80&fit=crop',
 ]
 
 export default function About() {
@@ -297,61 +260,6 @@ export default function About() {
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
                     <p className="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LEADERSHIP TEAM */}
-      <section className="py-24 bg-[#0c1929]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <ScrollReveal className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-              <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-white/60">Leadership</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Meet Our{' '}
-              <span className="bg-gradient-to-r from-sky-400 to-primary bg-clip-text text-transparent">Team</span>
-            </h2>
-            <p className="text-white/50 max-w-2xl mx-auto">
-              Seasoned professionals with decades of combined experience in investment management, 
-              strategic consulting, and financial services.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 0.1}>
-                <div className="group relative h-full rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(14,165,233,0.15)]">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5" />
-                  <div className="relative z-10 p-6 flex flex-col items-center text-center h-full">
-                    <div className="relative mb-5">
-                      <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-primary/50 transition-all duration-500">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          loading="lazy"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-primary border-2 border-[#0c1929] flex items-center justify-center">
-                        <Quote size={12} className="text-white" />
-                      </div>
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-                    <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-3">{member.role}</p>
-                    <p className="text-xs text-white/50 leading-relaxed mb-4 line-clamp-3">{member.bio}</p>
-                    <div className="flex flex-wrap gap-1.5 justify-center mt-auto">
-                      {member.expertise.map((exp) => (
-                        <span key={exp} className="text-[10px] bg-white/5 text-white/60 px-2 py-1 rounded-full border border-white/10">
-                          {exp}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </ScrollReveal>
@@ -668,38 +576,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* PARTNERS / AFFILIATIONS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <ScrollReveal className="text-center mb-12">
-            <span className="section-label text-center">OUR NETWORK</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-              Trusted by Leading{' '}
-              <span className="gold-accent">Partners</span>
-            </h2>
-            <p className="text-on-surface-variant/70 max-w-2xl mx-auto">
-              We collaborate with a diverse network of financial institutions, corporate partners, 
-              and development organizations.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {partners.map((src, i) => (
-              <ScrollReveal key={i} delay={i * 0.06}>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6 flex items-center justify-center h-24 hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <img
-                    src={src}
-                    alt={`Partner ${i + 1}`}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500"
-                  />
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* WHY CHOOSE SKYTOUCH */}
       <section className="py-24 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
@@ -742,28 +618,7 @@ export default function About() {
             ))}
           </div>
 
-          <ScrollReveal delay={0.3}>
-            <div className="mt-12 rounded-3xl bg-white/[0.03] border border-white/10 p-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {[
-                  { icon: Briefcase, value: '10+', label: 'Sectors' },
-                  { icon: Landmark, value: 'NPR 5B+', label: 'AUM' },
-                  { icon: Users, value: '50+', label: 'Team' },
-                  { icon: Award, value: 'CARE', label: 'Rated' },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary">
-                      <stat.icon size={20} />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-lg font-bold text-white">{stat.value}</p>
-                      <p className="text-xs text-white/40">{stat.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
+
         </div>
       </section>
 
