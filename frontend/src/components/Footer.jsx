@@ -40,7 +40,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 overflow-hidden bg-gradient-to-br from-[#0f1a2e] via-[#162240] to-[#1a2a4a] text-white/80">
+    <footer className="relative z-10 overflow-hidden bg-gradient-to-br from-[#060e1a] via-[#0a1628] to-[#0d1a30] text-white/80">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[130px] animate-pulse" />
         <div className="absolute bottom-0 right-1/3 w-[500px] h-[500px] bg-sky-400/12 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '7s' }} />

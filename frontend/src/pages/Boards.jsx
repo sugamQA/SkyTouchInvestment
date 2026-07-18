@@ -335,7 +335,7 @@ export default function Boards() {
             viewport={{ once: true, amount: 0.3 }}
             className="relative rounded-3xl overflow-hidden group/cta"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0f1a2e] via-[#162240] to-[#1a2a4a]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#060e1a] via-[#0a1628] to-[#0d1a30]" />
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, white 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
             <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
