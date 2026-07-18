@@ -66,37 +66,37 @@ const awards = [
 
 export default function About() {
   return (
-    <div className="pt-24">
+    <div className="pt-16 sm:pt-24">
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-[#0c1930] to-slate-950">
+      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-[#0c1930] to-slate-950">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent" />
-          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]" />
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 left-1/3 w-48 sm:w-96 h-48 sm:h-96 bg-tertiary/10 rounded-full blur-[60px] sm:blur-[120px]" />
+          <div className="absolute top-1/4 right-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-primary/20 rounded-full blur-[50px] sm:blur-[100px]" />
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         </div>
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 relative w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-center">
             <div className="text-center lg:text-left">
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
-                  <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse" />
-                  <span className="text-xs font-semibold uppercase tracking-widest text-white/60">EST. 2009</span>
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 mb-4 sm:mb-6 backdrop-blur-sm">
+                  <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-tertiary animate-pulse" />
+                  <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/60">EST. 2009</span>
                 </div>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 sm:mb-6 leading-tight">
                   About{' '}
                   <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-orange-400 bg-clip-text text-transparent">SkyTouch</span>
                 </h1>
-                <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+                <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-xl leading-relaxed mb-6 sm:mb-8">
                   A privately-held investment and consulting company built on principles of strategic capital allocation, 
                   rigorous analysis, and long-term value creation. Since 2009, we have been empowering businesses 
                   and investors across Nepal.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <a href="#story" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                  <a href="#story" className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors min-h-[44px]">
                     Our Story <ArrowRight size={16} />
                   </a>
-                  <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full hover:bg-white/10 transition-colors">
+                  <a href="/contact" className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full hover:bg-white/10 transition-colors min-h-[44px]">
                     Get in Touch
                   </a>
                 </div>
@@ -134,29 +134,29 @@ export default function About() {
       </section>
 
       {/* OUR STORY / TIMELINE */}
-      <section id="story" className="py-24 bg-white">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <ScrollReveal className="text-center mb-16">
+      <section id="story" className="py-16 sm:py-24 bg-white">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
+          <ScrollReveal className="text-center mb-8 sm:mb-16">
             <span className="section-label text-center">OUR JOURNEY</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-3 sm:mb-4">
               The <span className="gold-accent">SkyTouch</span> Story
             </h2>
-            <p className="text-on-surface-variant/70 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-on-surface-variant/70 max-w-2xl mx-auto">
               From a bold vision in 2009 to a leading investment and consulting firm — our journey reflects 
               unwavering commitment to creating lasting value for our partners and communities.
             </p>
           </ScrollReveal>
 
           <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-[23px] md:left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2 hidden md:block" />
-            <div className="space-y-10">
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-300 md:-translate-x-1/2 hidden sm:block" />
+            <div className="space-y-6 sm:space-y-10">
               {milestones.map((m, i) => {
                 const isLeft = i % 2 === 0
                 const content = (
                   <>
-                    <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
-                    <h3 className="text-lg font-bold text-slate-900 mt-1 mb-1">{m.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                    <span className="text-[10px] sm:text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                    <h3 className="text-sm sm:text-lg font-bold text-slate-900 mt-1 mb-1">{m.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{m.desc}</p>
                   </>
                 )
                 return (
@@ -167,9 +167,9 @@ export default function About() {
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.5, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] }}
                   >
-                    <div className="relative flex flex-col md:flex-row items-center gap-3 md:gap-6">
+                    <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6">
                       <motion.div
-                        className="hidden md:flex flex-1 justify-end"
+                        className="hidden sm:flex flex-1 justify-end"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -178,26 +178,26 @@ export default function About() {
                         {isLeft ? <div className="w-full max-w-sm text-right">{content}</div> : null}
                       </motion.div>
                       <motion.div
-                        className="relative z-10 flex-shrink-0"
+                        className="relative z-10 flex-shrink-0 ml-6 sm:ml-0"
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ type: 'spring', stiffness: 200, damping: 12, delay: i * 0.1 }}
                       >
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-sm shadow-lg border-[3px] border-white">
+                        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg border-[3px] border-white">
                           {m.year.slice(2)}
                         </div>
                       </motion.div>
                       <motion.div
-                        className="flex-1 flex md:justify-start"
+                        className="flex-1 flex sm:justify-start ml-16 sm:ml-0 -mt-1 sm:mt-0"
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: i * 0.1 + 0.15 }}
                       >
-                        <div className="w-full max-w-sm">
-                          <div className="md:hidden">{content}</div>
-                          <div className="hidden md:block">{!isLeft ? content : null}</div>
+                        <div className="w-full">
+                          <div className="sm:hidden">{content}</div>
+                          <div className="hidden sm:block">{!isLeft ? content : null}</div>
                         </div>
                       </motion.div>
                     </div>
@@ -210,11 +210,11 @@ export default function About() {
       </section>
 
       {/* MISSION / VISION / VALUES */}
-      <section className="py-24 bg-gradient-to-br from-primary/[0.03] via-white to-tertiary/[0.03]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <ScrollReveal className="text-center mb-16">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary/[0.03] via-white to-tertiary/[0.03]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
+          <ScrollReveal className="text-center mb-8 sm:mb-16">
             <span className="section-label text-center">OUR FOUNDATION</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-3 sm:mb-4">
               Mission, Vision &{' '}
               <span className="gold-accent">Values</span>
             </h2>
@@ -301,8 +301,8 @@ export default function About() {
       </section>
 
       {/* GLOBAL REACH */}
-      <section className="py-24 bg-primary/[0.03]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+      <section className="py-16 sm:py-24 bg-primary/[0.03]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal>
               <span className="section-label">Our Global Network</span>
@@ -339,8 +339,8 @@ export default function About() {
       </section>
 
       {/* AWARDS & RECOGNITION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
           <ScrollReveal className="text-center mb-16">
             <span className="section-label text-center">RECOGNITION</span>
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
@@ -372,8 +372,8 @@ export default function About() {
       </section>
 
       {/* INVESTMENT APPROACH */}
-      <section className="py-24 bg-primary/5">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+      <section className="py-16 sm:py-24 bg-primary/5">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
           <div className="relative overflow-hidden bg-black text-white rounded-[2rem] mb-12 border border-white/10 shadow-[0_40px_140px_rgba(0,0,0,0.35)]">
             <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.28),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(249,115,22,0.22),transparent_30%)]" />
             <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent" />
@@ -563,8 +563,8 @@ export default function About() {
       </section>
 
       {/* IMPACT & SUSTAINABILITY */}
-      <section className="py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
               <span className="section-label">OUR IMPACT</span>
@@ -609,8 +609,8 @@ export default function About() {
       </section>
 
       {/* WHY CHOOSE SKYTOUCH */}
-      <section className="py-24 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16">
           <ScrollReveal className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -655,7 +655,7 @@ export default function About() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-r from-primary via-primary-dark to-primary">
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-gradient-to-r from-primary via-primary-dark to-primary">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.1),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_40%)]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-[100px]" />

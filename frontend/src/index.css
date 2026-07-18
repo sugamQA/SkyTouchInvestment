@@ -20,13 +20,27 @@
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply font-body text-on-surface overflow-x-hidden transition-colors duration-300;
     background:
       radial-gradient(circle at top, rgba(15, 95, 168, 0.12), transparent 36%),
       radial-gradient(circle at right bottom, rgba(245, 158, 11, 0.1), transparent 30%),
       linear-gradient(180deg, #f8fbff 0%, #f4f8fc 100%);
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
+
+  @media (max-width: 640px) {
+    body {
+      background:
+        radial-gradient(circle at top, rgba(15, 95, 168, 0.08), transparent 40%),
+        radial-gradient(circle at right bottom, rgba(245, 158, 11, 0.06), transparent 35%),
+        linear-gradient(180deg, #f8fbff 0%, #f4f8fc 100%);
+    }
+  }
+
   .dark body,
   body.dark {
     @apply text-slate-100;
@@ -34,6 +48,28 @@
       radial-gradient(circle at top, rgba(59, 130, 246, 0.16), transparent 32%),
       radial-gradient(circle at right bottom, rgba(245, 158, 11, 0.12), transparent 28%),
       linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+
+  @media (max-width: 640px) {
+    .dark body,
+    body.dark {
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 35%),
+        radial-gradient(circle at right bottom, rgba(245, 158, 11, 0.08), transparent 30%),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+  }
+
+  @media (max-width: 640px) {
+    html { font-size: 15px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -61,20 +97,26 @@
     box-shadow: 0 20px 60px rgba(14, 165, 233, 0.12);
   }
   .btn-primary {
-    @apply px-8 py-3 bg-primary text-white rounded-xl font-semibold text-sm tracking-wider;
+    @apply px-6 sm:px-8 py-3 bg-primary text-white rounded-xl font-semibold text-sm tracking-wider;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .btn-primary:hover {
     transform: scale(1.02);
     box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
   }
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
   .btn-outline {
-    @apply px-8 py-3 bg-white/80 backdrop-blur-sm text-on-surface border border-outline/30 rounded-xl font-semibold text-sm tracking-wider;
+    @apply px-6 sm:px-8 py-3 bg-white/80 backdrop-blur-sm text-on-surface border border-outline/30 rounded-xl font-semibold text-sm tracking-wider;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .btn-outline:hover {
     @apply border-primary/50;
     box-shadow: 0 8px 25px rgba(14, 165, 233, 0.1);
+  }
+  .btn-outline:active {
+    transform: scale(0.97);
   }
   .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
@@ -88,7 +130,7 @@
     background-clip: text;
   }
   .section-label {
-    @apply text-xs tracking-[0.2em] uppercase font-semibold text-tertiary mb-4 block;
+    @apply text-[10px] sm:text-xs tracking-[0.2em] uppercase font-semibold text-tertiary mb-3 sm:mb-4 block;
   }
 }
 

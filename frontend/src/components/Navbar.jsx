@@ -96,7 +96,7 @@ export default function Navbar() {
           )}
           <div className={`relative z-10 h-0.5 ${isHomePage ? (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary')}`} />
 
-          <div className="relative z-10 max-w-[1440px] mx-auto flex items-center justify-between px-6 md:px-16 transition-all duration-500 ease-out h-20">
+          <div className="relative z-10 max-w-[1440px] mx-auto flex items-center justify-between px-4 sm:px-6 md:px-16 transition-all duration-500 ease-out h-16 sm:h-20">
           {/* Logo */}
           <div
             className={`flex items-center gap-3 relative group transition-all duration-600 ${
@@ -110,7 +110,7 @@ export default function Navbar() {
                   src="/logo-sm.jpg"
                   alt="SkyTouch"
                   className={`w-auto max-w-full brightness-125 contrast-125 drop-shadow-xl transition-all duration-500 ease-out ${
-                    scrolled ? 'h-12 md:h-16' : 'h-16 md:h-24'
+                    scrolled ? 'h-8 sm:h-12 md:h-16' : 'h-10 sm:h-16 md:h-24'
                   }`}
                 />
               </picture>
@@ -160,7 +160,7 @@ export default function Navbar() {
           >
             <Link
               to="/contact#contact-form"
-              className={`glow-button relative group px-8 py-3 text-xs tracking-[0.1em] font-bold rounded-full transition-all duration-300 border ${isHomePage ? (scrolled ? 'bg-white/10 text-white hover:shadow-2xl hover:shadow-white/10 border-white/25 hover:border-white/35 backdrop-blur-2xl backdrop-saturate-150' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-black/30 border-white/20 hover:border-white/40') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-primary/25 border-primary/70 hover:border-tertiary/70' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-black/30 border-white/20 hover:border-white/40')}`}
+              className={`glow-button relative group inline-flex items-center justify-center min-h-[44px] px-8 py-3 text-xs tracking-[0.1em] font-bold rounded-full transition-all duration-300 border ${isHomePage ? (scrolled ? 'bg-white/10 text-white hover:shadow-2xl hover:shadow-white/10 border-white/25 hover:border-white/35 backdrop-blur-2xl backdrop-saturate-150' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-black/30 border-white/20 hover:border-white/40') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-primary/25 border-primary/70 hover:border-tertiary/70' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-2xl hover:shadow-black/30 border-white/20 hover:border-white/40')}`}
             >
               <span>GET IN TOUCH</span>
             </Link>
@@ -168,26 +168,28 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 group"
+            className="lg:hidden relative min-w-[44px] min-h-[44px] flex items-center justify-center group"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
             <div className={`absolute -inset-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isHomePage ? (scrolled ? 'bg-primary/20' : 'bg-primary/15') : (scrolled ? 'bg-primary/20' : 'bg-primary/15')}`} />
-            <span
-              className={`block w-6 h-0.5 rounded-full relative transition-all duration-300 ${
-                isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
-              } ${mobileOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
-            />
-            <span
-              className={`block w-6 h-0.5 rounded-full transition-all duration-300 ${
-                isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
-              } ${mobileOpen ? 'opacity-0' : ''}`}
-            />
-            <span
-              className={`block w-6 h-0.5 rounded-full transition-all duration-300 ${
-                isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
-              } ${mobileOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
-            />
+            <div className="flex flex-col items-center justify-center gap-1.5">
+              <span
+                className={`block w-6 h-0.5 rounded-full relative transition-all duration-300 ${
+                  isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
+                } ${mobileOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
+              />
+              <span
+                className={`block w-6 h-0.5 rounded-full transition-all duration-300 ${
+                  isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
+                } ${mobileOpen ? 'opacity-0' : ''}`}
+              />
+              <span
+                className={`block w-6 h-0.5 rounded-full transition-all duration-300 ${
+                  isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
+                } ${mobileOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
+              />
+            </div>
           </button>
         </div>
 
@@ -199,12 +201,12 @@ export default function Navbar() {
             isHomePage ? (scrolled ? 'bg-white/10 border-white/20 backdrop-blur-xl' : 'bg-transparent border-white/10 backdrop-blur-xl') : (scrolled ? 'bg-gradient-to-b from-primary/10 via-white to-tertiary/10 border-primary/20' : 'bg-gradient-to-b from-primary/90 via-slate-950 to-tertiary/90 border-primary/20')
           }`}
         >
-          <div className="px-6 py-8 flex flex-col gap-2">
+          <div className="px-4 sm:px-6 py-6 sm:py-8 flex flex-col gap-1.5 sm:gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`block px-4 py-3 rounded-lg text-sm tracking-wider font-semibold transition-all duration-300 ${
+                className={`block px-4 py-3 sm:py-3 rounded-lg text-sm tracking-wider font-semibold transition-all duration-300 min-h-[44px] flex items-center ${
                   location.pathname === link.path
                     ? 'text-white bg-tertiary/20 border border-tertiary/30 shadow-[0_0_18px_rgba(249,115,22,0.18)]'
                     : (isHomePage ? (scrolled ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10') : (scrolled ? 'text-slate-700 hover:text-slate-950 hover:bg-white/50' : 'text-white/80 hover:text-white hover:bg-white/10'))
@@ -216,10 +218,10 @@ export default function Navbar() {
                 </span>
               </Link>
             ))}
-            <div className={`pt-4 ${isHomePage ? (scrolled ? 'border-t border-white/20' : 'border-t border-white/10') : (scrolled ? 'border-t border-primary/20' : 'border-t border-white/10')}`}>
+            <div className={`pt-3 sm:pt-4 ${isHomePage ? (scrolled ? 'border-t border-white/20' : 'border-t border-white/10') : (scrolled ? 'border-t border-primary/20' : 'border-t border-white/10')}`}>
               <Link
                 to="/contact#contact-form"
-                className={`block mt-4 px-6 py-3 rounded-full text-sm tracking-wider font-bold text-center transition-all duration-300 ${isHomePage ? (scrolled ? 'bg-white/15 text-white hover:shadow-lg hover:shadow-white/10 backdrop-blur-md' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-primary/25' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30')}`}
+                className={`block mt-3 sm:mt-4 px-6 py-3 rounded-full text-sm tracking-wider font-bold text-center transition-all duration-300 min-h-[44px] flex items-center justify-center ${isHomePage ? (scrolled ? 'bg-white/15 text-white hover:shadow-lg hover:shadow-white/10 backdrop-blur-md' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-primary/25' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30')}`}
               >
                 GET IN TOUCH
               </Link>

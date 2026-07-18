@@ -64,8 +64,8 @@ export default function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16 pt-24 pb-8 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 pt-16 sm:pt-24 pb-6 sm:pb-8 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 mb-10 sm:mb-16">
           <div className="lg:col-span-4">
             <picture>
               <source srcSet="/logo.webp" type="image/webp" />

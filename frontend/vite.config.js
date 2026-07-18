@@ -26,6 +26,7 @@ export default defineConfig({
     target: 'es2020',
     sourcemap: false,
     reportCompressedSize: false,
+    cssCodeSplit: false,
     rollupOptions: {
       output: {
         experimentalMinChunkSize: 8192,
@@ -44,7 +45,10 @@ export default defineConfig({
           }
         }
       }
-    }
+    },
+    modulePreload: {
+      polyfill: false,
+    },
   },
   esbuild: {
     legalComments: 'none',
