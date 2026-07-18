@@ -13,9 +13,9 @@ import { Briefcase, Landmark, Users, Award, MessageCircle, BarChart3, Map, Scale
 const InvestmentSectorCard = lazy(() => import('../components/ui/investment-sector-card').then(m => ({ default: m.InvestmentSectorCard || m.default })))
 
 const testimonials = [
-  { quote: 'Patient capital that allowed us to build quality infrastructure without short-term pressure.', name: 'Dr. Ramesh Sharma', designation: 'Healthcare', src: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&crop=face' },
-  { quote: 'Essential partners during challenging times. Their energy sector expertise made the difference.', name: 'Albert Hurb Solar', designation: 'Energy', src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face' },
-  { quote: 'Most professional partnership in my 25-year career. They brought governance best practices and strategic discipline.', name: 'Rajiv Shrestha', designation: 'Real Estate', src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'SkyTouch has been more than an investor; they have been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.', name: 'Dr. Ramesh Sharma', designation: 'Healthcare', src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'SkyTouch demonstrated deep understanding of our sector from day one. Their patient capital and strategic guidance helped us navigate regulatory complexities and scale our hydropower operations across multiple provinces.', name: 'Albert Hurb Solar', designation: 'Energy', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face' },
+  { quote: 'In my 25 years in business, I have worked with various financial partners, but SkyTouch stands apart in their professionalism and long-term orientation. They brought governance best practices and strategic discipline that transformed our portfolio.', name: 'Rajiv Shrestha', designation: 'Real Estate', src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face' },
 ]
 
 export default function Home() {

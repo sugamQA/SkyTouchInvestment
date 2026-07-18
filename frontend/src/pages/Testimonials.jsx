@@ -4,34 +4,40 @@ import { Star } from 'lucide-react'
 
 const reviews = [
   {
-    text: "Imperial Holding has been more than an investor; they've been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.",
+    text: "SkyTouch has been more than an investor; they have been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.",
     name: 'Dr. Ramesh Sharma',
     role: 'Healthcare Sector',
+    src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face',
   },
   {
-    text: "Finding the right investor for a technology startup in Nepal is challenging; most don't understand the sector's dynamics. Imperial Holding was different from our first meeting.",
+    text: "Finding the right investor for a technology startup in Nepal is challenging; most do not understand the sector dynamics. SkyTouch was different from our first meeting.",
     name: 'Anita KC',
     role: 'Technology Sector',
+    src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
   },
   {
-    text: "Hydropower projects require investors who understand the sector's complexities; long development timelines, regulatory navigation, construction risks. Imperial Holding demonstrated this understanding from day one.",
+    text: "Hydropower projects require investors who understand the sector complexities; long development timelines, regulatory navigation, construction risks. SkyTouch demonstrated this understanding from day one.",
     name: 'Albert Hurb Solar',
     role: 'Energy Sector',
+    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
   },
   {
     text: "When we decided to upgrade our property from a basic lodge to a premium eco-resort, we needed more than just capital; we needed partners who understood hospitality, sustainability, and the seasonal nature of tourism.",
     name: 'Suman Gurung',
     role: 'Tourism Sector',
+    src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face',
   },
   {
-    text: "As an agro-processing business working directly with farmers, we needed investors who understood agriculture's unique challenges; seasonal cash flows, working capital intensity, and the importance of maintaining farmer relationships.",
+    text: "As an agro-processing business working directly with farmers, we needed investors who understood agriculture unique challenges; seasonal cash flows, working capital intensity, and the importance of maintaining farmer relationships.",
     name: 'Krishna Acharya',
     role: 'Agriculture Sector',
+    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
   },
   {
-    text: "In my 25 years in business, I've worked with various financial partners, but Imperial Holding stands apart in their professionalism and long-term orientation.",
+    text: "In my 25 years in business, I have worked with various financial partners, but SkyTouch stands apart in their professionalism and long-term orientation.",
     name: 'Rajiv Shrestha',
     role: 'Real Estate Sector',
+    src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face',
   },
 ]
 
@@ -70,11 +76,21 @@ export default function Testimonials() {
                   ))}
                 </div>
                 <p className="text-sm text-on-surface-variant/70 leading-relaxed italic mb-6 flex-1">
-                  "{review.text}"
+                  &ldquo;{review.text}&rdquo;
                 </p>
-                <div className="border-t border-outline/10 pt-4">
-                  <p className="font-semibold text-sm">{review.name}</p>
-                  <p className="text-xs text-outline">| {review.role}</p>
+                <div className="border-t border-outline/10 pt-4 flex items-center gap-3">
+                  {review.src && (
+                    <img
+                      src={review.src}
+                      alt={review.name}
+                      loading="lazy"
+                      className="w-10 h-10 rounded-full object-cover border-2 border-primary/20"
+                    />
+                  )}
+                  <div>
+                    <p className="font-semibold text-sm">{review.name}</p>
+                    <p className="text-xs text-outline">{review.role}</p>
+                  </div>
                 </div>
               </motion.div>
             </ScrollReveal>
