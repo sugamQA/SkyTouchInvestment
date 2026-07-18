@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { InteractiveGlobe } from '../components/ui/interactive-globe'
