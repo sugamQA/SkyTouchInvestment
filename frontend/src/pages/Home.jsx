@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
+import ParticleHero from '../components/ui/particle-effect-hero'
 
 import { lazy, Suspense, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
@@ -165,48 +166,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* HERO */}
-      <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-white/[0.02]" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 60%)' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-[60%] bg-gradient-to-b from-transparent via-white/60 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-white/[0.03] blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-white/[0.04] blur-2xl" />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-        >
-          <div className="relative">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-white/20 bg-white/[0.04] flex items-center justify-center backdrop-blur-sm">
-              <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 md:w-12 md:h-12 text-white/90">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" opacity="0.6" />
-                <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-white/10 via-transparent to-white/5 blur-sm" />
-          </div>
-        </motion.div>
-        <div className="absolute bottom-20 md:bottom-28 inset-x-0 text-center px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <p className="text-xs tracking-[0.35em] font-bold text-white/40 uppercase mb-3">Investment Consulting</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
-              The SkyTouch <span className="text-white/60">Proto</span>
-            </h1>
-            <p className="text-sm md:text-base text-white/30 max-w-xl mx-auto tracking-wide">
-              Visionary leadership driving excellence across capital markets, hospitality, and strategic investments in Nepal.
-            </p>
-          </motion.div>
-        </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-white" />
-      </section>
+      {/* PARTICLE HERO */}
+      <ParticleHero />
 
       {/* STATS */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-20 -mt-20 mb-24">
