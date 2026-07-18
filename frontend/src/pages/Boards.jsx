@@ -120,7 +120,7 @@ export default function Boards() {
                     />
                     <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10" />
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-3 group-hover:translate-y-0 z-20">
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-3 opacity-100 translate-y-0 z-20">
                       {chairman.facebookUrl ? (
                         <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-[#1877F2] hover:bg-[#1877F2] hover:text-white shadow-lg transition-all duration-300 hover:scale-110">
                           <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
