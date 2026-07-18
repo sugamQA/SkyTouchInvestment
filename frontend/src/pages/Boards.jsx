@@ -319,36 +319,66 @@ export default function Boards() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative rounded-3xl overflow-hidden"
+            className="relative rounded-3xl overflow-hidden group/cta"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-secondary/90" />
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-            <div className="relative px-8 py-16 md:px-16 md:py-20 text-center">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Work With Our Leadership?
-              </h3>
-              <p className="text-white/80 mb-10 max-w-2xl mx-auto text-lg">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0f1a2e] via-[#162240] to-[#1a2a4a]" />
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, white 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+            <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+            <div className="absolute top-0 left-1/4 w-64 h-64 bg-orange-500/15 rounded-full blur-[100px] group-hover/cta:bg-orange-500/20 transition-all duration-700" />
+            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-sky-400/12 rounded-full blur-[100px] group-hover/cta:bg-sky-400/20 transition-all duration-700" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-400/8 rounded-full blur-[120px]" />
+
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
+
+            <div className="relative px-8 py-20 md:px-20 md:py-24 text-center">
+              <motion.span
+                variants={fadeUp}
+                className="inline-block text-[10px] tracking-[0.35em] font-bold text-white/30 uppercase mb-6 bg-white/5 px-5 py-2 rounded-full border border-white/10"
+              >
+                Get In Touch
+              </motion.span>
+
+              <motion.h3 variants={fadeUp} className="text-3xl md:text-5xl font-bold text-white mb-5 leading-[1.15]">
+                Ready to Work With{' '}
+                <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-orange-300 bg-clip-text text-transparent">Our Leadership</span>
+                {' '}?
+              </motion.h3>
+
+              <motion.p variants={fadeUp} className="text-white/50 mb-12 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
                 Connect with us for strategic partnerships and investment opportunities
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-5 justify-center items-center">
                 <motion.a
                   href="/contact"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-3.5 bg-white text-primary font-semibold rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl inline-flex items-center gap-2"
+                  className="group/btn relative px-9 py-4 font-semibold rounded-2xl inline-flex items-center gap-3 overflow-hidden transition-all duration-500 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 text-white shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:shadow-[0_0_50px_rgba(249,115,22,0.5)]"
                 >
-                  Schedule a Meeting
-                  <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-all duration-700" />
+                  <span className="relative z-10 flex items-center gap-2.5">
+                    Schedule a Meeting
+                    <span className="w-6 h-6 rounded-lg bg-white/15 flex items-center justify-center group-hover/btn:bg-white/25 transition-colors">
+                      <ChevronRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                    </span>
+                  </span>
                 </motion.a>
+
                 <motion.a
                   href="/investment"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3.5 border-2 border-white/30 hover:border-white/50 text-white font-semibold rounded-xl transition-all duration-300"
+                  className="group/btn relative px-9 py-4 font-semibold rounded-2xl inline-flex items-center gap-3 overflow-hidden transition-all duration-500 border border-white/20 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 backdrop-blur-sm"
                 >
-                  Explore Opportunities
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                  <span className="relative z-10 flex items-center gap-2.5">
+                    Explore Opportunities
+                    <ChevronRight size={14} className="opacity-50 group-hover/btn:translate-x-0.5 transition-all" />
+                  </span>
                 </motion.a>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </section>
