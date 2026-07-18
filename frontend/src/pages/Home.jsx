@@ -371,16 +371,9 @@ export default function Home() {
 
               return (
                 <div key={step.title} className="timeline-step flex flex-col md:flex-row items-start mb-14 md:mb-20 last:mb-0 will-change-transform duration-75 group">
-                  <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
+                  <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-12' : 'md:order-3 md:text-left md:pl-12'} mb-6 md:mb-0`}>
                     <div className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
                       <div className="relative rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-orange-400/30 transition-all duration-500 overflow-hidden bg-white text-center shadow-sm">
-                        <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center ${c.icon}`}>
-                          {iconMap[step.icon] && (
-                            <span className={c.icon}>
-                              {(() => { const Icon = iconMap[step.icon]; return <Icon size={32} strokeWidth={1.5} />; })()}
-                            </span>
-                          )}
-                        </div>
                         <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
                           <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-orange-500 bg-orange-50 rounded-full border border-orange-200">
                             STEP {String(i + 1).padStart(2, '0')}
@@ -393,7 +386,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
+                  <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 ${isLeft ? '' : 'md:order-2'}`}>
                     <div className="relative">
                       <div className={`absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 ${c.icon.replace('text', 'bg')}/30`} />
                       <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg ${c.shadow}`}>
