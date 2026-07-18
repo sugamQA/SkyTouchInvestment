@@ -40,21 +40,57 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 overflow-hidden bg-gradient-to-b from-[#060e1a] via-[#0a1628] to-[#0d1a30] text-white/80">
+    <footer className="relative z-10 overflow-hidden text-white/80" style={{ background: 'linear-gradient(135deg, #020812 0%, #0a1628 25%, #0f1f3a 50%, #0a1628 75%, #020812 100%)' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/8 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-600/6 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-400/4 rounded-full blur-[150px]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/30 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-300/15 to-transparent" />
-        <svg className="absolute inset-0 w-full h-full opacity-[0.015]">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[130px] animate-pulse" />
+        <div className="absolute bottom-0 right-1/3 w-[500px] h-[500px] bg-sky-400/12 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '7s' }} />
+        <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-amber-400/8 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '10s' }} />
+        <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-blue-500/6 rounded-full blur-[140px]" />
+
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent" />
+
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-sky-500/5 via-transparent to-transparent" />
+
+        <svg className="absolute inset-0 w-full h-full opacity-[0.025]" viewBox="0 0 1440 800" preserveAspectRatio="none">
           <defs>
-            <pattern id="footer-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5" />
+            <linearGradient id="curve1" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#f97316" stopOpacity="0" />
+              <stop offset="30%" stopColor="#f97316" stopOpacity="0.3" />
+              <stop offset="70%" stopColor="#f97316" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="curve2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0" />
+              <stop offset="30%" stopColor="#38bdf8" stopOpacity="0.2" />
+              <stop offset="70%" stopColor="#38bdf8" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="curve3" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#fbbf24" stopOpacity="0" />
+              <stop offset="40%" stopColor="#fbbf24" stopOpacity="0.15" />
+              <stop offset="60%" stopColor="#fbbf24" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+            </linearGradient>
+            <pattern id="footer-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="12" cy="12" r="0.6" fill="white" opacity="0.25" />
+            </pattern>
+            <pattern id="footer-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" strokeWidth="0.3" opacity="0.4" />
             </pattern>
           </defs>
+          <path d="M -100 200 Q 300 50 600 180 T 1400 120" stroke="url(#curve1)" strokeWidth="1.5" fill="none" opacity="0.6" />
+          <path d="M -100 250 Q 350 100 650 230 T 1400 170" stroke="url(#curve1)" strokeWidth="0.8" fill="none" opacity="0.4" />
+          <path d="M -100 400 Q 400 250 700 380 T 1500 320" stroke="url(#curve2)" strokeWidth="1.2" fill="none" opacity="0.5" />
+          <path d="M -100 450 Q 450 300 750 430 T 1500 370" stroke="url(#curve2)" strokeWidth="0.6" fill="none" opacity="0.3" />
+          <path d="M -100 600 Q 500 450 800 580 T 1500 520" stroke="url(#curve3)" strokeWidth="1" fill="none" opacity="0.4" />
           <rect width="100%" height="100%" fill="url(#footer-grid)" />
+          <rect width="100%" height="100%" fill="url(#footer-dots)" />
         </svg>
+
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] opacity-[0.04]" style={{ background: 'radial-gradient(circle at 30% 30%, rgba(249,115,22,0.8) 0%, transparent 70%)', transform: 'translateX(30%) translateY(-20%)' }} />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] opacity-[0.04]" style={{ background: 'radial-gradient(circle at 70% 70%, rgba(56,189,248,0.8) 0%, transparent 70%)', transform: 'translateX(-30%) translateY(20%)' }} />
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-16 pt-24 pb-8 relative">
@@ -64,24 +100,24 @@ export default function Footer() {
               <source srcSet="/logo.webp" type="image/webp" />
               <img src="/logo-sm.jpg" alt="SkyTouch" className="h-14 w-auto mb-5 brightness-0 invert opacity-85" loading="lazy" />
             </picture>
-            <p className="text-sm text-white/45 leading-relaxed mb-6 max-w-xs">
+            <p className="text-sm text-white/40 leading-relaxed mb-6 max-w-xs">
               Strategic Investment & Professional Consulting, empowering businesses and investors across Nepal since 2009.
             </p>
-            <div className="flex items-center gap-3 text-sm text-white/40">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="flex items-center gap-3 text-sm">
+              <span className="inline-flex items-center gap-1.5 text-white/40">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
                 Mon – Fri: 9:00 AM – 6:00 PM
               </span>
             </div>
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/70 mb-6 uppercase">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/70 mb-6 uppercase bg-gradient-to-r from-orange-400/20 to-transparent pl-4 py-2 rounded-r-lg border-l-2 border-orange-400/50">Quick Links</h4>
+            <ul className="space-y-3 pl-4">
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-white/40 hover:text-sky-300 transition-colors">
-                    <ChevronRight size={10} className="text-sky-400/0 group-hover:text-sky-400 transition-all -ml-4 group-hover:ml-0" />
+                  <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-white/40 hover:text-orange-300 transition-colors">
+                    <ChevronRight size={10} className="text-orange-400/0 group-hover:text-orange-400 transition-all -ml-4 group-hover:ml-0" />
                     {link.label}
                   </Link>
                 </li>
@@ -90,8 +126,8 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/70 mb-6 uppercase">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/70 mb-6 uppercase bg-gradient-to-r from-sky-400/20 to-transparent pl-4 py-2 rounded-r-lg border-l-2 border-sky-400/50">Company</h4>
+            <ul className="space-y-3 pl-4">
               {companyLinks.map((link) => (
                 <li key={link.path}>
                   <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-white/40 hover:text-sky-300 transition-colors">
@@ -104,43 +140,43 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-4">
-            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/70 mb-6 uppercase">Get In Touch</h4>
-            <ul className="space-y-4">
+            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/70 mb-6 uppercase bg-gradient-to-r from-amber-400/20 to-transparent pl-4 py-2 rounded-r-lg border-l-2 border-amber-400/50">Get In Touch</h4>
+            <ul className="space-y-4 pl-4">
               <li className="group">
-                <a href="mailto:info@skytouchinvestment.com.np" className="flex items-start gap-3.5 text-sm text-white/45 hover:text-sky-300 transition-colors">
-                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-sky-400/10 group-hover:text-sky-300 transition-all">
+                <a href="mailto:info@skytouchinvestment.com.np" className="flex items-start gap-3.5 text-sm text-white/45 hover:text-orange-300 transition-colors">
+                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500/10 to-orange-500/5 border border-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/20 group-hover:text-orange-400 group-hover:border-orange-500/40 transition-all shadow-[0_0_12px_rgba(249,115,22,0.08)]">
                     <Mail size={14} />
                   </span>
                   <span>
                     <span className="block text-[10px] tracking-wider text-white/30 uppercase mb-0.5">Email</span>
-                    info@skytouchinvestment.com.np
+                    <span className="text-white/60 group-hover:text-orange-300 transition-colors">info@skytouchinvestment.com.np</span>
                   </span>
                 </a>
               </li>
               <li className="group">
                 <a href="tel:+977-1-4XXXXXX" className="flex items-start gap-3.5 text-sm text-white/45 hover:text-sky-300 transition-colors">
-                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-sky-400/10 group-hover:text-sky-300 transition-all">
+                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500/10 to-sky-500/5 border border-sky-500/20 flex items-center justify-center group-hover:bg-sky-500/20 group-hover:text-sky-400 group-hover:border-sky-500/40 transition-all shadow-[0_0_12px_rgba(56,189,248,0.08)]">
                     <Phone size={14} />
                   </span>
                   <span>
                     <span className="block text-[10px] tracking-wider text-white/30 uppercase mb-0.5">Phone</span>
-                    +977-1-4XXXXXX
+                    <span className="text-white/60 group-hover:text-sky-300 transition-colors">+977-1-4XXXXXX</span>
                   </span>
                 </a>
               </li>
               <li className="group">
                 <span className="flex items-start gap-3.5 text-sm text-white/45">
-                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-sky-400/10 group-hover:text-sky-300 transition-all">
+                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500/10 to-amber-500/5 border border-amber-500/20 flex items-center justify-center group-hover:bg-amber-500/20 group-hover:text-amber-400 group-hover:border-amber-500/40 transition-all shadow-[0_0_12px_rgba(251,191,36,0.08)]">
                     <MapPin size={14} />
                   </span>
                   <span>
                     <span className="block text-[10px] tracking-wider text-white/30 uppercase mb-0.5">Address</span>
-                    Panipokhari, Kathmandu, Nepal
+                    <span className="text-white/60">Panipokhari, Kathmandu, Nepal</span>
                   </span>
                 </span>
               </li>
             </ul>
-            <div className="flex gap-3 mt-8">
+            <div className="flex gap-3 mt-8 pl-4">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -148,7 +184,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className={`w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/30 ${s.color} transition-all duration-300 hover:scale-110`}
+                  className={`w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/30 ${s.color} transition-all duration-300 hover:scale-110 border border-white/10 hover:border-white/20`}
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
                     <path d={s.path} />
@@ -159,16 +195,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="relative border-t border-white/5 pt-8">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/15 to-transparent" />
+        <div className="relative pt-8">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/25 to-transparent" />
+          <div className="absolute inset-x-[20%] top-0 h-[1px] bg-gradient-to-r from-orange-400/0 via-orange-400/15 to-orange-400/0 blur-sm" />
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-white/25">
               &copy; {new Date().getFullYear()} Sky Touch Investment & Consultant Pvt. Ltd. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-[11px] text-white/25">
-              <Link to="/terms" className="hover:text-sky-300 transition-colors">Privacy Policy</Link>
+            <div className="flex items-center gap-4 text-[11px]">
+              <Link to="/terms" className="text-white/25 hover:text-orange-300 transition-colors">Privacy Policy</Link>
               <span className="w-px h-3 bg-white/10" />
-              <Link to="/terms" className="hover:text-sky-300 transition-colors">Terms of Service</Link>
+              <Link to="/terms" className="text-white/25 hover:text-orange-300 transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
