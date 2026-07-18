@@ -4,10 +4,17 @@ const router = Router()
 
 const sanitize = (str) => {
   if (typeof str !== 'string') return ''
-  return str.replace(/[<>]/g, '').trim().slice(0, 1000)
+  return str
+    .replace(/[<>]/g, '')
+    .replace(/[&$(){}[\]\\]/g, '')
+    .replace(/javascript:/gi, '')
+    .replace(/on\w+=/gi, '')
+    .replace(/data:/gi, '')
+    .trim()
+    .slice(0, 1000)
 }
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 
 router.post('/', async (req, res) => {
   const { company, name, email, phone, message } = req.body
@@ -32,10 +39,6 @@ router.post('/', async (req, res) => {
 
   if (sanitizedMessage.length < 10) {
     return res.status(400).json({ error: 'Message must be at least 10 characters' })
-  }
-
-  if (Buffer.byteLength(JSON.stringify(req.body), 'utf8') > 10000) {
-    return res.status(413).json({ error: 'Request too large' })
   }
 
   try {

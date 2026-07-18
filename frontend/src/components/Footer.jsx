@@ -153,7 +153,7 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   className={`w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 ${s.color} transition-all duration-300 hover:scale-110 border border-white/20 hover:border-white/40`}
                 >
