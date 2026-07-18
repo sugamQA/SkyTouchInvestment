@@ -136,7 +136,10 @@ export default function Home() {
             if (dist < minDist) { minDist = dist; closestIdx = i }
           })
           const lineProgress = ((closestIdx + 1) / steps.length) * 100
-          scrollLineRef.current.style.height = lineProgress + '%'
+          const path = scrollLineRef.current
+          const length = path.getTotalLength ? path.getTotalLength() : 1400
+          path.style.strokeDasharray = length
+          path.style.strokeDashoffset = length * (1 - lineProgress / 100)
 
           steps.forEach((step, i) => {
             const sc = step.getBoundingClientRect().top + step.getBoundingClientRect().height / 2
@@ -429,9 +432,30 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="relative max-w-[800px] mx-auto" ref={timelineRef}>
-            <div className="absolute left-1/2 -translate-x-1/2 w-[2px] hidden md:block top-0 bottom-0 overflow-hidden">
-              <div className="absolute inset-0 bg-white/15" />
-              <div className="absolute inset-0 bg-gradient-to-b from-orange-300 via-orange-400 to-orange-300 transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
+            <div className="absolute left-1/2 -translate-x-1/2 hidden md:block top-0 bottom-0 w-full overflow-hidden">
+              <svg className="w-full h-full" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.7 }}>
+                <defs>
+                  <linearGradient id="curveGlow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#f97316" stopOpacity="0" />
+                    <stop offset="15%" stopColor="#f97316" stopOpacity="0.08" />
+                    <stop offset="50%" stopColor="#f97316" stopOpacity="0.2" />
+                    <stop offset="85%" stopColor="#f97316" stopOpacity="0.08" />
+                    <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="curveMain" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#f97316" stopOpacity="0" />
+                    <stop offset="15%" stopColor="#f97316" stopOpacity="0.6" />
+                    <stop offset="50%" stopColor="#f97316" stopOpacity="1" />
+                    <stop offset="85%" stopColor="#f97316" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M 400,0 C 400,25 470,45 470,80 S 330,145 330,190 S 470,255 470,300 S 330,365 330,410 S 470,475 470,520 S 330,585 330,630 S 400,680 400,730"
+                  stroke="url(#curveGlow)" strokeWidth="14" fill="none" strokeLinecap="round" />
+                <path d="M 400,0 C 400,25 470,45 470,80 S 330,145 330,190 S 470,255 470,300 S 330,365 330,410 S 470,475 470,520 S 330,585 330,630 S 400,680 400,730"
+                  stroke="url(#curveMain)" strokeWidth="3" fill="none" strokeLinecap="round"
+                  strokeDasharray="1400" strokeDashoffset="1400" ref={scrollLineRef} />
+              </svg>
             </div>
 
             {protocolSteps.map((step, i) => {
