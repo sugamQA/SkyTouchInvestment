@@ -334,7 +334,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-white/[0.02]" />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 60%)' }} />
 
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
 
         <div className="absolute top-32 left-16 w-64 h-64 rounded-full bg-orange-500/5 blur-[100px]" />
         <div className="absolute bottom-32 right-16 w-80 h-80 rounded-full bg-blue-500/5 blur-[120px]" />
@@ -352,30 +352,59 @@ export default function Home() {
         <div className="absolute bottom-1/3 right-0 w-40 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <svg className="w-full h-full opacity-[0.04]" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-            <g stroke="white" strokeWidth="0.5" fill="none">
+          <svg className="w-full h-full opacity-[0.12]" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="0.8" fill="white" opacity="0.3" />
+              </pattern>
+              <linearGradient id="fadeTop" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="white" stopOpacity="0" />
+                <stop offset="30%" stopColor="white" stopOpacity="0.15" />
+                <stop offset="70%" stopColor="white" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="white" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <g stroke="url(#fadeTop)" strokeWidth="0.6" fill="none">
               <line x1="400" y1="0" x2="0" y2="600" />
-              <line x1="400" y1="0" x2="100" y2="600" />
-              <line x1="400" y1="0" x2="200" y2="600" />
-              <line x1="400" y1="0" x2="300" y2="600" />
+              <line x1="400" y1="0" x2="80" y2="600" />
+              <line x1="400" y1="0" x2="160" y2="600" />
+              <line x1="400" y1="0" x2="240" y2="600" />
+              <line x1="400" y1="0" x2="320" y2="600" />
               <line x1="400" y1="0" x2="400" y2="600" />
-              <line x1="400" y1="0" x2="500" y2="600" />
-              <line x1="400" y1="0" x2="600" y2="600" />
-              <line x1="400" y1="0" x2="700" y2="600" />
+              <line x1="400" y1="0" x2="480" y2="600" />
+              <line x1="400" y1="0" x2="560" y2="600" />
+              <line x1="400" y1="0" x2="640" y2="600" />
+              <line x1="400" y1="0" x2="720" y2="600" />
               <line x1="400" y1="0" x2="800" y2="600" />
-              <line x1="0" y1="300" x2="800" y2="300" />
-              <line x1="0" y1="450" x2="800" y2="450" />
-              <line x1="0" y1="200" x2="800" y2="200" />
-              <line x1="200" y1="0" x2="200" y2="600" />
-              <line x1="600" y1="0" x2="600" y2="600" />
-              <rect x="150" y="100" width="500" height="400" rx="10" />
-              <rect x="200" y="150" width="400" height="300" rx="8" />
-              <rect x="250" y="200" width="300" height="200" rx="6" />
             </g>
+            <g stroke="url(#fadeTop)" strokeWidth="0.4" fill="none" opacity="0.5">
+              <line x1="400" y1="0" x2="40" y2="600" />
+              <line x1="400" y1="0" x2="120" y2="600" />
+              <line x1="400" y1="0" x2="200" y2="600" />
+              <line x1="400" y1="0" x2="280" y2="600" />
+              <line x1="400" y1="0" x2="360" y2="600" />
+              <line x1="400" y1="0" x2="440" y2="600" />
+              <line x1="400" y1="0" x2="520" y2="600" />
+              <line x1="400" y1="0" x2="600" y2="600" />
+              <line x1="400" y1="0" x2="680" y2="600" />
+              <line x1="400" y1="0" x2="760" y2="600" />
+            </g>
+            <g stroke="white" strokeWidth="0.3" opacity="0.08">
+              <line x1="0" y1="280" x2="800" y2="280" />
+              <line x1="0" y1="320" x2="800" y2="320" />
+              <line x1="0" y1="360" x2="800" y2="360" />
+              <line x1="0" y1="400" x2="800" y2="400" />
+              <line x1="0" y1="440" x2="800" y2="440" />
+              <line x1="0" y1="480" x2="800" y2="480" />
+              <line x1="0" y1="520" x2="800" y2="520" />
+              <line x1="0" y1="560" x2="800" y2="560" />
+            </g>
+            <rect x="0" y="0" width="800" height="600" fill="url(#dots)" opacity="0.4" />
           </svg>
         </div>
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.02]" style={{ transform: 'translate(-50%, -50%) rotateX(60deg) rotateZ(45deg)', backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.06]" style={{ transform: 'translate(-50%, -50%) rotateX(60deg) rotateZ(45deg)', backgroundImage: 'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.04]" style={{ transform: 'translate(-50%, -50%) rotateX(60deg) rotateZ(45deg)', backgroundImage: 'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)', backgroundSize: '15px 15px' }} />
 
         <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
