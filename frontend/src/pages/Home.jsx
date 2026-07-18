@@ -349,9 +349,9 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="relative max-w-[800px] mx-auto" ref={timelineRef}>
-            <div className="absolute left-1/2 -translate-x-1/2 w-[1px] hidden md:block top-0 bottom-0 overflow-hidden">
-              <div className="absolute inset-0 bg-white/10" />
-              <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/60 transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
+            <div className="absolute left-1/2 -translate-x-1/2 w-[2px] hidden md:block top-0 bottom-0 overflow-hidden">
+              <div className="absolute inset-0 bg-white/15" />
+              <div className="absolute inset-0 bg-gradient-to-b from-orange-300 via-orange-400 to-orange-300 transition-all duration-500 ease-out" style={{ height: '0%' }} ref={scrollLineRef} />
             </div>
 
             {protocolSteps.map((step, i) => {
@@ -362,25 +362,24 @@ export default function Home() {
                 <div key={step.title} className="timeline-step flex flex-col md:flex-row items-start mb-14 md:mb-20 last:mb-0 will-change-transform duration-75 group">
                   <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
                     <div className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
-                      <div className="relative rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden bg-white/[0.04] backdrop-blur-sm text-center">
+                      <div className="relative rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-orange-400/30 transition-all duration-500 overflow-hidden bg-white text-center shadow-sm">
                         <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
-                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-white/60 bg-white/10 rounded-full border border-white/10">
+                          <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-orange-500 bg-orange-50 rounded-full border border-orange-200">
                             STEP {String(i + 1).padStart(2, '0')}
                           </span>
-                          <span className="h-[1px] w-6 bg-gradient-to-r from-white/40 to-transparent" />
+                          <span className="h-[1px] w-6 bg-gradient-to-r from-orange-400/60 to-transparent" />
                         </div>
-                        <h3 className="text-xl md:text-[26px] font-semibold text-white mb-3">{step.title}</h3>
-                        <p className="text-sm md:text-base text-white/50 leading-relaxed">{step.desc}</p>
+                        <h3 className="text-xl md:text-[26px] font-semibold text-slate-900 mb-3">{step.title}</h3>
+                        <p className="text-sm md:text-base text-slate-600 leading-relaxed">{step.desc}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
                     <div className="relative">
-                      <div className="absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 bg-white/20" />
-                      <div className="absolute -inset-3 rounded-full border border-dashed border-white/10 group-hover:animate-[spin_8s_linear_infinite] transition-all duration-500" />
-                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white/[0.06] border-2 border-white/20 flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg backdrop-blur-sm`}>
-                        <span className="material-symbols-outlined text-[36px] text-white/80 group-hover:scale-110 transition-transform duration-300" style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                      <div className="absolute inset-0 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 bg-orange-500/30" />
+                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg shadow-orange-500/20`}>
+                        <span className="material-symbols-outlined text-[36px] text-orange-500 group-hover:scale-110 transition-transform duration-300" style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
                       </div>
                     </div>
                   </div>
