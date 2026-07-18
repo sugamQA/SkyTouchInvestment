@@ -334,7 +334,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-white/[0.02]" />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 60%)' }} />
 
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
         <div className="absolute top-32 left-16 w-64 h-64 rounded-full bg-orange-500/5 blur-[100px]" />
         <div className="absolute bottom-32 right-16 w-80 h-80 rounded-full bg-blue-500/5 blur-[120px]" />
@@ -350,6 +350,32 @@ export default function Home() {
 
         <div className="absolute top-1/3 left-0 w-32 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
         <div className="absolute bottom-1/3 right-0 w-40 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <svg className="w-full h-full opacity-[0.04]" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+            <g stroke="white" strokeWidth="0.5" fill="none">
+              <line x1="400" y1="0" x2="0" y2="600" />
+              <line x1="400" y1="0" x2="100" y2="600" />
+              <line x1="400" y1="0" x2="200" y2="600" />
+              <line x1="400" y1="0" x2="300" y2="600" />
+              <line x1="400" y1="0" x2="400" y2="600" />
+              <line x1="400" y1="0" x2="500" y2="600" />
+              <line x1="400" y1="0" x2="600" y2="600" />
+              <line x1="400" y1="0" x2="700" y2="600" />
+              <line x1="400" y1="0" x2="800" y2="600" />
+              <line x1="0" y1="300" x2="800" y2="300" />
+              <line x1="0" y1="450" x2="800" y2="450" />
+              <line x1="0" y1="200" x2="800" y2="200" />
+              <line x1="200" y1="0" x2="200" y2="600" />
+              <line x1="600" y1="0" x2="600" y2="600" />
+              <rect x="150" y="100" width="500" height="400" rx="10" />
+              <rect x="200" y="150" width="400" height="300" rx="8" />
+              <rect x="250" y="200" width="300" height="200" rx="6" />
+            </g>
+          </svg>
+        </div>
+
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.02]" style={{ transform: 'translate(-50%, -50%) rotateX(60deg) rotateZ(45deg)', backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
         <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
