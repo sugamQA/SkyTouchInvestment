@@ -39,12 +39,12 @@ const approachTestimonials = [
 ]
 
 const milestones = [
-  { year: '2009', title: 'Establishment & Vision', desc: 'Sky Touch Investment & Consultant Pvt. Ltd. was founded in Kathmandu with a clear mandate: to bridge the gap between strategic capital and high-potential enterprises in Nepal. Registered under Reg. No. 63835, the company commenced operations with a vision to institutionalize investment consulting in the Nepali market.' },
-  { year: '2012', title: 'Inaugural Institutional Fund', desc: 'Launched our first institutional investment fund with a strategic focus on infrastructure development and renewable energy sectors. This milestone marked our transition from advisory services to active capital deployment, establishing our reputation as a credible investment partner.' },
-  { year: '2015', title: 'CARE Accreditation', desc: 'Received prestigious CARE rating for bank facilities, a testament to our financial discipline and operational rigor. This accreditation strengthened stakeholder confidence and opened access to institutional-grade financial instruments and banking partnerships.' },
-  { year: '2018', title: 'NPR 2B Portfolio Milestone', desc: 'Achieved NPR 2 billion in assets under management, diversified across five high-growth sectors including hydropower, real estate, financial services, healthcare, and manufacturing. Expanded our team to 25 professionals with specialized domain expertise.' },
-  { year: '2021', title: 'Digital & Operational Modernization', desc: 'Implemented comprehensive digital transformation initiatives including automated portfolio tracking systems, enhanced client reporting dashboards, and a robust cybersecurity framework. These upgrades improved decision-making velocity and client transparency.' },
-  { year: '2024', title: 'NPR 5B+ AUM & Industry Leadership', desc: 'Surpassed NPR 5 billion in assets under management with a team of 50+ professionals operating across 10+ investment sectors. Recognized as a leading independent investment and consulting firm in Nepal, serving a diverse portfolio of institutional and high-net-worth clients.' },
+  { year: '2009', title: 'Establishment & Vision', desc: 'Founded in Kathmandu with a mandate to bridge strategic capital with high-potential enterprises across Nepal.' },
+  { year: '2012', title: 'Inaugural Institutional Fund', desc: 'Launched our first institutional fund focused on infrastructure and renewable energy, marking our transition from advisory to active capital deployment.' },
+  { year: '2015', title: 'CARE Accreditation', desc: 'Received CARE rating for bank facilities, strengthening stakeholder confidence and expanding access to institutional-grade financial partnerships.' },
+  { year: '2018', title: 'NPR 2B Portfolio Milestone', desc: 'Crossed NPR 2 billion AUM across five high-growth sectors including hydropower, real estate, financial services, and healthcare.' },
+  { year: '2021', title: 'Digital & Operational Modernization', desc: 'Implemented portfolio tracking systems, enhanced client dashboards, and cybersecurity frameworks to improve decision-making and transparency.' },
+  { year: '2024', title: 'NPR 5B+ AUM & Industry Leadership', desc: 'Surpassed NPR 5 billion AUM with 50+ professionals across 10+ sectors, recognized as a leading independent investment firm in Nepal.' },
 ]
 
 
@@ -147,41 +147,32 @@ export default function About() {
           </ScrollReveal>
 
           <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2 hidden md:block" />
+            <div className="absolute left-[23px] md:left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2 hidden md:block" />
             <div className="space-y-10">
               {milestones.map((m, i) => {
                 const isLeft = i % 2 === 0
+                const content = (
+                  <>
+                    <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                    <h3 className="text-lg font-bold text-slate-900 mt-1 mb-1">{m.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                  </>
+                )
                 return (
                   <ScrollReveal key={m.year} delay={i * 0.08}>
-                    <div className={`relative flex flex-col md:flex-row gap-4 items-start ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                      <div className="hidden md:block flex-1">
-                        {isLeft ? (
-                          <div className="max-w-md ml-auto text-right">
-                            <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
-                            <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
-                            <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
-                          </div>
-                        ) : null}
+                    <div className="relative flex flex-col md:flex-row items-center gap-3 md:gap-6">
+                      <div className="hidden md:flex flex-1 justify-end">
+                        {isLeft ? <div className="w-full max-w-sm text-right">{content}</div> : null}
                       </div>
-                      <div className="relative z-10 flex-shrink-0 mx-auto md:mx-0">
-                        <div className="w-14 h-14 rounded-full bg-slate-300 flex items-center justify-center text-slate-700 font-bold text-sm shadow-md border-[3px] border-white">
+                      <div className="relative z-10 flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-slate-300 flex items-center justify-center text-slate-700 font-bold text-xs shadow-md border-[3px] border-white">
                           {m.year.slice(2)}
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <div className="md:hidden">
-                          <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
-                          <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
-                          <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
-                        </div>
-                        <div className="hidden md:block max-w-md">
-                          {!isLeft ? (
-                            <div>
-                              <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
-                              <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
-                              <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
-                            </div>
-                          ) : null}
+                      <div className="flex-1 flex md:justify-start">
+                        <div className="w-full max-w-sm">
+                          <div className="md:hidden">{content}</div>
+                          <div className="hidden md:block">{!isLeft ? content : null}</div>
                         </div>
                       </div>
                     </div>
@@ -207,59 +198,75 @@ export default function About() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
             <ScrollReveal>
-              <div className="h-full rounded-3xl bg-white border border-primary/10 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Target className="text-primary" size={28} />
+              <div className="group relative h-full rounded-[2rem] bg-white border border-slate-200/80 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(14,165,233,0.10)] transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-blue-400 to-primary/50 group-hover:h-1.5 transition-all duration-500" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(14,165,233,0.25)] transition-all duration-500">
+                    <Target className="text-primary" size={26} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-500">Our Vision</h3>
+                  <p className="text-slate-600 leading-relaxed text-[15px]">
+                    To become a trusted investment and consulting partner that contributes to the growth of businesses, 
+                    entrepreneurs, and investors across Nepal. We envision a Nepal where strategic capital and 
+                    professional guidance unlock the nation's full economic potential.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  To become a trusted investment and consulting partner that contributes to the growth of businesses, 
-                  entrepreneurs, and investors across Nepal. We envision a Nepal where strategic capital and 
-                  professional guidance unlock the nation's full economic potential.
-                </p>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/[0.02] to-transparent rounded-full blur-2xl" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="h-full rounded-3xl bg-white border border-primary/10 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <BarChart3 className="text-secondary" size={28} />
+              <div className="group relative h-full rounded-[2rem] bg-white border border-slate-200/80 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(124,58,237,0.10)] transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-purple-400 to-secondary/50 group-hover:h-1.5 transition-all duration-500" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(124,58,237,0.25)] transition-all duration-500">
+                    <BarChart3 className="text-secondary" size={26} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-secondary transition-colors duration-500">Our Mission</h3>
+                  <p className="text-slate-600 leading-relaxed text-[15px]">
+                    Provide reliable consulting, support sustainable business growth, and create value through strategic 
+                    planning and professional guidance. We empower our clients with the insights, networks, and 
+                    capital they need to achieve enduring success.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Provide reliable consulting, support sustainable business growth, and create value through strategic 
-                  planning and professional guidance. We empower our clients with the insights, networks, and 
-                  capital they need to achieve enduring success.
-                </p>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/[0.02] to-transparent rounded-full blur-2xl" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <div className="h-full rounded-3xl bg-white border border-primary/10 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Handshake className="text-tertiary" size={28} />
+              <div className="group relative h-full rounded-[2rem] bg-white border border-slate-200/80 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(245,158,11,0.10)] transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-tertiary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary/50 group-hover:h-1.5 transition-all duration-500" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-tertiary/20 to-tertiary/5 border border-tertiary/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.25)] transition-all duration-500">
+                    <Handshake className="text-tertiary" size={26} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-tertiary transition-colors duration-500">Our Commitment</h3>
+                  <p className="text-slate-600 leading-relaxed text-[15px]">
+                    We commit to transparency, integrity, and excellence in every engagement. Our clients deserve 
+                    nothing less than our best thinking, our deepest expertise, and our unwavering dedication to 
+                    their long-term success.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Commitment</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  We commit to transparency, integrity, and excellence in every engagement. Our clients deserve 
-                  nothing less than our best thinking, our deepest expertise, and our unwavering dedication to 
-                  their long-term success.
-                </p>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-tertiary/[0.02] to-transparent rounded-full blur-2xl" />
               </div>
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v, i) => (
               <ScrollReveal key={v.title} delay={i * 0.08}>
-                <div className="group relative h-full rounded-2xl bg-white border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${v.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                  <div className="relative z-10">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <v.icon size={22} className="text-white" />
+                <div className="group relative h-full rounded-2xl bg-white border border-slate-200/70 p-6 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-0.5 overflow-hidden">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${v.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`} />
+                  <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-gradient-to-b ${v.color} transition-all duration-500 rounded-r" />
+                  <div className="relative z-10 pl-2">
+                    <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      <v.icon size={20} className="text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
+                    <h3 className="text-base font-bold text-slate-900 mb-1.5">{v.title}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">{v.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
