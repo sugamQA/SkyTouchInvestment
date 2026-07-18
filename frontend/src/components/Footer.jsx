@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 
 const quickLinks = [
   { path: '/', label: 'Home Page' },
@@ -28,23 +27,17 @@ export default function Footer() {
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-16 pt-20 pb-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <img src="/logo.png" alt="SkyTouch" className="h-20 w-auto mb-4 brightness-0 invert opacity-85" loading="lazy" />
+          <div className="footer-reveal" style={{ animationDelay: '0s' }}>
+            <picture>
+              <source srcSet="/logo.webp" type="image/webp" />
+              <img src="/logo-sm.jpg" alt="SkyTouch" className="h-20 w-auto mb-4 brightness-0 invert opacity-85" loading="lazy" />
+            </picture>
             <p className="text-sm text-white/50 leading-relaxed">
               Strategic Investment & Professional Consulting, empowering businesses and investors across Nepal since 2009.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
+          <div className="footer-reveal" style={{ animationDelay: '0.1s' }}>
             <h4 className="text-xs tracking-[0.2em] font-bold text-white/90 mb-6 uppercase">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -55,14 +48,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          <div className="footer-reveal" style={{ animationDelay: '0.2s' }}>
             <h4 className="text-xs tracking-[0.2em] font-bold text-white/90 mb-6 uppercase">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
@@ -73,14 +61,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
+          <div className="footer-reveal" style={{ animationDelay: '0.3s' }}>
             <h4 className="text-xs tracking-[0.2em] font-bold text-white/90 mb-6 uppercase">Contact Us</h4>
             <ul className="space-y-4">
               <li>
@@ -111,7 +94,7 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">

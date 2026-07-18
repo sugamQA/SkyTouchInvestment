@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   plugins: [react()],
@@ -19,27 +20,34 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 300,
+    cssMinify: 'lightningcss',
+    minify: 'esbuild',
+    target: 'es2020',
+    sourcemap: false,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
+        experimentalMinChunkSize: 8192,
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('@splinetool') || id.includes('react-spline')) {
-              return 'spline-vendor'
-            }
-            if (id.includes('three') || id.includes('@react-three') || id.includes('@react-three/fiber') || id.includes('@react-three/drei')) {
-              return 'three-vendor'
-            }
             if (id.includes('framer-motion')) {
               return 'motion-vendor'
             }
-            if (id.includes('react') || id.includes('react-dom')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
               return 'react-vendor'
+            }
+            if (id.includes('lucide-react') || id.includes('react-icons')) {
+              return 'icons-vendor'
             }
             return 'vendor'
           }
         }
       }
     }
-  }
+  },
+  esbuild: {
+    legalComments: 'none',
+    drop: ['console', 'debugger'],
+  },
 })

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
 
 export default function ThemeToggle() {
@@ -23,25 +22,18 @@ export default function ThemeToggle() {
   }, [dark])
 
   return (
-    <motion.button
-      whileTap={{ scale: 0.9 }}
+    <button
       onClick={() => setDark(!dark)}
-      className="relative flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-300"
+      className="relative flex h-9 w-9 items-center justify-center rounded-full transition-transform duration-200 active:scale-90"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      <motion.div
-        key={dark ? 'moon' : 'sun'}
-        initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-        animate={{ rotate: 0, opacity: 1, scale: 1 }}
-        exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div className="theme-toggle-icon">
         {dark ? (
           <Moon size={18} className="text-amber-300" strokeWidth={2} />
         ) : (
           <Sun size={18} className="text-amber-500" strokeWidth={2} />
         )}
-      </motion.div>
-    </motion.button>
+      </div>
+    </button>
   )
 }

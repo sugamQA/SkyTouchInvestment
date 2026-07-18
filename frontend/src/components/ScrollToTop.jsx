@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronUp } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
@@ -34,19 +33,18 @@ export default function ScrollToTop() {
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-3">
       <ThemeToggle />
-      <AnimatePresence>
-        {visible && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            onClick={scrollToTop}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-tertiary text-white shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-shadow duration-300"
-          >
-            <ChevronUp size={22} strokeWidth={2.5} />
-          </motion.button>
-        )}
-      </AnimatePresence>
+      <div
+        className={`transition-all duration-300 ease-out ${
+          visible ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-50 pointer-events-none'
+        }`}
+      >
+        <button
+          onClick={scrollToTop}
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-tertiary text-white shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-shadow duration-300"
+        >
+          <ChevronUp size={22} strokeWidth={2.5} />
+        </button>
+      </div>
     </div>
   )
 }

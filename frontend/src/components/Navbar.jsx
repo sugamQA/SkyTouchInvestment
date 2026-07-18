@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Info, Users, BriefcaseBusiness, Newspaper, Mail } from 'lucide-react'
 
 const navLinks = [
@@ -67,10 +66,12 @@ export default function Navbar() {
     setMobileOpen(false)
   }, [location])
 
-  const navItemVariants = {
-    initial: { opacity: 0, y: -10 },
-    animate: { opacity: 1, y: 0 },
-  }
+  const [navIn, setNavIn] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setNavIn(true), 100)
+    return () => clearTimeout(t)
+  }, [])
 
   return (
     <>
@@ -96,33 +97,31 @@ export default function Navbar() {
           <div className={`relative z-10 h-0.5 ${isHomePage ? (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary' : 'bg-gradient-to-r from-primary via-tertiary to-primary')}`} />
 
           <div className="relative z-10 max-w-[1440px] mx-auto flex items-center justify-between px-6 md:px-16 transition-all duration-500 ease-out h-20">
-          {/* Logo + Nepal Time */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 relative group"
+          {/* Logo */}
+          <div
+            className={`flex items-center gap-3 relative group transition-all duration-600 ${
+              navIn ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'
+            }`}
           >
             <Link to="/" className="flex items-center gap-2 relative">
-              <img
-                src="/logo.png"
-                alt="SkyTouch"
-                className={`w-auto max-w-full brightness-125 contrast-125 drop-shadow-xl transition-all duration-500 ease-out ${
-                  scrolled ? 'h-12 md:h-16' : 'h-16 md:h-24'
-                }`}
-              />
+              <picture>
+                <source srcSet="/logo.webp" type="image/webp" />
+                <img
+                  src="/logo-sm.jpg"
+                  alt="SkyTouch"
+                  className={`w-auto max-w-full brightness-125 contrast-125 drop-shadow-xl transition-all duration-500 ease-out ${
+                    scrolled ? 'h-12 md:h-16' : 'h-16 md:h-24'
+                  }`}
+                />
+              </picture>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link, idx) => (
-              <motion.div
+            {navLinks.map((link) => (
+              <div
                 key={link.path}
-                variants={navItemVariants}
-                initial="initial"
-                animate="animate"
-                transition={{ delay: idx * 0.1 }}
                 onMouseEnter={() => setHoveredLink(link.path)}
                 onMouseLeave={() => setHoveredLink(null)}
                 className="relative"
@@ -142,23 +141,22 @@ export default function Navbar() {
                   
                   {/* Hover glow indicator */}
                   {hoveredLink === link.path && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className={`absolute -inset-1 blur-md rounded -z-10 ${isHomePage ? (scrolled ? 'bg-white/35' : 'bg-primary/15') : (scrolled ? 'bg-primary/20' : 'bg-primary/10')}`}
-                      transition={{ type: 'spring', bounce: 0.2 }}
+                    <div
+                      className={`absolute -inset-1 blur-md rounded -z-10 transition-all duration-300 ${
+                        isHomePage ? (scrolled ? 'bg-white/35' : 'bg-primary/15') : (scrolled ? 'bg-primary/20' : 'bg-primary/10')
+                      }`}
                     />
                   )}
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </nav>
 
           {/* Desktop CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="hidden lg:block"
+          <div
+            className={`hidden lg:block transition-all duration-600 ${
+              navIn ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'
+            }`}
           >
             <Link
               to="/contact#contact-form"
@@ -166,7 +164,7 @@ export default function Navbar() {
             >
               <span>GET IN TOUCH</span>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -175,70 +173,59 @@ export default function Navbar() {
             aria-label="Menu"
           >
             <div className={`absolute -inset-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isHomePage ? (scrolled ? 'bg-primary/20' : 'bg-primary/15') : (scrolled ? 'bg-primary/20' : 'bg-primary/15')}`} />
-            <motion.span
-              className={`block w-6 h-0.5 rounded-full relative ${isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')}`}
-              animate={mobileOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+            <span
+              className={`block w-6 h-0.5 rounded-full relative transition-all duration-300 ${
+                isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
+              } ${mobileOpen ? 'rotate-45 translate-y-[6px]' : ''}`}
             />
-            <motion.span
-              className={`block w-6 h-0.5 rounded-full ${isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')}`}
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+            <span
+              className={`block w-6 h-0.5 rounded-full transition-all duration-300 ${
+                isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
+              } ${mobileOpen ? 'opacity-0' : ''}`}
             />
-            <motion.span
-              className={`block w-6 h-0.5 rounded-full ${isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')}`}
-              animate={mobileOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+            <span
+              className={`block w-6 h-0.5 rounded-full transition-all duration-300 ${
+                isHomePage ? (scrolled ? 'bg-white' : 'bg-white') : (scrolled ? 'bg-slate-900' : 'bg-white')
+              } ${mobileOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}
             />
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className={`lg:hidden border-t overflow-hidden ${isHomePage ? (scrolled ? 'bg-white/10 border-white/20 backdrop-blur-xl' : 'bg-transparent border-white/10 backdrop-blur-xl') : (scrolled ? 'bg-gradient-to-b from-primary/10 via-white to-tertiary/10 border-primary/20' : 'bg-gradient-to-b from-primary/90 via-slate-950 to-tertiary/90 border-primary/20')}`}
-            >
-              <div className="px-6 py-8 flex flex-col gap-2">
-                {navLinks.map((link, idx) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`block px-4 py-3 rounded-lg text-sm tracking-wider font-semibold transition-all duration-300 ${
-                        location.pathname === link.path
-                          ? 'text-white bg-tertiary/20 border border-tertiary/30 shadow-[0_0_18px_rgba(249,115,22,0.18)]'
-                          : (isHomePage ? (scrolled ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10') : (scrolled ? 'text-slate-700 hover:text-slate-950 hover:bg-white/50' : 'text-white/80 hover:text-white hover:bg-white/10'))
-                      }`}
-                    >
-                      <span className="inline-flex items-center gap-2">
-                        <link.icon size={16} strokeWidth={2.2} className={location.pathname === link.path ? 'text-tertiary' : 'text-current'} />
-                        <span>{link.label}</span>
-                      </span>
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className={`pt-4 ${isHomePage ? (scrolled ? 'border-t border-white/20' : 'border-t border-white/10') : (scrolled ? 'border-t border-primary/20' : 'border-t border-white/10')}`}
-                >
-                  <Link
-                    to="/contact#contact-form"
-                    className={`block mt-4 px-6 py-3 rounded-full text-sm tracking-wider font-bold text-center transition-all duration-300 ${isHomePage ? (scrolled ? 'bg-white/15 text-white hover:shadow-lg hover:shadow-white/10 backdrop-blur-md' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-primary/25' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30')}`}
-                  >
-                    GET IN TOUCH
-                  </Link>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className={`lg:hidden border-t overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+          } ${
+            isHomePage ? (scrolled ? 'bg-white/10 border-white/20 backdrop-blur-xl' : 'bg-transparent border-white/10 backdrop-blur-xl') : (scrolled ? 'bg-gradient-to-b from-primary/10 via-white to-tertiary/10 border-primary/20' : 'bg-gradient-to-b from-primary/90 via-slate-950 to-tertiary/90 border-primary/20')
+          }`}
+        >
+          <div className="px-6 py-8 flex flex-col gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`block px-4 py-3 rounded-lg text-sm tracking-wider font-semibold transition-all duration-300 ${
+                  location.pathname === link.path
+                    ? 'text-white bg-tertiary/20 border border-tertiary/30 shadow-[0_0_18px_rgba(249,115,22,0.18)]'
+                    : (isHomePage ? (scrolled ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10') : (scrolled ? 'text-slate-700 hover:text-slate-950 hover:bg-white/50' : 'text-white/80 hover:text-white hover:bg-white/10'))
+                }`}
+              >
+                <span className="inline-flex items-center gap-2">
+                  <link.icon size={16} strokeWidth={2.2} className={location.pathname === link.path ? 'text-tertiary' : 'text-current'} />
+                  <span>{link.label}</span>
+                </span>
+              </Link>
+            ))}
+            <div className={`pt-4 ${isHomePage ? (scrolled ? 'border-t border-white/20' : 'border-t border-white/10') : (scrolled ? 'border-t border-primary/20' : 'border-t border-white/10')}`}>
+              <Link
+                to="/contact#contact-form"
+                className={`block mt-4 px-6 py-3 rounded-full text-sm tracking-wider font-bold text-center transition-all duration-300 ${isHomePage ? (scrolled ? 'bg-white/15 text-white hover:shadow-lg hover:shadow-white/10 backdrop-blur-md' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30') : (scrolled ? 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-primary/25' : 'bg-gradient-to-r from-primary via-white to-tertiary text-slate-900 hover:shadow-lg hover:shadow-black/30')}`}
+              >
+                GET IN TOUCH
+              </Link>
+            </div>
+          </div>
+        </div>
         </div>
       </header>
     </>

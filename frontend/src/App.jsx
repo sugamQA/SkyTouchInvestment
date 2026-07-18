@@ -1,67 +1,55 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Loader from './components/Loader'
-import ParticleBackground from './components/ParticleBackground'
 import ScrollToTop from './components/ScrollToTop'
-import Home from './pages/Home'
-import About from './pages/About'
-import Investment from './pages/Investment'
-import Blogs from './pages/Blogs'
-import BlogDetail from './pages/BlogDetail'
-import Careers from './pages/Careers'
-import Contact from './pages/Contact'
-import Notices from './pages/Notices'
-import Testimonials from './pages/Testimonials'
-import Terms from './pages/Terms'
-import Boards from './pages/Boards'
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import ParticleBackground from './components/ParticleBackground'
+
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Investment = lazy(() => import('./pages/Investment'))
+const Blogs = lazy(() => import('./pages/Blogs'))
+const BlogDetail = lazy(() => import('./pages/BlogDetail'))
+const Careers = lazy(() => import('./pages/Careers'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Notices = lazy(() => import('./pages/Notices'))
+const Testimonials = lazy(() => import('./pages/Testimonials'))
+const Terms = lazy(() => import('./pages/Terms'))
+const Boards = lazy(() => import('./pages/Boards'))
+
+const PAGE_LOADING = (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+)
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
   const location = useLocation()
   const isHome = location.pathname === '/'
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 200)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <>
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <Loader key="loader" />
-        ) : (
-          <motion.div
-            key="app"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            {isHome && <ParticleBackground />}
-            <Navbar />
-            <main className="relative z-10">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/investment" element={<Investment />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/blogs/:id" element={<BlogDetail />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/notices" element={<Notices />} />
-                <Route path="/testimonials" element={<Testimonials />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/boards" element={<Boards />} />
-              </Routes>
-            </main>
-            <ScrollToTop />
-            <Footer />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isHome && <ParticleBackground />}
+      <Navbar />
+      <main className="relative z-10">
+        <Suspense fallback={PAGE_LOADING}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/investment" element={<Investment />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:id" element={<BlogDetail />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/notices" element={<Notices />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/boards" element={<Boards />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <ScrollToTop />
+      <Footer />
     </>
   )
 }
