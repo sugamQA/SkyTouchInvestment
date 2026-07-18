@@ -40,15 +40,15 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 overflow-hidden bg-[#0d1a30] text-white">
+    <footer className="relative z-10 overflow-hidden bg-gradient-to-br from-[#060e1a] via-[#0a1628] to-[#0d1a30] text-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-blue-500/25 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-0 right-1/3 w-[600px] h-[600px] bg-sky-400/25 rounded-full blur-[140px] animate-pulse" style={{ animationDuration: '6s' }} />
-        <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-blue-400/15 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 left-1/2 w-[300px] h-[300px] bg-sky-300/20 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }} />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-orange-500/20 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-0 right-1/3 w-[600px] h-[600px] bg-sky-400/20 rounded-full blur-[140px] animate-pulse" style={{ animationDuration: '6s' }} />
+        <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-amber-400/15 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 left-1/2 w-[300px] h-[300px] bg-orange-400/15 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }} />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" />
-        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-orange-500/10 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-sky-500/10 via-transparent to-transparent" />
         <svg className="absolute inset-0 w-full h-full opacity-[0.02]" viewBox="0 0 1440 800" preserveAspectRatio="none">
           <defs>
@@ -71,11 +71,11 @@ export default function Footer() {
               <source srcSet="/logo.webp" type="image/webp" />
               <img src="/logo-sm.jpg" alt="SkyTouch" className="h-14 w-auto mb-5 brightness-0 invert opacity-90" loading="lazy" />
             </picture>
-            <p className="text-sm text-blue-200/70 leading-relaxed mb-6 max-w-xs">
+            <p className="text-sm text-white/70 leading-relaxed mb-6 max-w-xs">
               Strategic Investment & Professional Consulting, empowering businesses and investors across Nepal since 2009.
             </p>
             <div className="flex items-center gap-3 text-sm">
-              <span className="inline-flex items-center gap-1.5 text-blue-200/60">
+              <span className="inline-flex items-center gap-1.5 text-white/60">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
                 Mon – Fri: 9:00 AM – 6:00 PM
               </span>
@@ -83,11 +83,11 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] tracking-[0.25em] font-bold text-blue-200/90 mb-6 uppercase">Quick Links</h4>
+            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/90 mb-6 uppercase">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-blue-200/60 hover:text-sky-300 transition-colors">
+                  <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-sky-300 transition-colors">
                     <ChevronRight size={10} className="text-sky-400/0 group-hover:text-sky-400 transition-all -ml-4 group-hover:ml-0" />
                     {link.label}
                   </Link>
@@ -97,11 +97,11 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] tracking-[0.25em] font-bold text-blue-200/90 mb-6 uppercase">Company</h4>
+            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/90 mb-6 uppercase">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-blue-200/60 hover:text-sky-300 transition-colors">
+                  <Link to={link.path} className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-sky-300 transition-colors">
                     <ChevronRight size={10} className="text-sky-400/0 group-hover:text-sky-400 transition-all -ml-4 group-hover:ml-0" />
                     {link.label}
                   </Link>
@@ -111,38 +111,38 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-4">
-            <h4 className="text-[11px] tracking-[0.25em] font-bold text-blue-200/90 mb-6 uppercase">Get In Touch</h4>
+            <h4 className="text-[11px] tracking-[0.25em] font-bold text-white/90 mb-6 uppercase">Get In Touch</h4>
             <ul className="space-y-4">
               <li className="group">
-                <a href="mailto:info@skytouchinvestment.com.np" className="flex items-start gap-3.5 text-sm text-blue-200/70 hover:text-sky-300 transition-colors">
-                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-sky-300 group-hover:border-blue-500/40 transition-all">
+                <a href="mailto:info@skytouchinvestment.com.np" className="flex items-start gap-3.5 text-sm text-white/70 hover:text-sky-300 transition-colors">
+                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-sky-300 group-hover:border-white/40 transition-all">
                     <Mail size={14} />
                   </span>
                   <span>
-                    <span className="block text-[10px] tracking-wider text-blue-200/50 uppercase mb-0.5">Email</span>
-                    <span className="text-blue-200/80 group-hover:text-sky-300 transition-colors">info@skytouchinvestment.com.np</span>
+                    <span className="block text-[10px] tracking-wider text-white/50 uppercase mb-0.5">Email</span>
+                    <span className="text-white/80 group-hover:text-sky-300 transition-colors">info@skytouchinvestment.com.np</span>
                   </span>
                 </a>
               </li>
               <li className="group">
-                <a href="tel:+977-1-4XXXXXX" className="flex items-start gap-3.5 text-sm text-blue-200/70 hover:text-sky-300 transition-colors">
-                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-sky-300 group-hover:border-blue-500/40 transition-all">
+                <a href="tel:+977-1-4XXXXXX" className="flex items-start gap-3.5 text-sm text-white/70 hover:text-sky-300 transition-colors">
+                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-sky-300 group-hover:border-white/40 transition-all">
                     <Phone size={14} />
                   </span>
                   <span>
-                    <span className="block text-[10px] tracking-wider text-blue-200/50 uppercase mb-0.5">Phone</span>
-                    <span className="text-blue-200/80 group-hover:text-sky-300 transition-colors">+977-1-4XXXXXX</span>
+                    <span className="block text-[10px] tracking-wider text-white/50 uppercase mb-0.5">Phone</span>
+                    <span className="text-white/80 group-hover:text-sky-300 transition-colors">+977-1-4XXXXXX</span>
                   </span>
                 </a>
               </li>
               <li className="group">
-                <span className="flex items-start gap-3.5 text-sm text-blue-200/70">
-                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-sky-300 group-hover:border-blue-500/40 transition-all">
+                <span className="flex items-start gap-3.5 text-sm text-white/70">
+                  <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-sky-300 group-hover:border-white/40 transition-all">
                     <MapPin size={14} />
                   </span>
                   <span>
-                    <span className="block text-[10px] tracking-wider text-blue-200/50 uppercase mb-0.5">Address</span>
-                    <span className="text-blue-200/80">Panipokhari, Kathmandu, Nepal</span>
+                    <span className="block text-[10px] tracking-wider text-white/50 uppercase mb-0.5">Address</span>
+                    <span className="text-white/80">Panipokhari, Kathmandu, Nepal</span>
                   </span>
                 </span>
               </li>
@@ -155,7 +155,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className={`w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-200/60 ${s.color} transition-all duration-300 hover:scale-110 border border-blue-500/20 hover:border-blue-500/40`}
+                  className={`w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 ${s.color} transition-all duration-300 hover:scale-110 border border-white/20 hover:border-white/40`}
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
                     <path d={s.path} />
@@ -169,13 +169,13 @@ export default function Footer() {
         <div className="relative pt-8">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-blue-200/40">
+            <p className="text-xs text-white/40">
               &copy; {new Date().getFullYear()} Sky Touch Investment & Consultant Pvt. Ltd. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-[11px]">
-              <Link to="/terms" className="text-blue-200/40 hover:text-sky-300 transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="text-white/40 hover:text-sky-300 transition-colors">Privacy Policy</Link>
               <span className="w-px h-3 bg-blue-500/20" />
-              <Link to="/terms" className="text-blue-200/40 hover:text-sky-300 transition-colors">Terms of Service</Link>
+              <Link to="/terms" className="text-white/40 hover:text-sky-300 transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
