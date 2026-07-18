@@ -5,7 +5,7 @@ import { Scale, Trophy, Lightbulb, Eye, Quote, MapPin, GraduationCap, Award, Bui
 
 const boardMembers = [
   {
-    name: 'Ambika Prasad Poudel',
+    name: 'Ambika Prasad Paudel',
     role: 'Chairman',
     image: 'https://imperialholdings.com.np/wp-content/uploads/2025/12/amb-removebg-preview.png',
     bio: 'Renowned entrepreneur and financial expert with over 30 years of experience in capital markets, hospitality, and diversified sectors. Chairman of Hilife Foods Limited and Kanjirowa National Secondary School. Serves as Director of IME Prudential General Insurance Ltd. Holds MBA and MPA from Tribhuvan University.',
@@ -100,9 +100,13 @@ export default function Boards() {
           </div>
         </section>
 
-        <section className="max-w-[1440px] mx-auto px-6 md:px-16 pb-24">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+        <section className="relative mx-auto pb-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#060e1a] via-[#0a1628] to-[#0d1a30]" />
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, white 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+          <div className="absolute top-0 left-1/3 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-sky-400/8 rounded-full blur-[100px]" />
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
               <div className="lg:col-span-2 relative">
                 <div className="relative flex flex-col items-center">
                   <div className="absolute -inset-4 bg-gradient-to-br from-white/20 via-white/5 to-transparent rounded-full blur-3xl opacity-60" />
@@ -164,42 +168,42 @@ export default function Boards() {
               <div className="lg:col-span-3">
                 <motion.div variants={staggerWrap} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
                   <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-4">
-                    <Quote size={20} className="text-orange-500/40" />
-                    <span className="text-xs tracking-[0.25em] font-bold text-orange-500 uppercase bg-orange-500/5 px-4 py-1.5 rounded-full">Chairman's Profile</span>
-                    <Quote size={20} className="text-orange-500/40 rotate-180" />
+                    <Quote size={20} className="text-orange-400/40" />
+                    <span className="text-xs tracking-[0.25em] font-bold text-orange-400 uppercase bg-white/5 px-4 py-1.5 rounded-full border border-white/10">Chairman's Profile</span>
+                    <Quote size={20} className="text-orange-400/40 rotate-180" />
                   </motion.div>
 
-                  <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-orange-600 mb-2 flex items-center gap-3">
+                  <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-2 flex items-center gap-3">
                     {chairman.name}
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-orange-100 text-orange-500">
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-orange-400">
                       <Award size={18} />
                     </span>
                   </motion.h2>
-                  <motion.p variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-orange-500 font-semibold mb-6">
+                  <motion.p variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-orange-400 font-semibold mb-6">
                     {chairman.role}
                   </motion.p>
 
-                  <motion.p variants={fadeUp} className="text-slate-600 leading-relaxed mb-8 text-base">
+                  <motion.p variants={fadeUp} className="text-white/60 leading-relaxed mb-8 text-base">
                     {chairman.bio}
                   </motion.p>
 
                   <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
                     {[
-                      { number: '30+', label: 'Years Experience', gradient: 'from-orange-500 to-amber-500', border: 'border-orange-200/50', bg: 'from-orange-50', shadow: 'shadow-orange-500/20' },
-                      { number: '4+', label: 'Sectors', gradient: 'from-amber-500 to-orange-600', border: 'border-amber-200/50', bg: 'from-amber-50', shadow: 'shadow-amber-500/20' },
-                      { number: 'MBA', label: 'Highest Degree', gradient: 'from-orange-600 to-amber-500', border: 'border-orange-200/50', bg: 'from-orange-50', shadow: 'shadow-orange-500/20' },
-                      { number: '100%', label: 'Dedication', gradient: 'from-orange-500 to-amber-600', border: 'border-amber-200/50', bg: 'from-amber-50', shadow: 'shadow-amber-500/20' },
+                      { number: '30+', label: 'Years Experience', gradient: 'from-orange-400 to-amber-400', accent: 'border-orange-500/20' },
+                      { number: '4+', label: 'Sectors', gradient: 'from-amber-400 to-orange-400', accent: 'border-amber-500/20' },
+                      { number: 'MBA', label: 'Highest Degree', gradient: 'from-orange-400 to-amber-400', accent: 'border-orange-500/20' },
+                      { number: '100%', label: 'Dedication', gradient: 'from-orange-400 to-amber-500', accent: 'border-amber-500/20' },
                     ].map((stat, i) => (
                       <div
                         key={stat.label}
-                        className={`relative bg-gradient-to-br ${stat.bg} to-white rounded-2xl p-5 border ${stat.border} text-center group cursor-default overflow-hidden transition-all duration-300 hover:shadow-xl hover:${stat.shadow}`}
+                        className="relative bg-white/5 rounded-2xl p-5 border border-white/10 text-center group cursor-default overflow-hidden transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20"
                       >
-                        <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-8 transition-opacity duration-500`} />
                         <div className="relative z-10">
                           <p className={`text-2xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent inline-block`}>
                             {stat.number}
                           </p>
-                          <p className="text-[10px] uppercase tracking-[0.15em] text-slate-400 mt-2 font-semibold">{stat.label}</p>
+                          <p className="text-[10px] uppercase tracking-[0.15em] text-white/40 mt-2 font-semibold">{stat.label}</p>
                         </div>
                       </div>
                     ))}
@@ -209,7 +213,7 @@ export default function Boards() {
                     {chairman.expertise.map((skill, i) => (
                       <span
                         key={skill}
-                        className="px-4 py-2 text-xs font-semibold rounded-full bg-gradient-to-r from-orange-50 to-amber-50 text-orange-600 border border-orange-200/60 shadow-sm hover:shadow-md hover:border-orange-300 hover:bg-gradient-to-r hover:from-orange-100 hover:to-amber-100 transition-all duration-300 cursor-default"
+                        className="px-4 py-2 text-xs font-semibold rounded-full bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white/80 hover:border-white/20 transition-all duration-300 cursor-default"
                       >
                         {skill}
                       </span>
