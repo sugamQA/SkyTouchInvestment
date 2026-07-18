@@ -334,8 +334,22 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-white/[0.02]" />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 60%)' }} />
 
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+        <div className="absolute top-32 left-16 w-64 h-64 rounded-full bg-orange-500/5 blur-[100px]" />
+        <div className="absolute bottom-32 right-16 w-80 h-80 rounded-full bg-blue-500/5 blur-[120px]" />
+        <div className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-white/[0.03] blur-[80px]" />
+
+        <div className="absolute top-0 left-[15%] w-[1px] h-24 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+        <div className="absolute top-0 right-[20%] w-[1px] h-20 bg-gradient-to-b from-transparent via-white/15 to-transparent" />
+        <div className="absolute bottom-0 left-[25%] w-[1px] h-28 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+        <div className="absolute bottom-0 right-[15%] w-[1px] h-24 bg-gradient-to-b from-transparent via-white/15 to-transparent" />
+
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+
+        <div className="absolute top-1/3 left-0 w-32 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+        <div className="absolute bottom-1/3 right-0 w-40 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
         <div id="particle-container" style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
