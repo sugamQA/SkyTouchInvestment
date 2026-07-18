@@ -2,7 +2,7 @@ import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { InteractiveGlobe } from '../components/ui/interactive-globe'
 import CircularTestimonials from '../components/ui/circular-testimonials'
-import { Briefcase, Target, Handshake, TrendingUp, Globe, BarChart3, Building2, Lightbulb, Heart, Shield, Leaf, GraduationCap, ArrowRight, CheckCircle } from 'lucide-react'
+import { Briefcase, Target, Handshake, TrendingUp, Globe, BarChart3, Building2, Lightbulb, Heart, Shield, Leaf, GraduationCap, ArrowRight, CheckCircle, Award, Users } from 'lucide-react'
 
 const approach = [
   { icon: BarChart3, title: 'Rigorous Analysis', desc: 'Comprehensive due diligence on every potential investment opportunity.', color: 'text-primary' },
