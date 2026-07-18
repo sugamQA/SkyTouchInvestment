@@ -70,34 +70,56 @@ export default function Boards() {
 
       <div className="relative z-10">
 
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent" />
-          <div className="max-w-[1440px] mx-auto px-6 md:px-16 pt-32 pb-16 md:pb-24">
-            <motion.div variants={staggerWrap} initial="hidden" animate="visible" className="text-center max-w-4xl mx-auto">
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-6">
-                <span className="h-px w-8 bg-gradient-to-r from-transparent to-orange-500/40" />
-                <span className="text-xs tracking-[0.3em] font-bold text-orange-500 uppercase">Leadership</span>
-                <span className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/40" />
-              </motion.div>
+        <section className="relative h-screen min-h-[600px] max-h-[800px] overflow-hidden bg-black">
+          <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-white/[0.02]" />
 
-              <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-[1.1]">
-                Board of <br />
-                <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-amber-500 bg-clip-text text-transparent">Directors</span>
-              </motion.h1>
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 60%)',
+          }} />
 
-              <motion.p variants={fadeUp} className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-[60%] bg-gradient-to-b from-transparent via-white/60 to-transparent" />
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-white/[0.03] blur-3xl" />
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-white/[0.04] blur-2xl" />
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          >
+            <div className="relative">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-white/20 bg-white/[0.04] flex items-center justify-center backdrop-blur-sm">
+                <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 md:w-12 md:h-12 text-white/90">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" opacity="0.6" />
+                  <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-white/10 via-transparent to-white/5 blur-sm" />
+            </div>
+          </motion.div>
+
+          <div className="absolute bottom-16 md:bottom-24 inset-x-0 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <p className="text-xs tracking-[0.35em] font-bold text-white/40 uppercase mb-3">Leadership</p>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
+                The SkyTouch <span className="text-white/60">Proto</span>
+              </h1>
+              <p className="text-sm md:text-base text-white/30 max-w-xl mx-auto tracking-wide">
                 Visionary leadership driving excellence across capital markets, hospitality, and strategic investments in Nepal.
-              </motion.p>
-
-              <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-6 text-sm text-slate-400">
-                <span className="flex items-center gap-2"><Award size={16} className="text-orange-500" /> 30+ Years Experience</span>
-                <span className="w-1 h-1 rounded-full bg-slate-300" />
-                <span className="flex items-center gap-2"><Building2 size={16} className="text-amber-500" /> Multiple Sectors</span>
-                <span className="w-1 h-1 rounded-full bg-slate-300" />
-                <span className="flex items-center gap-2"><MapPin size={16} className="text-tertiary" /> Nepal</span>
-              </motion.div>
+              </p>
             </motion.div>
           </div>
+
+          <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-white" />
         </section>
 
         <section className="max-w-[1440px] mx-auto px-6 md:px-16 pb-24">
