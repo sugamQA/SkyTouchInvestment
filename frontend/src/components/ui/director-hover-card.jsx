@@ -105,9 +105,6 @@ export default function DirectorHoverCard({
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500/80">
                 {role}
               </p>
-              <p className="text-sm text-slate-600 mt-4 leading-relaxed line-clamp-3">
-                {bio}
-              </p>
 
               {socialLinks.length > 0 && (
                 <div className="mt-5 flex items-center justify-center gap-3">
@@ -149,23 +146,20 @@ export default function DirectorHoverCard({
               transition={{ duration: 0.22, ease: 'easeOut' }}
               className="absolute inset-0 z-20"
             >
-                <div className="h-full rounded-[2rem] overflow-hidden border border-primary/20 bg-white/96 backdrop-blur-xl shadow-[0_25px_80px_rgba(14,165,233,0.16)] p-6 flex flex-col text-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-tertiary/8 pointer-events-none" />
+              <div className="h-full rounded-[2rem] overflow-hidden border border-primary/20 bg-white shadow-[0_25px_80px_rgba(14,165,233,0.16)] p-6 flex flex-col text-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-tertiary/[0.04] pointer-events-none" />
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex items-start justify-center gap-4 pb-4 border-b border-primary/10 relative">
-                    <div>
-                      <h3 className="text-lg md:text-xl font-display font-semibold text-on-surface">
-                        {name}
-                      </h3>
-                      <p className="text-xs tracking-wider text-orange-500 font-semibold uppercase mt-2">
-                        {role}
-                      </p>
-                    </div>
-                    <span className="absolute right-0 top-0 text-xs font-semibold text-slate-400">01</span>
+                  <div className="pb-4 border-b border-primary/10">
+                    <h3 className="text-lg md:text-xl font-bold text-slate-900">
+                      {name}
+                    </h3>
+                    <p className="text-xs tracking-wider text-orange-500 font-semibold uppercase mt-2">
+                      {role}
+                    </p>
                   </div>
 
-                  <div className="flex-1 pt-4">
-                    <p className="text-sm text-on-surface-variant/80 leading-relaxed">
+                  <div className="flex-1 pt-4 overflow-y-auto">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {bio}
                     </p>
                   </div>
@@ -174,7 +168,7 @@ export default function DirectorHoverCard({
                     <p className="text-xs uppercase tracking-[0.18em] text-slate-500 font-semibold mb-2">
                       Leadership Focus
                     </p>
-                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-500 mx-auto">
+                    <div className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-500">
                       {focus}
                     </div>
                     {socialLinks.length > 0 && (
@@ -204,9 +198,6 @@ export default function DirectorHoverCard({
                         )}
                       </div>
                     )}
-                    <p className="mt-4 text-xs uppercase tracking-[0.18em] text-slate-400 font-semibold">
-                      Click icon to open profile
-                    </p>
                   </div>
                 </div>
               </div>
