@@ -44,7 +44,7 @@ const milestones = [
   { year: '2015', title: 'CARE Accreditation', desc: 'Received CARE rating for bank facilities, strengthening stakeholder confidence and expanding access to institutional-grade financial partnerships.' },
   { year: '2018', title: 'NPR 2B Portfolio Milestone', desc: 'Crossed NPR 2 billion AUM across five high-growth sectors including hydropower, real estate, financial services, and healthcare.' },
   { year: '2021', title: 'Digital & Operational Modernization', desc: 'Implemented portfolio tracking systems, enhanced client dashboards, and cybersecurity frameworks to improve decision-making and transparency.' },
-  { year: '2024', title: 'NPR 5B+ AUM & Industry Leadership', desc: 'Surpassed NPR 5 billion AUM with 50+ professionals across 10+ sectors, recognized as a leading independent investment firm in Nepal.' },
+  { year: '2026', title: 'Industry Leadership & Growth', desc: 'Surpassed NPR 5 billion AUM with 50+ professionals across 10+ sectors, recognized as a leading independent investment firm in Nepal.' },
 ]
 
 
@@ -159,24 +159,48 @@ export default function About() {
                   </>
                 )
                 return (
-                  <ScrollReveal key={m.year} delay={i * 0.08}>
+                  <motion.div
+                    key={m.year}
+                    initial={{ opacity: 0, scale: 0.85, y: 40 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] }}
+                  >
                     <div className="relative flex flex-col md:flex-row items-center gap-3 md:gap-6">
-                      <div className="hidden md:flex flex-1 justify-end">
+                      <motion.div
+                        className="hidden md:flex flex-1 justify-end"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.1 + 0.15 }}
+                      >
                         {isLeft ? <div className="w-full max-w-sm text-right">{content}</div> : null}
-                      </div>
-                      <div className="relative z-10 flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-slate-300 flex items-center justify-center text-slate-700 font-bold text-xs shadow-md border-[3px] border-white">
+                      </motion.div>
+                      <motion.div
+                        className="relative z-10 flex-shrink-0"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: 'spring', stiffness: 200, damping: 12, delay: i * 0.1 }}
+                      >
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-sm shadow-lg border-[3px] border-white">
                           {m.year.slice(2)}
                         </div>
-                      </div>
-                      <div className="flex-1 flex md:justify-start">
+                      </motion.div>
+                      <motion.div
+                        className="flex-1 flex md:justify-start"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.1 + 0.15 }}
+                      >
                         <div className="w-full max-w-sm">
                           <div className="md:hidden">{content}</div>
                           <div className="hidden md:block">{!isLeft ? content : null}</div>
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
-                  </ScrollReveal>
+                  </motion.div>
                 )
               })}
             </div>
