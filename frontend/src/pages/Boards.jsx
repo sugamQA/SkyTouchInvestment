@@ -75,14 +75,14 @@ export default function Boards() {
           <div className="max-w-[1440px] mx-auto px-6 md:px-16 pt-32 pb-16 md:pb-24">
             <motion.div variants={staggerWrap} initial="hidden" animate="visible" className="text-center max-w-4xl mx-auto">
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-6">
-                <span className="h-px w-8 bg-gradient-to-r from-transparent to-primary/40" />
-                <span className="text-xs tracking-[0.3em] font-bold text-primary uppercase">Leadership</span>
-                <span className="h-px w-8 bg-gradient-to-l from-transparent to-primary/40" />
+                <span className="h-px w-8 bg-gradient-to-r from-transparent to-orange-500/40" />
+                <span className="text-xs tracking-[0.3em] font-bold text-orange-500 uppercase">Leadership</span>
+                <span className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/40" />
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-[1.1]">
                 Board of <br />
-                <span className="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">Directors</span>
+                <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-amber-500 bg-clip-text text-transparent">Directors</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -90,9 +90,9 @@ export default function Boards() {
               </motion.p>
 
               <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-6 text-sm text-slate-400">
-                <span className="flex items-center gap-2"><Award size={16} className="text-primary" /> 30+ Years Experience</span>
+                <span className="flex items-center gap-2"><Award size={16} className="text-orange-500" /> 30+ Years Experience</span>
                 <span className="w-1 h-1 rounded-full bg-slate-300" />
-                <span className="flex items-center gap-2"><Building2 size={16} className="text-secondary" /> Multiple Sectors</span>
+                <span className="flex items-center gap-2"><Building2 size={16} className="text-amber-500" /> Multiple Sectors</span>
                 <span className="w-1 h-1 rounded-full bg-slate-300" />
                 <span className="flex items-center gap-2"><MapPin size={16} className="text-tertiary" /> Nepal</span>
               </motion.div>
@@ -105,9 +105,9 @@ export default function Boards() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
               <div className="lg:col-span-2 relative">
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-secondary/10 to-tertiary/20 rounded-[2.5rem] blur-2xl opacity-60" />
+                  <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/20 via-orange-400/10 to-amber-500/20 rounded-[2.5rem] blur-2xl opacity-60" />
                   <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.1)]">
-                    <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-tertiary" />
+                    <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-orange-500 via-orange-400 to-amber-500" />
                     <img
                       src={chairman.image}
                       alt={chairman.name}
@@ -118,18 +118,18 @@ export default function Boards() {
                     <div className="absolute bottom-6 left-8 right-8 flex items-center justify-between">
                       <div>
                         <p className="text-lg font-bold text-slate-900">{chairman.name}</p>
-                        <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">{chairman.role}</p>
+                        <p className="text-xs uppercase tracking-[0.2em] text-orange-500 font-semibold">{chairman.role}</p>
                       </div>
                       <div className="flex gap-2">
                         {chairman.facebookUrl && (
-                          <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                          <a href={chairman.facebookUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
                             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                               <path d="M13.5 8.5V7.1c0-.7.5-1.1 1.2-1.1H16V3h-1.9C12 3 10.8 4.5 10.8 6.7v1.8H9v3h1.8V21h3.2v-9.5h2.4l.4-3h-2.8Z" />
                             </svg>
                           </a>
                         )}
                         {chairman.instagramUrl && (
-                          <a href={chairman.instagramUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                          <a href={chairman.instagramUrl} target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300">
                             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                               <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 2 .2 2.7.5.7.3 1.4.7 2 1.3.6.6 1 1.2 1.3 2 .3.7.5 1.5.5 2.7.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 2-.5 2.7-.3.7-.7 1.4-1.3 2-.6.6-1.2 1-2 1.3-.7.3-1.5.5-2.7.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-2-.2-2.7-.5-.7-.3-1.4-.7-2-1.3-.6-.6-1-1.2-1.3-2-.3-.7-.5-1.5-.5-2.7-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-2 .5-2.7.3-.7.7-1.4 1.3-2 .6-.6 1.2-1 2-1.3.7-.3 1.5-.5 2.7-.5 1.2 0 1.6 0 4.8 0Zm0-2.2C8.7 0 8.3 0 7.1.1 5.8.1 4.8.4 4 .8c-.9.4-1.6.9-2.3 1.6C1 3.2.5 4 .1 4.8-.2 5.6 0 6.6 0 7.9 0 9.1 0 9.5 0 12s0 3 .1 4.2c.1 1.2.4 2.2.8 3 .4.9.9 1.6 1.6 2.3.7.7 1.4 1.2 2.3 1.6.7.3 1.7.6 3 .8 1.2.1 1.6.1 4.2.1s3 0 4.2-.1c1.2-.1 2.2-.4 3-.8.9-.4 1.6-.9 2.3-1.6.6-.7 1.2-1.4 1.6-2.3.3-.7.6-1.7.8-3 .1-1.2.1-1.6.1-4.2s0-3-.1-4.2c-.1-1.2-.4-2.2-.8-3-.4-.9-.9-1.6-1.6-2.3C20.8 1 20 .5 19.2.1c-.7-.3-1.7-.6-3-.8C15 .1 14.6 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.2a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Z" />
                             </svg>
@@ -144,15 +144,15 @@ export default function Boards() {
               <div className="lg:col-span-3">
                 <motion.div variants={staggerWrap} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
                   <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-4">
-                    <Quote size={20} className="text-primary/40" />
-                    <span className="text-xs tracking-[0.25em] font-bold text-primary uppercase bg-primary/5 px-4 py-1.5 rounded-full">Chairman's Profile</span>
-                    <Quote size={20} className="text-primary/40 rotate-180" />
+                    <Quote size={20} className="text-orange-500/40" />
+                    <span className="text-xs tracking-[0.25em] font-bold text-orange-500 uppercase bg-orange-500/5 px-4 py-1.5 rounded-full">Chairman's Profile</span>
+                    <Quote size={20} className="text-orange-500/40 rotate-180" />
                   </motion.div>
 
-                  <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                  <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">
                     {chairman.name}
                   </motion.h2>
-                  <motion.p variants={fadeUp} className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-6">
+                  <motion.p variants={fadeUp} className="text-xs uppercase tracking-[0.25em] text-orange-500 font-semibold mb-6">
                     {chairman.role}
                   </motion.p>
 
@@ -162,12 +162,12 @@ export default function Boards() {
 
                   <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     {[
-                      { number: '30+', label: 'Years Experience', color: 'from-primary to-secondary' },
-                      { number: '4+', label: 'Sectors', color: 'from-secondary to-tertiary' },
-                      { number: 'MBA', label: 'Highest Degree', color: 'from-tertiary to-primary' },
-                      { number: '100%', label: 'Dedication', color: 'from-primary to-tertiary' },
+                      { number: '30+', label: 'Years Experience', color: 'from-orange-500 to-amber-500' },
+                      { number: '4+', label: 'Sectors', color: 'from-amber-500 to-orange-600' },
+                      { number: 'MBA', label: 'Highest Degree', color: 'from-orange-600 to-amber-500' },
+                      { number: '100%', label: 'Dedication', color: 'from-orange-500 to-amber-600' },
                     ].map((stat) => (
-                      <div key={stat.label} className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 border border-slate-200 text-center">
+                      <div key={stat.label} className="bg-gradient-to-br from-orange-50 to-white rounded-xl p-4 border border-orange-100 text-center">
                         <p className={`text-xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>{stat.number}</p>
                         <p className="text-[10px] uppercase tracking-[0.15em] text-slate-500 mt-1">{stat.label}</p>
                       </div>
@@ -176,7 +176,7 @@ export default function Boards() {
 
                   <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
                     {chairman.expertise.map((skill) => (
-                      <span key={skill} className="px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/5 text-primary border border-primary/15">
+                      <span key={skill} className="px-3 py-1.5 text-xs font-semibold rounded-full bg-orange-500/5 text-orange-500 border border-orange-500/15">
                         {skill}
                       </span>
                     ))}
