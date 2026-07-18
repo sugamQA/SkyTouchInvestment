@@ -7,37 +7,37 @@ const reviews = [
     text: "SkyTouch has been more than an investor; they have been true partners in our growth journey. When we needed capital to expand our multi-specialty hospital, they not only provided funding but brought governance expertise and strategic guidance.",
     name: 'Dr. Ramesh Sharma',
     role: 'Healthcare Sector',
-    src: 'https://randomuser.me/api/portraits/men/41.jpg',
+    src: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&crop=face',
   },
   {
     text: "Finding the right investor for a technology startup in Nepal is challenging; most do not understand the sector dynamics. SkyTouch was different from our first meeting.",
     name: 'Anita KC',
     role: 'Technology Sector',
-    src: 'https://randomuser.me/api/portraits/women/44.jpg',
+    src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
   },
   {
     text: "Hydropower projects require investors who understand the sector complexities; long development timelines, regulatory navigation, construction risks. SkyTouch demonstrated this understanding from day one.",
     name: 'Prakash Neupane',
     role: 'Energy Sector',
-    src: 'https://randomuser.me/api/portraits/men/32.jpg',
+    src: 'https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=400&h=400&fit=crop&crop=face',
   },
   {
     text: "When we decided to upgrade our property from a basic lodge to a premium eco-resort, we needed more than just capital; we needed partners who understood hospitality, sustainability, and the seasonal nature of tourism.",
     name: 'Suman Gurung',
     role: 'Tourism Sector',
-    src: 'https://randomuser.me/api/portraits/men/22.jpg',
+    src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face',
   },
   {
     text: "As an agro-processing business working directly with farmers, we needed investors who understood agriculture unique challenges; seasonal cash flows, working capital intensity, and the importance of maintaining farmer relationships.",
     name: 'Krishna Acharya',
     role: 'Agriculture Sector',
-    src: 'https://randomuser.me/api/portraits/men/86.jpg',
+    src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
   },
   {
     text: "In my 25 years in business, I have worked with various financial partners, but SkyTouch stands apart in their professionalism and long-term orientation.",
     name: 'Rajiv Shrestha',
     role: 'Real Estate Sector',
-    src: 'https://randomuser.me/api/portraits/men/75.jpg',
+    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
   },
 ]
 
