@@ -11,12 +11,12 @@ const approach = [
 ]
 
 const milestones = [
-  { year: '2009', title: 'Founded', desc: 'SkyTouch established in Kathmandu with a vision to transform investment consulting in Nepal.' },
-  { year: '2012', title: 'First Major Fund', desc: 'Launched our first institutional investment fund focused on infrastructure and energy sectors.' },
-  { year: '2015', title: 'CARE Rating', desc: 'Received CARE rating for bank facilities, establishing credibility in the financial sector.' },
-  { year: '2018', title: 'NPR 2B AUM', desc: 'Crossed NPR 2 billion in assets under management with diversified portfolio across 5 sectors.' },
-  { year: '2021', title: 'Digital Transformation', desc: 'Modernized operations with digital platforms for enhanced client reporting and portfolio tracking.' },
-  { year: '2024', title: 'NPR 5B+ AUM', desc: 'Surpassed NPR 5 billion AUM with 50+ team members across 10+ investment sectors.' },
+  { year: '2009', title: 'Establishment & Vision', desc: 'Sky Touch Investment & Consultant Pvt. Ltd. was founded in Kathmandu with a clear mandate: to bridge the gap between strategic capital and high-potential enterprises in Nepal. Registered under Reg. No. 63835, the company commenced operations with a vision to institutionalize investment consulting in the Nepali market.' },
+  { year: '2012', title: 'Inaugural Institutional Fund', desc: 'Launched our first institutional investment fund with a strategic focus on infrastructure development and renewable energy sectors. This milestone marked our transition from advisory services to active capital deployment, establishing our reputation as a credible investment partner.' },
+  { year: '2015', title: 'CARE Accreditation', desc: 'Received prestigious CARE rating for bank facilities, a testament to our financial discipline and operational rigor. This accreditation strengthened stakeholder confidence and opened access to institutional-grade financial instruments and banking partnerships.' },
+  { year: '2018', title: 'NPR 2B Portfolio Milestone', desc: 'Achieved NPR 2 billion in assets under management, diversified across five high-growth sectors including hydropower, real estate, financial services, healthcare, and manufacturing. Expanded our team to 25 professionals with specialized domain expertise.' },
+  { year: '2021', title: 'Digital & Operational Modernization', desc: 'Implemented comprehensive digital transformation initiatives including automated portfolio tracking systems, enhanced client reporting dashboards, and a robust cybersecurity framework. These upgrades improved decision-making velocity and client transparency.' },
+  { year: '2024', title: 'NPR 5B+ AUM & Industry Leadership', desc: 'Surpassed NPR 5 billion in assets under management with a team of 50+ professionals operating across 10+ investment sectors. Recognized as a leading independent investment and consulting firm in Nepal, serving a diverse portfolio of institutional and high-net-worth clients.' },
 ]
 
 const teamMembers = [
@@ -155,42 +155,36 @@ export default function About() {
             </p>
           </ScrollReveal>
 
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-tertiary -translate-x-1/2 hidden md:block" />
-            <div className="space-y-12">
-              {milestones.map((m, i) => {
-                const isLeft = i % 2 === 0
-                return (
-                  <ScrollReveal key={m.year} delay={i * 0.08} className={`relative flex flex-col md:flex-row gap-6 md:gap-12 items-start ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    <div className={`hidden md:block flex-1 ${isLeft ? 'text-right' : 'text-left'}`}>
-                      <div className={`inline-block rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 p-6 shadow-lg ${isLeft ? 'mr-auto' : 'ml-auto'} max-w-md`}>
-                        <span className="text-xs font-bold text-primary uppercase tracking-widest">{m.year}</span>
-                        <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-tertiary -translate-x-1/2" />
+            <div className="space-y-10">
+              {milestones.map((m, i) => (
+                <ScrollReveal key={m.year} delay={i * 0.08}>
+                  <div className="relative flex items-start gap-6 md:gap-10">
+                    <div className="hidden md:flex flex-1 justify-end">
+                      <div className="w-full max-w-md text-right">
+                        <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
                         <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
                       </div>
                     </div>
-                    <div className="relative z-10 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm shadow-xl border-4 border-white">
+                    <div className="relative z-10 flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm shadow-xl border-[3px] border-white">
                         {m.year.slice(2)}
                       </div>
                     </div>
-                    <div className={`md:hidden flex-1`}>
+                    <div className="flex-1 md:flex-initial md:max-w-md">
+                      <div className="md:hidden mb-2">
+                        <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{m.year}</span>
+                      </div>
                       <div className="rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 p-6 shadow-lg">
-                        <span className="text-xs font-bold text-primary uppercase tracking-widest">{m.year}</span>
-                        <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{m.title}</h3>
                         <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
                       </div>
                     </div>
-                    <div className={`hidden md:block flex-1 ${isLeft ? 'text-left' : 'text-right'}`}>
-                      <div className={`inline-block rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 p-6 shadow-lg ${isLeft ? 'ml-auto' : 'mr-auto'} max-w-md`}>
-                        <span className="text-xs font-bold text-primary uppercase tracking-widest">{m.year}</span>
-                        <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">{m.title}</h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                )
-              })}
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </div>
