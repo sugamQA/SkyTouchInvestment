@@ -363,6 +363,9 @@ export default function Home() {
                   <div className={`w-full md:flex-1 text-center ${isLeft ? 'md:text-right md:pr-8' : 'md:order-3 md:text-left md:pl-8'} mb-6 md:mb-0`}>
                     <div className={`relative ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
                       <div className="relative rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-orange-400/30 transition-all duration-500 overflow-hidden bg-white text-center shadow-sm">
+                        <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center ${c.icon}`}>
+                          <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{step.icon}</span>
+                        </div>
                         <div className="inline-flex items-center justify-center gap-2 mb-4 w-full">
                           <span className="px-3 py-1 text-[10px] tracking-[0.15em] font-bold text-orange-500 bg-orange-50 rounded-full border border-orange-200">
                             STEP {String(i + 1).padStart(2, '0')}
@@ -377,9 +380,9 @@ export default function Home() {
 
                   <div className={`flex justify-center self-center w-full md:w-auto mb-6 md:mb-0 md:mx-10 ${isLeft ? '' : 'md:order-2'}`}>
                     <div className="relative">
-                      <div className="absolute inset-0 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 bg-orange-500/30" />
-                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg shadow-orange-500/20`}>
-                        <span className="material-symbols-outlined text-[36px] text-orange-500 group-hover:scale-110 transition-transform duration-300" style={{ fontVariationSettings: "'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
+                      <div className={`absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 ${c.icon.replace('text', 'bg')}/30`} />
+                      <div className={`step-node relative flex-shrink-0 z-10 w-20 h-20 rounded-full bg-white border-2 ${c.border} flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 shadow-lg ${c.shadow}`}>
+                        <span className={`material-symbols-outlined text-[36px] ${c.icon} group-hover:scale-110 transition-transform duration-300`} style={{ fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 48" }}>{step.icon}</span>
                       </div>
                     </div>
                   </div>
