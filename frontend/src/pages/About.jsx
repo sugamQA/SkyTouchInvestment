@@ -1,6 +1,7 @@
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { InteractiveGlobe } from '../components/ui/interactive-globe'
+import CircularTestimonials from '../components/ui/circular-testimonials'
 import { Briefcase, Landmark, Users, Award, Target, Handshake, TrendingUp, Globe, BarChart3, Building2, Lightbulb, Heart, Shield, Leaf, GraduationCap, ArrowRight, CheckCircle, Quote } from 'lucide-react'
 
 const approach = [
@@ -8,6 +9,33 @@ const approach = [
   { icon: Handshake, title: 'Active Partnership', desc: 'True partners through board participation, governance oversight, and strategic guidance.', color: 'text-secondary' },
   { icon: Target, title: 'Strategic Diversification', desc: 'Balanced exposure across private equity, real estate, capital markets, and hydropower.', color: 'text-tertiary' },
   { icon: Building2, title: 'Multi-generational', desc: 'Long-term perspective, building value that lasts for generations.', color: 'text-primary' },
+]
+
+const approachTestimonials = [
+  {
+    quote: "We combine rigorous quantitative analysis with deep qualitative assessment. Every investment thesis undergoes stress-testing across multiple market scenarios before capital commitment.",
+    name: "Rigorous Analysis",
+    designation: "Data-Driven Decision Making",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=90&fit=crop&crop=face&auto=format",
+  },
+  {
+    quote: "We don't simply deploy capital; we become engaged partners. Through board representation, governance oversight, and hands-on strategic guidance, we build lasting value alongside our portfolio companies.",
+    name: "Active Partnership",
+    designation: "Collaborative Value Creation",
+    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=90&fit=crop&crop=face&auto=format",
+  },
+  {
+    quote: "Strategic diversification across sectors, asset classes, and geographies provides portfolio resilience while maximizing return potential. Our balanced approach protects capital while capturing growth opportunities across Nepal's expanding economy.",
+    name: "Strategic Diversification",
+    designation: "Risk-Adjusted Returns",
+    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=90&fit=crop&crop=face&auto=format",
+  },
+  {
+    quote: "We invest with a multi-generational perspective, building sustainable value that endures through market cycles. This long-term orientation allows us to make strategic decisions that create lasting impact for all stakeholders.",
+    name: "Multi-generational Vision",
+    designation: "Sustainable Value Creation",
+    src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=90&fit=crop&crop=face&auto=format",
+  },
 ]
 
 const milestones = [
@@ -388,6 +416,197 @@ export default function About() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* INVESTMENT APPROACH */}
+      <section className="py-24 bg-primary/5">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+          <div className="relative overflow-hidden bg-black text-white rounded-[2rem] mb-12 border border-white/10 shadow-[0_40px_140px_rgba(0,0,0,0.35)]">
+            <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.28),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(249,115,22,0.22),transparent_30%)]" />
+            <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/8 to-transparent" />
+
+            <div className="relative z-10 px-6 md:px-16 pt-10 pb-24">
+              <ScrollReveal className="mb-12 text-center">
+                <div className="mx-auto inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/8 px-4 py-2 backdrop-blur-xl">
+                  <span className="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_18px_rgba(56,189,248,0.8)]" />
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">How We Invest</span>
+                  <span className="h-1 w-1 rounded-full bg-white/30" />
+                  <span className="text-[11px] uppercase tracking-[0.24em] text-white/45">The SkyTouch Perspective</span>
+                </div>
+                <h2 className="mt-6 text-3xl md:text-5xl font-display font-bold leading-tight">
+                  Our <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-orange-400 bg-clip-text text-transparent">Investment Approach</span>
+                </h2>
+                <div className="mx-auto mt-5 h-px w-32 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+                <p className="mt-5 text-white/70 max-w-3xl mx-auto leading-relaxed">
+                  We combine market intelligence, trusted relationships, and disciplined execution to build a clear, credible approach to investment and consulting.
+                </p>
+              </ScrollReveal>
+
+              <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+                <ScrollReveal className="xl:col-span-7 flex flex-col gap-4">
+                  <div className="rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.35)]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 bg-white/5 backdrop-blur-xl">
+                      <img
+                        src="/investment-image.jpg"
+                        alt="Investment strategy"
+                        loading="lazy"
+                        className="h-56 sm:h-full w-full object-cover rounded-[1.5rem] border border-white/10"
+                      />
+                      <div className="grid grid-rows-2 gap-3">
+                        <div className="rounded-[1.5rem] bg-white/8 border border-white/10 flex items-center justify-center p-5">
+                          <img
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+                            alt="Investment analytics dashboard"
+                            loading="lazy"
+                            className="h-full w-full object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="rounded-[1.5rem] bg-gradient-to-br from-primary/20 to-tertiary/20 border border-white/10 p-5 flex items-center justify-between gap-4">
+                          <img
+                            src="/logo.jpeg"
+                            alt="SkyTouch mark"
+                            loading="lazy"
+                            className="h-16 w-16 rounded-2xl object-cover bg-white/10 p-2"
+                          />
+                          <div className="text-right">
+                            <p className="text-sm uppercase tracking-[0.24em] text-white/50">Smart Capital</p>
+                            <p className="text-lg font-semibold text-white">Clarity, trust, and growth</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_18px_50px_rgba(0,0,0,0.22)]">
+                      <img
+                        src="/investment-new-business-launch-plan-concept.jpg"
+                        alt="Investment strategy planning"
+                        loading="lazy"
+                        className="h-56 w-full object-cover"
+                      />
+                      <div className="p-6 text-left">
+                        <p className="text-sm uppercase tracking-[0.22em] text-white/45 mb-2">Built For</p>
+                        <p className="text-xl font-semibold">Businesses, founders, and investors seeking clarity with ambition.</p>
+                      </div>
+                    </div>
+                    <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_18px_50px_rgba(0,0,0,0.22)]">
+                      <img
+                        src="/7250345.jpg"
+                        alt="Long-term investment growth"
+                        loading="lazy"
+                        className="h-56 w-full object-cover"
+                      />
+                      <div className="p-6 text-left">
+                        <p className="text-sm uppercase tracking-[0.22em] text-white/45 mb-2">Experience</p>
+                        <p className="text-xl font-semibold">A premium, modern, and highly focused advisory presence.</p>
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal className="xl:col-span-5 flex flex-col justify-between gap-6 text-left items-start">
+                  <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-8 backdrop-blur-xl">
+                    <p className="text-xs tracking-[0.28em] uppercase text-white/50 mb-3">Why It Feels Extraordinary</p>
+                    <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4">Local insight. Global discipline. Elevated execution.</h3>
+                    <p className="text-white/70 leading-relaxed mb-6">
+                      Our approach is designed to uncover practical opportunities, structure them with clarity, and deliver support that goes beyond conventional consulting.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="rounded-2xl bg-white/8 border border-white/10 p-4">
+                        <p className="text-2xl font-bold text-sky-300">01</p>
+                        <p className="text-sm text-white/70 mt-2">Curated opportunities</p>
+                      </div>
+                      <div className="rounded-2xl bg-white/8 border border-white/10 p-4">
+                        <p className="text-2xl font-bold text-orange-300">02</p>
+                        <p className="text-sm text-white/70 mt-2">Strategic structure</p>
+                      </div>
+                      <div className="rounded-2xl bg-white/8 border border-white/10 p-4">
+                        <p className="text-2xl font-bold text-sky-300">03</p>
+                        <p className="text-sm text-white/70 mt-2">Reliable execution</p>
+                      </div>
+                      <div className="rounded-2xl bg-white/8 border border-white/10 p-4">
+                        <p className="text-2xl font-bold text-orange-300">04</p>
+                        <p className="text-sm text-white/70 mt-2">Long-term value</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-primary/10 to-tertiary/10 p-8 backdrop-blur-xl">
+                    <p className="text-xs tracking-[0.28em] uppercase text-white/50 mb-4">Performance Metrics</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70 text-sm">Portfolio IRR</span>
+                        <span className="text-2xl font-bold text-sky-300">18.5%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-sky-400 to-primary h-2 rounded-full" style={{width: '85%'}} />
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70 text-sm">Client Retention</span>
+                        <span className="text-2xl font-bold text-orange-300">98%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-orange-400 to-tertiary h-2 rounded-full" style={{width: '98%'}} />
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70 text-sm">Projects Delivered</span>
+                        <span className="text-2xl font-bold text-sky-300">150+</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-sky-400 to-primary h-2 rounded-full" style={{width: '92%'}} />
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              </div>
+
+              <ScrollReveal className="mt-8 rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
+                <div className="relative h-56 md:h-72">
+                  <img
+                    src="/investment-image.jpg"
+                    alt="Strategic investment landscape"
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/45 to-transparent" />
+                  <div className="absolute inset-0 flex items-end p-6 md:p-10">
+                    <div className="max-w-2xl">
+                      <p className="text-xs tracking-[0.3em] uppercase text-white/60 mb-2">AI-inspired outlook</p>
+                      <h3 className="text-2xl md:text-4xl font-display font-bold mb-3">A visual ending that feels forward-looking and premium.</h3>
+                      <p className="text-white/75 max-w-xl leading-relaxed">
+                        This closing image gives the section a clean finish and reinforces the investment-first identity of SkyTouch.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+
+          <ScrollReveal className="text-center mb-16">
+            <span className="section-label text-center">How We Invest</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold">Our Investment Approach</h2>
+          </ScrollReveal>
+          <CircularTestimonials
+            testimonials={approachTestimonials}
+            autoplay={true}
+            colors={{
+              name: "#0a0a0a",
+              designation: "#6b7280",
+              testimony: "#4b5563",
+              arrowBackground: "#0ea5e9",
+              arrowForeground: "#ffffff",
+              arrowHoverBackground: "#0284c7",
+            }}
+            fontSizes={{
+              name: "24px",
+              designation: "14px",
+              quote: "16px",
+            }}
+          />
         </div>
       </section>
 
